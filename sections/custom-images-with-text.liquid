@@ -1,0 +1,171 @@
+<div class="page-width">
+<div class="grid grid--no-gutters image-bar">
+  {% case section.blocks.size %}
+    {% when 1 %}
+      {%- assign column_size = '' -%}
+    {% when 2 %}
+      {%- assign column_size = 'medium-up--one-half' -%}
+    {% when 3 %}
+      {%- assign column_size = 'medium-up--one-third' -%}
+    {% else %}
+      {%- assign column_size = 'medium-up--one-quarter' -%}
+  {% endcase %}
+  
+   
+	
+    {% for block in section.blocks %}
+    	
+    <div class="grid__item medium-up--one-half js">
+    	<div class="image-bar__item image-bar__item--{{ block.id }} box lazyload"
+             data-bgset="{% include 'bgset', image: block.settings.image %}"
+             data-sizes="auto"
+             data-parent-fit="cover"
+             style="background-position: {{ block.settings.alignment }}; background-image: url('{{ block.settings.image | img_url: '300x300' }});">
+          
+          	<div class="image-bar__content image-bar__overlay">
+                <div class="image-bar__text">
+                  {% if block.settings.big_title  %}
+                  <h2 class="image-bar__title">{{ block.settings.title | escape }}</h2>
+                  {% else %}
+                   <h4 class="image-bar__title">{{ block.settings.title | escape }}</h4>
+                  {% endif %}
+                  
+                  <div class="content-wrapper">
+                  	<p class="image-bar__content"> {{ block.settings.cta_label }}</p>
+                    {% if block.settings.link != blank %}
+                    <a href="{{ block.settings.link }}" class="btn btn-arrow--right">
+                      <span class="chevron right"></span>
+                    </a>
+                  </div>
+                  
+                  {% endif %}
+                </div>
+              
+            </div>
+          
+        </div>
+    </div>
+    {% endfor %}
+ 
+
+
+</div>
+</div>
+
+{% if section.blocks.size == 0 %}
+  {% include 'no-blocks' %}
+{% endif %}
+
+
+
+{% schema %}
+{
+  "name": "Gallery",
+  "class": "index-section index-section--flush custom-images-with-text",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_height",
+      "label": "Section height",
+      "default": "medium",
+      "options": [
+  		
+        {
+          "label":"Extra Small",
+          "value": "x-small"
+        },
+        {
+  		  "label":"Small",
+          "value": "small"
+        },
+        {
+          "label": "Medium",
+          "value": "medium"
+        },
+        {
+          "label":"Large",
+          "value": "large"
+        },
+        {
+          "label": "Extra Large",
+          "value": "x-large"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label":"Image"  
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label":"Image alignment",
+          "default": "center",
+          "options": [
+            {
+              "value": "top",
+              "label":"Top"
+  			},
+            {
+              "value": "center",
+              "label":"Middle"
+               
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ]
+        },
+  		{
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+		{
+          "type": "checkbox",
+          "id": "big_title",
+          "label": "Big Title"
+        },
+  		{
+          "type": "text",
+          "id": "cta_label",
+          "label": "Caption"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+            
+        }
+        
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Images with Text",
+      "category":"Custom FarmView",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

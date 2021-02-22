@@ -1,0 +1,146 @@
+/*-----------------------------------------------------------------------------/
+/ Custom Theme JS
+/-----------------------------------------------------------------------------*/
+
+// Insert any custom theme js here...
+$(document).ready(function(){
+  
+  //ANIMATION
+  AOS.init();
+  
+  function equalizeSite() {
+        // Found an issue with this script when a browser is zooming in/out so we disable it on zoom.
+		//var zoom = detectZoom.zoom();
+		//if(zoom != 1) return;
+
+		// Break Points: These are what you have setup in the _settings.scss
+		// The actual points where it converts from mobile to tablet and tablet to desktop.
+		// Sometimes there is not a tablet design in this case simply set it to the same as the desktop.
+		var $bptablet = 640,
+			$bpdesktop = 968;
+
+		// Designed Sizes: These sizes are referencing what you are using to design the site e.g. PSD, AI etc.
+		// This is what you have your media queries set to. Remember you only need 1 set of styles for each device this
+		// script will handle the rest.
+		var $mobile = 375,
+			$tablet = 768,
+			$desktop = 1440;
+
+		// Initial Font Size: This is based on what the common copy font size is for each design.
+		var $fsmobile = 16,
+			$fstablet = 16,
+			$fsdesktop = 16;
+
+        var $ww = window.innerWidth;
+
+        if($ww < $bptablet) {
+            // mobile
+            var fontsize = $fsmobile * ($ww/$mobile);
+            $('html').css('font-size',fontsize);
+        } else if($ww < $bpdesktop) {
+            // tablet
+            var fontsize = $fstablet * ($ww/$tablet);
+            $('html').css('font-size',fontsize);
+        } else {
+            // desktop
+			var fontsize = $fsdesktop * ($ww/$desktop);
+            $('html').css('font-size',fontsize);
+        }
+
+
+    }
+  
+  $('#product-tabs li a:not(:first)').addClass('inactive');
+  $('.tab-container').hide();
+  $('.tab-container:first').show();
+
+  $('#product-tabs li a').click(function(){
+      var t = $(this).attr('id');
+    if($(this).hasClass('inactive')){ //this is the start of our condition 
+      $('#product-tabs li a').addClass('inactive');           
+      $(this).removeClass('inactive');
+
+      $('.tab-container').hide();
+      $('#'+ t + 'C').fadeIn('slow');
+   }
+  });
+  
+  $('.homepage-slider .collection-container').slick({
+    dots: true,
+    arrows:false
+  });
+  
+  
+  // This button will increment the value
+    $('.qtyplus').click(function(e){
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        fieldName = $(this).attr('field');
+        // Get its current value
+        var currentVal = parseInt($('input[name='+fieldName+']').val());
+        // If is not undefined
+        if (!isNaN(currentVal)) {
+            // Increment
+            $('input[name='+fieldName+']').val(currentVal + 1);
+        } else {
+            // Otherwise put a 0 there
+            $('input[name='+fieldName+']').val(0);
+        }
+    });
+    // This button will decrement the value till 0
+    $(".qtyminus").click(function(e) {
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        fieldName = $(this).attr('field');
+        // Get its current value
+        var currentVal = parseInt($('input[name='+fieldName+']').val());
+        // If it isn't undefined or its greater than 0
+        if (!isNaN(currentVal) && currentVal > 0) {
+            // Decrement one
+            $('input[name='+fieldName+']').val(currentVal - 1);
+        } else {
+            // Otherwise put a 0 there
+            $('input[name='+fieldName+']').val(0);
+        }
+    });
+  
+  
+
+  function equalizeHeight() {
+       var highestBox = 0;
+      $('.grid--view-items').each(function(){  
+
+        // Cache the highest
+        //var highestBox = 0;
+
+        // Select and loop the elements you want to equalise
+        $('.grid__item.grid__item--collection-template', this).each(function(){
+
+          // If this box is higher than the cached highest then store it
+          if($(this).find('.grid-view-item.product-card').height() > highestBox) {
+            highestBox = $(this).find('.grid-view-item.product-card').height(); 
+          }
+
+        });  
+
+        // Set the height of all those children to whichever was highest 
+       
+
+
+      }); 
+       $('.grid__item.grid__item--collection-template').height(highestBox);
+  }
+ 
+  
+    $(window).resize(function () {
+        equalizeSite();
+        equalizeHeight();
+    	
+      });
+
+    equalizeSite();
+ 	equalizeHeight();
+	
+});
