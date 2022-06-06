@@ -1,0 +1,78 @@
+{% comment %}
+** Image with Video - homepage partial **
+- Draggable section
+{% endcomment %}
+
+{% include 'offering-featured-four' %}
+
+{% schema %}
+{
+  "name": "Feat coll promo Pantry",
+  "class": "index-section section--featured-collection-promo pantry-promo-collection",
+  "max_blocks": 4,
+  "settings": [
+     {
+      "type": "image_picker",
+      "id": "section_back_image",
+      "label": "Section Background Image"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class"
+    },
+    
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner image"
+    },
+    {
+      "type": "url",
+      "id": "banner_url",
+      "label": "Banner url"
+    }
+  ],
+  "blocks": [
+    {
+    "type": "product",
+    "name": "Product",
+      "settings": [
+        {
+           "type": "product",
+           "id": "id",
+           "label": "Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured coll with promo Cheese",
+      "category": {
+        "da": "Kollektion",
+        "de": "Kategorie",
+        "en": "Collection",
+        "es": "Colección",
+        "fi": "Kokoelma",
+        "fr": "Collection",
+        "hi": "कलेक्शन",
+        "it": "Collezione",
+        "ja": "コレクション",
+        "ko": "컬렉션",
+        "nb": "Samling",
+        "nl": "Collectie",
+        "pt-BR": "Coleção",
+        "pt-PT": "Coleção",
+        "sv": "Produktserie",
+        "th": "คอลเลกชัน",
+        "zh-CN": "收藏",
+        "zh-TW": "商品系列"
+      }
+    }
+  ]
+}
+{% endschema %}
+
+
+

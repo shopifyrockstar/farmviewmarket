@@ -1,0 +1,290 @@
+{% include 'include-recipe-page-hero' %}
+
+
+{% schema %}
+{
+  "name": {
+    "da": "Billede med tekstoverlejring",
+    "de": "Foto mit überlegtem Text",
+    "en": "Image with text overlay",
+    "es": "magen con texto superpuesto",
+    "fi": "Kuva päällä olevalla tekstillä",
+    "fr": "Image avec calque texte",
+    "hi": "पाठ ओवरले के साथ इमेज",
+    "it": "Immagine con testo",
+    "ja": "テキストオーバーレイ付き画像",
+    "ko": "텍스트 오버레이 포함 이미지",
+    "nb": "Bilde med tekstoverlegg",
+    "nl": "Foto met tekstoverlay",
+    "pt-BR": "Imagem com texto",
+    "pt-PT": "Imagem com sobreposição de texto",
+    "sv": "Bild med textöverlagring",
+    "th": "การวางซ้อนรูปภาพพร้อมข้อความ",
+    "zh-CN": "带文本叠加的图片",
+    "zh-TW": "附文字疊加層的圖片"
+  },
+  "class": "index-section section--hero-banner blog-events-banner recipe-details-banner recipe-details-hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": {
+        "da": "Billede",
+        "de": "Foto",
+        "en": "Image"
+      }
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": {
+        "da": "Justering af billede",
+        "de": "Fotoausrichtung",
+        "en": "Image alignment"
+      },
+      "default": "center",
+      "options": [
+        {
+          "value": "top",
+          "label": {
+            "da": "Top",
+            "de": "Oben",
+            "en": "Top"
+          }
+        },
+        {
+          "value": "center",
+          "label": {
+            "da": "I midten",
+            "de": "Mitte",
+            "en": "Middle"
+          }
+        },
+        {
+          "value": "bottom",
+          "label": {
+            "da": "Bund",
+            "de": "Unten",
+            "en": "Bottom"
+          }
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "hero_layout",
+      "label": {
+        "da": "Layout",
+        "de": "Layout",
+        "en": "Layout"
+      },
+      "default": "full_width",
+      "options": [
+        {
+          "label": {
+            "da": "Fuld bredde",
+            "de": "Volle Breite",
+            "en": "Full width"
+          },
+          "value": "full_width"
+        },
+        {
+          "label": {
+            "da": "Fast bredde",
+            "de": "Feste Breite",
+            "en": "Fixed width"
+          },
+          "value": "fixed_width"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "hero_size",
+      "label": {
+        "da": "Højde på afsnit",
+        "de": "Bereichs-Höhe",
+        "en": "Section height"
+      },
+      "default": "medium",
+      "options": [
+        {
+          "label": {
+            "da": "Tilpas til billede",
+            "de": "An Bild anpassen",
+            "en": "Adapt to image",
+            "es": "Adaptar a la imagen"
+          },
+          "value": "adapt"
+        },
+        {
+          "label": {
+            "da": "Ekstra lille",
+            "de": "Extra klein",
+            "en": "Extra Small"
+          },
+          "value": "x-small"
+        },
+        {
+          "label": {
+            "da": "Lille",
+            "de": "Klein",
+            "en": "Small"
+          },
+          "value": "small"
+        },
+        {
+          "label": {
+            "da": "Medium",
+            "de": "Mitte",
+            "en": "Medium"
+          },
+          "value": "medium"
+        },
+        {
+          "label": {
+            "da": "Stor",
+            "de": "Groß",
+            "en": "Large"
+          },
+          "value": "large"
+        },
+        {
+          "label": {
+            "da": "Ekstra stor",
+            "de": "Extra groß",
+            "en": "Extra Large"
+          },
+          "value": "x-large"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": {
+        "da": "Tekststørrelse",
+        "de": "Textgröße",
+        "en": "Text size"
+      },
+      "default": "medium",
+      "options": [
+        {
+          "label": {
+            "da": "Medium",
+            "de": "Mitte",
+            "en": "Medium"
+          },
+          "value": "medium"
+        },
+        {
+          "label": {
+            "da": "Stor",
+            "de": "Groß",
+            "en": "Large"
+          },
+          "value": "large"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "da": "Overskrift",
+        "de": "Titel",
+        "en": "Heading"
+      },
+      "default": {
+        "da": "Billede med tekstoverlejring",
+        "de": "Foto mit überlegtem Text",
+        "en": "Image with text overlay",
+        "es": "magen con texto superpuesto"
+      }
+    },
+    {
+      "type": "html",
+      "id": "text",
+      "label": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text"
+      },
+      "default": {
+        "da": "<p>Brug tekstoverlejring til at give dine kunder indblik i dit brand. Vælg billeder og tekst, der passer til din stil og historie.</p>",
+        "de": "<p>Nutzen Sie überlegten Text, um Kunden über Ihre Marke zu informieren. Wählen Sie Fotos und Text aus, die zu Ihrer Marke passen.</p>",
+        "en": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
+        "es": "<p>Usa el texto superpuesto para darles información útil a tus clientes sobre tu marca. Selecciona imágenes y textos que se relacionen con tu estilo e historia.</p>"
+        
+      }
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": {
+        "da": "Knaptekst",
+        "de": "Button-Etikett",
+        "en": "Button label"
+       }
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": {
+        "da": "Knaplink",
+        "de": "Button-Etikett",
+        "en": "Button link",
+        "es": "Enlace de botón"
+       }
+    },
+    {
+      "type": "header",
+      "content": "promo block",
+      "info": "Promo product on the banner"
+    },
+    {
+      "type": "checkbox",
+      "id": "promo_on",
+      "label": "enable promo block",
+      "default": true
+    },
+    {
+      "type": "html",
+      "id": "first_text",
+      "label": "Text",
+      "default": "Prep & Cook Time"
+    },
+    {
+      "type": "html",
+      "id": "text_2th",
+      "label": "Text",
+      "default": "Difficulty Level"
+    },
+    {
+      "type": "html",
+      "id": "text_3th",
+      "label": "Text",
+      "default": "Cook Within"
+    },
+    {
+      "type": "html",
+      "id": "text_4th",
+      "label": "Text",
+      "default": "Spice Level"
+    }, 
+    {
+      "type": "html",
+      "id": "promo_conent",
+      "label": "Text",
+      "default": "Content"
+    },
+    {
+      "type": "html",
+      "id": "promo_conent_2",
+      "label": "Text",
+      "default": "Content"
+    }
+  ]
+}
+{% endschema %}
+

@@ -121,9 +121,11 @@
 
     <div class="grid__item {{ product_description_width }}">
       <div class="product-single__meta">
-
+		
         <h2 class="product-single__title">{{ product.title }}</h2>
-
+        
+        
+		
        
           <div class="product__price">
             {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
@@ -136,11 +138,16 @@
             {{ product.description }}
           </div>
         
+        
+        {% render 'bsub-widget' %}
+        
+        {% comment %}
           <ul class="product-tags">
             {% for tag in product.tags %}
             <li><a href="/collections/all/{{ tag | handleize }}">{{ tag }}</a></li>
             {% endfor %}
           </ul>
+        {% endcomment %}
 
           {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
             <div class="product__policies rte" data-product-policies>
@@ -285,31 +292,51 @@
         {% endif %}
     </div>
   </div>
-  
+  {%- if product.metafields.spr.reviews contains 'itemprop="reviewCount"' -%}
+     {%- assign reviews_count = product.metafields.spr.reviews | split: '<meta itemprop="reviewCount" content="' | last | split: '">' | first | times: 1 -%}
+{%- else -%}
+      {%- assign reviews_count = product.metafields.spr.reviews | split: '"reviewCount": "' | last | split: '"' | first | plus: 0 -%}
+{%- endif -%}
   <ul id="product-tabs">
-    <li><a id="tab1">Description</a></li>
-    <li><a id="tab2">Additional information</a></li>
-    <li><a id="tab3">Reviews</a></li>
+    <li><a id="tab1">Meet the Maker</a></li>
+    {% comment %}<li><a id="tab2">More Info</a></li>{% endcomment %}
+    <li><a id="tab3">Reviews {% if reviews_count > 0 %} <span class="count-badge">{{reviews_count}}</span> {% endif %} </a></li>
   </ul>
   
   <div class="tab-container" id="tab1C">
     
-    {% if product.metafields.custom_fields["full_description"] != blank %}
+   
       <div class="custom-field custom-field__full-description custom-field__type--html {% if product.metafields.custom_fields["video"] != blank %} custom-field-with-video {% endif %}">
         <div class="custom-field--value-info">
-          {{ product.metafields.custom_fields["full_description"] }}
+          	{% if product.metafields.custom_fields["vendor_image"] != blank %}
+          		<a href="{{ product.metafields.custom_fields["vendor_link"] }}" class="vendor-link">
+                  {% render 'cf-image' with image: product.metafields.custom_fields["vendor_image"] %}
+                  <h5 class="vendor-name">{{ product.metafields.custom_fields["vendor_name"] }}</h5>
+          
+          		</a> 
+          	{% endif %}
+           {{ product.metafields.custom_fields["short_description"] }}
         </div>
         
         {% if product.metafields.custom_fields["video"] != blank %}
         <div class="custom-field--value-video">
          	{{ product.metafields.custom_fields["video"] }}
+          
+            {% if product.metafields.custom_fields["video_text"] != blank %}
+             <div class="video-text">
+               <h6>{{ product.metafields.custom_fields["video_text"] }}</h6>
+               <span class="video-arrow"><img src="{{ 'video-arrow.png' | asset_url }}" alt="video arrow" /></span>
+             </div>
+
+            {% endif %}
         </div>
+          
         {% endif %}
       </div>
-    {% endif %}
+
   
   </div>
-  <div class="tab-container" id="tab2C">
+  {% comment %}<div class="tab-container" id="tab2C">
     
     {% if product.metafields.custom_fields["additional_information"] != blank %}
       <div class="custom-field custom-field__additional-information custom-field__type--html">
@@ -321,7 +348,7 @@
       </div>
     {% endif %}
   
-  </div>
+  </div>{% endcomment %}
   <div class="tab-container" id="tab3C">
     
     <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>

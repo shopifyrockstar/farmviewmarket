@@ -27,10 +27,17 @@
     {% include 'image-style', image: preview_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
   {% endunless %}
 
+  <a href="{{ product.url | within: collection }}" >
+    
   <div class="product-card__image-with-placeholder-wrapper" data-image-with-placeholder-wrapper>
     <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js">
       <div style="padding-top:{% unless preview_image == blank %}{{ 1 | divided_by: preview_image.aspect_ratio | times: 100 }}%{% else %}100%{% endunless %};">
-        <img id="{{ img_id }}"
+         {% if product.compare_at_price > product.price %}
+        <span class="price__badge price__badge--sale" style="display: block;z-index: 9999;position: absolute;bottom: 0;">
+        <span>{{ 'products.product.on_sale' | t }}</span>
+      </span>
+        {% endif %}
+        	<img id="{{ img_id }}"
               class="grid-view-item__image lazyload"
               alt="{{ preview_image.alt }}"
               data-src="{{ img_url }}"
@@ -38,35 +45,84 @@
               data-aspectratio="{{ preview_image.aspect_ratio }}"
               data-sizes="auto"
               data-image>
+        
       </div>
     </div>
     <div class="placeholder-background placeholder-background--animation" data-image-placeholder></div>
   </div>
+
+  </a>
+
 
   <noscript>
     {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
     <img class="grid-view-item__image" src="{{ preview_image | img_url: image_size, scale: 2 }}" alt="{{ preview_image.alt }}" style="max-width: {{ max_height | times: preview_image.aspect_ratio }}px;">
   </noscript>
   
-  <a href="{{ product.url | within: collection }}" >
-    <div class="h6 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
+  <div class="content-wrapper">
+  <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+   <div class="price__vendor">
+      <dt>
+        <span class="visually-hidden">{{ 'products.product.vendor' | t }}</span>
+      </dt>
+      
+        {% if product.metafields.my_fields.vendor_url %}
+        <a href="{{ product.metafields.my_fields.vendor_url }}">
+        {{ product.vendor }}
+     	 </a>
+        {% else %}
+        	<p>{{ product.vendor }}</p>
+        {% endif %}
+      
+    </div>
+  <a href="{{ product.url | within: collection }}" class="product-card__title-wrapper">
+    <div class="h6 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title | truncate: 40  }}</div>
   </a>
   
-  <p class="product-info">{{ product.description | truncatewords: 10 }}</p>
+   
   
+  {% comment %}
+  <div class="product-info" data-template="{{ template}}">{{ product.description | truncatewords: 15 }}</div>
+  {% endcomment %}
+  {% if template == 'index' %}
+    <div class="product-info">
+      {% if forloop.index == 1 %}
+      	{{ section.settings.desc_1 }}
+      {% endif %}
+      {% if forloop.index == 2 %}
+      	{{ section.settings.desc_2 }}
+      {% endif %}
+      {% if forloop.index == 3 %}
+      	{{ section.settings.desc_3 }}
+      {% endif %}
+    </div>
+  {% endif %}
   {% comment %}
   <div class="product-icons"><img src="https://cdn.shopify.com/s/files/1/0277/5518/4198/files/product-grid-icon.png?v=1612309377" alt="Product Benefits"/></div>
   {% endcomment %}
   
   <form method="post" action="/cart/add" class="cart-container">
     <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-    <label>{{ product.price | money }}</label>
-    <input type="submit" value="Add to cart" class="btn" />
+    {% if product.available %}
+    <label><span class="price-item price-item--sale">{{ product.price | money }} </span><s class="price-item price-item--regular">{{ product.compare_at_price | money }}</s></label>
+	{% comment %}{% include 'product-price', product: product %}{% endcomment %}
+    {% endif %}
+    {% if product.available %}
+        {% if product.variants.size > 1 %}
+          <a href="{{ product.url | within: collection }}" class="btn">Add to Cart</a>
+        {% else %}
+          <input type="submit" value="Add to cart" class="btn" />
+        {% endif %}
+        
+    {% else %}
+        <a href="{{ product.url | within: collection }}" class="btn">Out of Stock</a>
+    {% endif %}
   </form>
-
+  </div>
   
 	{% comment %}
   {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
   {% endcomment %}
 
+  
 </div>

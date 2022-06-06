@@ -1,0 +1,175 @@
+{% if section.settings.display_deals %}
+<div class="deals-wrapper">
+  
+  <div class="deals-tab">
+    <p>Deals</p>
+</div>
+  
+  <div class="deals">
+    <div class="deals-header">
+    	<p class="close-deals">x</p> <a href="/pages/deals" class="btn all-deals">View all deals</a>
+    </div>
+    
+{%- for block in section.blocks -%}
+    
+    
+   {% if forloop.index ==  7 %}
+    	{% break %}
+ 
+    {% endif %}
+	
+	{%- case block.type -%}
+  	
+		{%- when 'deal' -%}
+		<div class="single-deal">
+         
+          {% if block.settings.deal_image != blank %}
+            <div class="image-wrapper">
+              <img class="deal-image" alt="deal image" src="{{ block.settings.deal_image | img_url: 'master' }}"/>
+            </div>
+		  {% endif %}
+          <div class="content-wrapper">
+            
+            <h6 class="title">{{ block.settings.title }}</h6>
+            <div class="divider"><span class="left"></span><span class="right"></span></div>
+            <div class="coupon-wrapper">
+            	<p class="coupon-code">
+                <span class="text">Code:</span> 
+                <span class="code"> {{ block.settings.coupon_code }} </span>
+                <a class="copy-clipboard" href=""><img class="copy-image" alt="deal image" src="{{ 'copy.png' | asset_url }}"/><span class="copy-tooltip">copied!</span></a>
+              </p>
+       
+              {% if block.settings.product_link != blank %}
+              {% assign product_item = all_products[block.settings.product_link] %}
+              	
+              
+              	{% if product_item.variants.size > 1 %}
+                  	<a  href="{{ product_item.url }}" class="btn "> Add to Cart</a>
+                {% else %}
+              		<a  href="#" class="btn coupon-add-cart" data-variant-id="{{ product_item.variants.first.id }}" > Add to Cart </a>
+                  	
+                {% endif %}
+                  
+              	
+              {% else %}
+                	<a  class="btn apply-coupon" data-coupon="{{ shop.url }}/discount/{{ block.settings.coupon_code }}" >Apply Now </a>
+              {% endif %}
+              
+            </div>
+            
+          </div>
+         
+		</div>
+	{%- endcase -%}
+ 
+{%- endfor -%}
+    
+  </div>
+  
+</div>
+{% endif %}
+
+<div class="deals-page" style="display:none;">
+  
+ 
+  <div class="deals">
+   
+{%- for block in section.blocks -%}
+	
+	{%- case block.type -%}
+  	
+		{%- when 'deal' -%}
+		<div class="single-deal">
+         
+          {% if block.settings.deal_image != blank %}
+            <div class="image-wrapper">
+              <img class="deal-image" alt="deal image" src="{{ block.settings.deal_image | img_url: 'master' }}"/>
+            </div>
+		  {% endif %}
+          <div class="content-wrapper">
+            
+            <h6 class="title">{{ block.settings.title }}</h6>
+            <div class="divider"><span class="left"></span><span class="right"></span></div>
+            <div class="coupon-wrapper">
+            	<p class="coupon-code">
+                <span class="text">Code:</span> 
+                <span class="code"> {{ block.settings.coupon_code }} </span>
+                <a class="copy-clipboard" href=""><img class="copy-image" alt="deal image" src="{{ 'copy.png' | asset_url }}"/><span class="copy-tooltip">copied!</span></a>
+              </p>
+       
+              {% if block.settings.product_link != blank %}
+              {% assign product_item = all_products[block.settings.product_link] %}
+              	
+              
+              	{% if product_item.variants.size > 1 %}
+                  	<a  href="{{ product_item.url }}" class="btn "> Add to Cart</a>
+                {% else %}
+              		<a  href="#" class="btn coupon-add-cart" data-variant-id="{{ product_item.variants.first.id }}" > Add to Cart </a>
+                  	
+                {% endif %}
+                  
+              	
+              {% else %}
+                	<a  class="btn apply-coupon" data-coupon="{{ shop.url }}/discount/{{ block.settings.coupon_code }}" >Apply Now </a>
+              {% endif %}
+              
+            </div>
+            
+          </div>
+         
+		</div>
+	{%- endcase -%}
+ 
+{%- endfor -%}
+    
+  </div>
+  
+</div>
+
+{% schema %}
+  {
+    "name": "Promo Tab",
+    "settings": [
+		{
+            "type": "checkbox",
+            "id": "display_deals",
+            "label": "Display Deals?",
+			"default": true
+       }
+	],
+	"blocks": [
+	  {
+        "type": "deal",
+        "name": "Deal",
+        "settings": [
+		  {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+		  {
+            "type": "image_picker",
+            "id": "deal_image",
+            "label": "Deal Image"
+          },
+		  {
+            "type": "text",
+            "id": "coupon_code",
+            "label": "Coupon Code"
+          },
+		  {
+            "type": "product",
+            "id": "product_link",
+            "label": "Product Link (optional)"
+          }
+        ]
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -42,7 +42,7 @@
             </span>
           </h1>
           {% if collection.description != blank %}
-          <div class="rte collection-description-fv page-width">
+          <div class="rte collection-description-fv page-width {% if collection.handle == 'cows-milk' or  collection.handle == 'goats-milk' %}full-width{% endif %}">
             {{ collection.description }}
           </div>
         {% endif %}
@@ -142,9 +142,47 @@
         {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
       {% endcase %}
 
-      <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
+      {% assign rows = '' %}
+      {% assign columns = '' %}
+      {% assign mobile_rows = '' %}
+      {% assign mobile_columns = '' %}
+    
+      {% unless limit < collection.all_products_count %}
+    	{% assign rows = collection.all_products_count | minus: 1 | divided_by: 4 %}
+    	{% if rows > 0 %}
+    		{% assign columns = collection.all_products_count | modulo: 4 %}
+    	{% endif %}
+        {% assign mobile_rows = collection.all_products_count | minus: 1 | divided_by: 2 %}
+    	{% if mobile_rows > 0 %}
+    		{% assign mobile_columns = collection.all_products_count | modulo: 2 %} 
+    	{% endif %}
+      {% endunless %}
+    
+      {% if paginate.next.is_link %}
+    	{% assign viewed_product = limit %}
+    	{% assign rows = viewed_product | minus: 1 | divided_by: 4 %}
+    	{% if rows > 0 %}
+    		{% assign columns = viewed_product | modulo: 4 %}
+    	{% endif %}
+        {% assign mobile_rows = viewed_product | minus: 1 | divided_by: 2 %}
+    	{% if mobile_rows > 0 %}
+    		{% assign mobile_columns = viewed_product | modulo: 2 %} 
+    	{% endif %}
+      {% else %}
+    	{% assign viewed_product = collection.all_products_count | modulo: limit %}
+    	{% assign rows = viewed_product | minus: 1 | divided_by: 4 %}
+    	{% if rows > 0 %}
+    		{% assign columns = viewed_product | modulo: 4 %}
+    	{% endif %}
+        {% assign mobile_rows = viewed_product | minus: 1 | divided_by: 2 %}
+    	{% if mobile_rows > 0 %}
+    		{% assign mobile_columns = viewed_product | modulo: 2 %} 
+    	{% endif %}    	
+      {% endif %}   
+    
+      <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %} rows_{{ rows }} columns_{{ columns }} mobile_rows_{{ mobile_rows }} mobile_columns_{{ mobile_columns }}">
         {% for product in collection.products %}
-          <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+          <li class="grid__item collection-item grid__item--{{section.id}} {{ grid_item_width }}">
             {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
           </li>
         {% else %}

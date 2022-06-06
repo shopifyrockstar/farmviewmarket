@@ -7,6 +7,7 @@
     Usage:
     {% include 'site-nav', linklist: section.settings.main_linklist, wrapper_class: 'site-nav--centered' %}
 {% endcomment %}
+
 <ul class="site-nav list--inline{% if wrapper_class != blank %} {{ wrapper_class }}{% endif %}" id="SiteNav">
   {% for link in linklists[linklist].links %}
     {%- assign child_list_handle = link.title | handleize -%}
@@ -22,17 +23,64 @@
     {% endif %}
 
     {% if link.links != blank %}
-      <li class="site-nav--has-dropdown{% if three_level_nav %} site-nav--has-centered-dropdown{% endif %}{% if link.active %} site-nav--active{% endif %}" data-has-dropdowns>
-        <button class="site-nav__link site-nav__link--main site-nav__link--button{% if link.child_active %} site-nav__link--active{% endif %}" type="button" aria-expanded="false" aria-controls="SiteNavLabel-{{ child_list_handle }}">
-          <span class="site-nav__label">{{ link.title | escape }}</span>{% include 'icon-chevron-down' %}
-        </button>
+      {%- assign show_mega_menu = false -%}
+      {%- assign showMegaMenuImage = null -%}
+      {% for megaItem in megaMenu %}
+        {% if megaItem.settings.mega_menu_item == link.title %}
+           {%- assign show_mega_menu = true -%}
+           {%- assign showMegaMenuImage = megaItem.settings.mega_image | img_url : 'master' -%}
+  			{%- assign megaItem_title = megaItem.settings.mega_title -%}
+            {%- assign megaItem_label = megaItem.settings.mega_menu_label -%}
+            {%- assign megaItem_url = megaItem.settings.mega_menu_link -%}
 
-        <div class="site-nav__dropdown{% if three_level_nav %} site-nav__dropdown--centered{% endif %}" id="SiteNavLabel-{{ child_list_handle }}">
-          {% if three_level_nav %}
+           {% capture image_megamenu %}
+  			{% if megaItem.settings.mega_image_link != blank %}
+            	<a class="mega-image-link" href="{{ megaItem.settings.mega_image_link }}">
+            {% endif %}
+              {% if megaItem.settings.mega_image != blank %}
+                {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
+                {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
+                {%- assign img_url = megaItem.settings.mega_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                {% include 'image-style', image: megaItem.settings.mega_image, height: 604, wrapper_id: wrapper_id, img_id: img_id %}
+                <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
+                  <div style="padding-top:{{ 1 | divided_by: megaItem.settings.mega_image.aspect_ratio | times: 100}}%;">
+                    <img id="{{ img_id }}"
+                        class="feature-row__image mega-menu-image lazyload"
+                        src="{{ megaItem.settings.mega_image | img_url: '200x200' }}"
+                        data-src="{{ img_url }}"
+                        data-widths="[180, 360, 540, 720]"
+                        data-aspectratio="{{ megaItem.settings.mega_image.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ megaItem.settings.mega_image.alt | escape }}">
+                  </div>
+                </div>
+
+                <noscript>
+                  {{ megaItem.settings.mega_image | img_url: '600x600', scale: 2 | img_tag: megaItem.settings.mega_image.alt, 'feature-row__image mega-menu-image' }}
+                </noscript>
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+              {% if megaItem.settings.mega_image_link != blank %}
+                 </a>
+              {% endif %}
+          {% endcapture %}
+        {% endif %}
+      {% endfor %}
+      <li class="site-nav--has-dropdown{% if show_mega_menu %} site-nav--has-centered-dropdown{% endif %}{% if link.active %} site-nav--active{% endif %}" data-has-dropdowns>
+        <a href="{{ link.url }}">
+          <button class="site-nav__link site-nav__link--main site-nav__link--button{% if link.child_active %} site-nav__link--active{% endif %}" type="button" aria-expanded="false" aria-controls="SiteNavLabel-{{ child_list_handle }}">
+            <span class="site-nav__label">{{ link.title | escape }}</span>{% include 'icon-chevron-down' %}
+          </button>
+        </a>
+
+        <div class="site-nav__dropdown site-nav__dropdown--centered" id="SiteNavLabel-{{ child_list_handle }}">
+          {% if show_mega_menu %}
             <div class="site-nav__childlist">
-              <ul class="site-nav__childlist-grid">
+              <ul class="site-nav__childlist-grid childlist-grid-left">
                 {% if link.links != blank %}
-                  {% for childlink in link.links %}
+                  {% for childlink in link.links limit:5 %}
+                	
                     <li class="site-nav__childlist-item">
                       <a href="{{ childlink.url }}"
                         class="site-nav__link site-nav__child-link site-nav__child-link--parent"
@@ -60,6 +108,50 @@
                   {% endfor %}
                 {% endif %}
               </ul>
+              <ul class="site-nav__childlist-grid childlist-grid-right">
+                {% if link.links != blank %}
+                  {% for childlink in link.links offset:5 %}
+                	
+                    <li class="site-nav__childlist-item">
+                      <a href="{{ childlink.url }}"
+                        class="site-nav__link site-nav__child-link site-nav__child-link--parent"
+                        {% if childlink.current %} aria-current="page"{% endif %}
+                      >
+                        <span class="site-nav__label">{{ childlink.title | escape }}</span>
+                      </a>
+
+                      {% if childlink.links != blank %}
+                        <ul>
+                        {% for grandchildlink in childlink.links %}
+                          <li>
+                            <a href="{{ grandchildlink.url }}"
+                            class="site-nav__link site-nav__child-link"
+                            {% if grandchildlink.current %} aria-current="page"{% endif %}
+                          >
+                              <span class="site-nav__label">{{ grandchildlink.title | escape }}</span>
+                            </a>
+                          </li>
+                        {% endfor %}
+                        </ul>
+                      {% endif %}
+
+                    </li>
+                  {% endfor %}
+                {% endif %}
+              </ul>
+                
+                <div class="menu-image" data-link="{{ block.settings.mega_image_link }}"> 
+                 
+                  {%- comment -%}<img src="{{ showMegaMenuImage }}" alt="mega menu image" class="mega-menu-image" />{%- endcomment -%}
+                  	{{ image_megamenu }}
+                  <div class="content-wrapper">
+                    <h4 class="title">{{ megaItem_title }}</h4>
+                  	{% if megaItem_url != blank %}
+                    	<a href="{{ megaItem_url }}" class="btn">{{ megaItem_label }} </a>
+                    {% endif %}
+                  </div>
+                </div>
+              
             </div>
 
           {% else %}

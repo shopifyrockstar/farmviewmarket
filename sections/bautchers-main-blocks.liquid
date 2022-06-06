@@ -1,0 +1,139 @@
+<div class="page-width">
+ 
+    {% for block in section.blocks %}
+
+    <div class="grid__item medium-up--one-half js">
+
+      <div class="image-bar__item image-bar__item--{{ block.id }}">
+        <div class="butchers-image">
+          <img class="butchers-club--image lazyload lazypreload"
+               src="{{ block.settings.image| img_url: 'master' }}"
+               data-src="{{ img_url }}"
+
+               data-aspectratio=""
+               data-sizes="auto"
+               style="min-width: auto; object-position: center;"
+               alt="{{ block.settings.img | escape }}">
+        </div>
+        <div class="image-bar__content image-bar__overlay">
+          <div class="image-bar__text">
+
+            <h4 class="image-bar__title">{{ block.settings.title | escape }}</h4>
+
+            {{ block.settings.cta_label }}                   
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    {% endfor %}
+  
+</div>
+
+  {% if section.blocks.size == 0 %}
+  {% include 'no-blocks' %}
+  {% endif %}
+
+
+
+{% schema %}
+{
+  "name": "Club Gallery",
+  "class": "index-section index-section--flush butchers-club",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_height",
+      "label": "Section height",
+      "default": "medium",
+      "options": [
+  		
+        {
+          "label":"Extra Small",
+          "value": "x-small"
+        },
+        {
+  		  "label":"Small",
+          "value": "small"
+        },
+        {
+          "label": "Medium",
+          "value": "medium"
+        },
+        {
+          "label":"Large",
+          "value": "large"
+        },
+        {
+          "label": "Extra Large",
+          "value": "x-large"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label":"Image"  
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label":"Image alignment",
+          "default": "center",
+          "options": [
+            {
+              "value": "top",
+              "label":"Top"
+  			},
+            {
+              "value": "center",
+              "label":"Middle"
+               
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ]
+        },
+  		{
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+  		{
+          "type": "html",
+          "id": "cta_label",
+          "label": "Caption"
+        }
+        
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Club Images with Text",
+      "category":"Custom FarmView",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

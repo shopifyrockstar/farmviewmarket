@@ -1,0 +1,8 @@
+{% if product.metafields.custom_fields["vendor_link"] != blank %}
+  <div class="custom-field custom-field__vendor-link custom-field__type--url">
+    <h3 class="custom-field--title">Vendor Link</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["vendor_link"] }}
+    </div>
+  </div>
+{% endif %}

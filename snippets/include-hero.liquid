@@ -91,7 +91,7 @@
           {%- assign promo_img_url = section.settings.promo_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
           <div class="hero__inner-promo">
             <div class="inner-promo--top">
-              <img class="inner-promo--image lazyload lazypreload"
+               <img class="inner-promo--image lazyload lazypreload"
                 src="{{ section.settings.promo_image | img_url: 'master' }}"
                 data-src="{{ promo_img_url }}"
                 
@@ -99,7 +99,7 @@
                 data-sizes="auto"
                 style="min-width: auto; object-position: center;"
                 alt="{{ section.settings.promo_image.alt | escape }}">
-              <h4 class="inner-promo--title">{{ section.settings.promo_title }}</h4>
+               <h4 class="inner-promo--title">{{ section.settings.promo_title }}</h4>
             </div>
             <div class="inner-promo--descr">
               <p class="inner-promo--text">{{ section.settings.promo_text }}</p>

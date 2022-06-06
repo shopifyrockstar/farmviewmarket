@@ -1,0 +1,224 @@
+<div class="newsletter-section{% if section.settings.show_background %} index-section--newsletter-background{% endif %}" >
+
+    {% if section.settings.left_image != blank %}
+    <img class="left-image desktop_images" alt="left image newsletter" src="{{ section.settings.left_image | img_url: 'master' }}" />
+    {% endif %}
+     {% if section.settings.right_image != blank %}
+    <img class="right-image desktop_images" alt="right image newsletter" src="{{ section.settings.right_image | img_url: 'master' }}" />
+    {% endif %}
+    {% if section.settings.mobile_left_image != blank %}
+    <img class="left-image mobile_images" alt="left image newsletter" src="{{ section.settings.mobile_left_image | img_url: 'master' }}" />
+    {% endif %}
+     {% if section.settings.mobile_right_image != blank %}
+    <img class="right-image mobile_images" alt="right image newsletter" src="{{ section.settings.mobile_right_image | img_url: 'master' }}" />
+    {% endif %}
+  <div class="page-width">
+    <div class="section-header text-center">
+      {% if section.settings.section_title != blank %}
+        <h2 class="h2">{{ section.settings.section_title | escape }}</h2>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <div class="rte">
+          <h2 class="additional-text">{{ section.settings.additional_text }}</h2>
+          {{ section.settings.subheading }}      
+      </div>
+      {% endif %}
+      {% if section.settings.button_link != blank %}
+      <a class="btn" href="{{ section.settings.button_link }}">
+      	{{ section.settings.button_label }}
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": {
+    "da": "Nyhedsbrev",
+    "de": "Newsletter",
+    "en": "Wholesale Inquiry",
+    "es": "Boletín",
+    "fi": "Uutiskirje",
+    "fr": "Newsletter",
+    "hi": "न्यूज़लेटर",
+    "it": "Newsletter",
+    "ja": "ニュースレター",
+    "ko": "뉴스레터",
+    "nb": "Nyhetsbrev",
+    "nl": "Nieuwsbrief",
+    "pt-BR": "Newsletter",
+    "pt-PT": "Newsletter",
+    "sv": "Nyhetsbrev",
+    "th": "จดหมายข่าว",
+    "zh-CN": "新闻通讯",
+    "zh-TW": "電子報"
+  },
+  "class": "newsletter story-wholesale rockhouse-inquiries",
+  "settings": [
+	{
+       "type": "image_picker",
+       "id": "left_image",
+       "label":"Left Image"  
+    },
+    {
+       "type": "image_picker",
+       "id": "right_image",
+       "label":"Right Image"  
+    },
+    {
+       "type": "image_picker",
+       "id": "mobile_left_image",
+       "label":"Mobile Image"  
+    },
+    {
+       "type": "image_picker",
+       "id": "mobile_right_image",
+       "label":"Mobile Image"  
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": {
+        "da": "Overskrift",
+        "de": "Titel",
+        "en": "Heading",
+        "es": "Título",
+        "fi": "Otsake",
+        "fr": "En-tête",
+        "hi": "शीर्षक",
+        "it": "Heading",
+        "ja": "見出し",
+        "ko": "제목",
+        "nb": "Overskrift",
+        "nl": "Kop",
+        "pt-BR": "Título",
+        "pt-PT": "Título",
+        "sv": "Rubrik",
+        "th": "ส่วนหัว",
+        "zh-CN": "标题",
+        "zh-TW": "標題"
+      },
+      "default": {
+        "da": "Tilmeld dig vores nyhedsbrev",
+        "de": "Unseren Newsletter abonnieren",
+        "en": "Wholesale / Distribution Inquiries?",
+        "es": "Suscríbete a nuestro boletín de noticias",
+        "fi": "Tilaa uutiskirjeemme",
+        "fr": "S'inscrire à la newsletter",
+        "hi": "हमारे न्यूज़लेटर की सदस्यता लें",
+        "it": "Iscriviti alla nostra newsletter",
+        "ja": "ストアからのお知らせを受け取る",
+        "ko": "뉴스 레터 구독",
+        "nb": "Abonner på nyhetsbrevet vårt",
+        "nl": "Abonneren op onze nieuwsbrief",
+        "pt-BR": "Assine a nossa newsletter",
+        "pt-PT": "Subscreva a nossa newsletter",
+        "sv": "Prenumerera på vårt nyhetsbrev",
+        "th": "สมัครรับจดหมายข่าวของเรา",
+        "zh-CN": "订阅我们的新闻通讯",
+        "zh-TW": "訂閱我們的電子報"
+      }
+    },
+	{
+       "type": "text",
+       "id": "additional_text",
+       "label":"Additional Text"  
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": {
+        "da": "Underoverskrift",
+        "de": "Unter-Überschrift",
+        "en": "Subheading",
+        "es": "Subtítulo",
+        "fi": "Alaotsikko",
+        "fr": "Sous-titre",
+        "hi": "उपशीर्षक",
+        "it": "Sottotitolo",
+        "ja": "小見出し",
+        "ko": "소제목",
+        "nb": "Underoverskrift",
+        "nl": "Subkop",
+        "pt-BR": "Subtítulo",
+        "pt-PT": "Subtítulo",
+        "sv": "Underrubrik",
+        "th": "หัวเรื่องย่อย",
+        "zh-CN": "副标题",
+        "zh-TW": "子標題"
+      },
+      "default": {
+        "da": "<p>Reklamer, nye produkter og salg. Direkte i din indbakke.</p>",
+        "de": "<p>Werbeaktionen, neue Produkte und Sonderangebote. Direkt in Ihrem Posteingang.</p>",
+        "en": "<p>Promotions, new products and sales. Directly to your inbox.</p>",
+        "es": "<p>Promociones, nuevos productos y ofertas. Directamente a tu bandeja de entrada.</p>",
+        "fi": "<p>Kampanjat, uudet tuotteet ja myynti. Suoraan saapuneet-kansioosi</p>",
+        "fr": "<p>Promotions, nouveaux produits et soldes. Directement dans votre boîte de réception.</p>",
+        "hi": "<p>प्रमोशन, नए उत्पाद और सेल. सीधे आपके इनबॉक्स में.</p>",
+        "it": "<p>Promozioni, nuovi prodotti e offerte. Direttamente nella tua casella di posta.</p>",
+        "ja": "<p>新商品やセール情報などのお得な情報をお届けします。</p>",
+        "ko": "<p>프로모션, 신제품, 판매. 받은 편지함으로 바로 이동.</p>",
+        "nb": "<p>Kampanjer, nye produkter og salg. Direkte i innboksen din.</p>",
+        "nl": "<p>Promoties, nieuwe producten en uitverkoop rechtstreeks in je inbox.</p>",
+        "pt-BR": "<p>Promoções, novos produtos e vendas. Diretamente para sua caixa de entrada.</p>",
+        "pt-PT": "<p>Promoções, novos produtos e ofertas. Diretamente na sua caixa de entrada.</p>",
+        "sv": "<p>Kampanjer, nya produkter och försäljning. Direkt till din inkorg.</p>",
+        "th": "<p>โปรโมชัน สินค้าใหม่ และการลดราคา ตรงสู่กล่องจดหมายเข้าของคุณ</p>",
+        "zh-CN": "<p>促销、新产品和销售。直接发送到您的收件箱。</p>",
+        "zh-TW": "<p>讓您直接在收件匣內收取促銷活動、最新產品和特賣活動訊息。</p>"
+      }
+    },
+	{
+      "type": "text",
+      "id": "button_label",
+      "label": {
+        "da": "Knaptekst",
+        "de": "Button-Etikett",
+        "en": "Button label",
+        "es": "Etiqueta de botón",
+        "fi": "Tekstipainike",
+        "fr": "Texte du bouton",
+        "hi": "बटन लेबल",
+        "it": "Etichetta pulsante",
+        "ja": "ボタンのラベル",
+        "ko": "버튼 레이블",
+        "nb": "Knappetikett",
+        "nl": "Knoplabel",
+        "pt-BR": "Etiqueta de botão",
+        "pt-PT": "Etiqueta do botão",
+        "sv": "Knappetikett",
+        "th": "ป้ายกำกับปุ่ม",
+        "zh-CN": "按钮标签",
+        "zh-TW": "按鈕標籤"
+      }
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": {
+        "da": "Knaplink",
+        "de": "Button-Link",
+        "en": "Button link",
+        "es": "Enlace de botón",
+        "fi": "Painikelinkki",
+        "fr": "Lien du bouton",
+        "hi": "बटन लिंक",
+        "it": "Link pulsante",
+        "ja": "ボタンのリンク",
+        "ko": "버튼 링크",
+        "nb": "Kobling for knapp",
+        "nl": "Knoplink",
+        "pt-BR": "Link de botão",
+        "pt-PT": "Ligação do botão",
+        "sv": "Knapplänk",
+        "th": "ลิงก์ปุ่ม",
+        "zh-CN": "按钮链接",
+        "zh-TW": "按鈕連結"
+      }
+    }
+  ]
+}
+{% endschema %}

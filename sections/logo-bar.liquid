@@ -2,6 +2,7 @@
   {% if section.settings.title != blank %}
     <div class="section-header text-center">
       <h2>{{ section.settings.title | escape }}</h2>
+      <p>{{ section.settings.subtitle | escape }}</p>
     </div>
   {% endif %}
 
@@ -13,7 +14,23 @@
             <a href="{{ block.settings.link }}" class="logo-bar__link">
           {% endif %}
           {% if block.settings.image != blank %}
-            {{ block.settings.image | img_url: '160x160', scale: 2 | img_tag: block.settings.image.alt, 'logo-bar__image' }}
+            {%- comment -%}{{ block.settings.image | img_url: '160x160', scale: 2 | img_tag: block.settings.image.alt, 'logo-bar__image' }}{%- endcomment -%}
+              {% capture img_id %}FeatureRowImage-{{ block.id }}{% endcapture %}
+              {% capture wrapper_id %}FeatureRowImageWrapper-{{ block.id }}{% endcapture %}
+              {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+              {% include 'image-style', image: block.settings.image, height: 75, wrapper_id: wrapper_id, img_id: img_id %}
+              <div id="{{ wrapper_id }}" class="feature-row__image-wrapper logo-bar__image js">
+                <div style="padding-top:{{ 2 | divided_by: block.settings.image.aspect_ratio | times: 100}}%;">
+                  <img id="{{ img_id }}"
+                        class="feature-row__image lazyload"
+                        src="{{ block.settings.image | img_url: '25x12' }}"
+                        data-src="{{ img_url }}"
+                        data-widths="[80, 160, 320, 480]"
+                        data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ block.settings.image.alt | escape }}">
+                </div>
+              </div>
           {% else %}
             {{ 'logo' | placeholder_svg_tag: 'placeholder-svg' }}
           {% endif %}
@@ -105,6 +122,11 @@
         "zh-CN": "logo 列表",
         "zh-TW": "標誌清單"
       }
+    },
+    {
+       "type": "text",
+       "id": "subtitle",
+       "label":"Subtitle"  
     }
   ],
   "blocks": [

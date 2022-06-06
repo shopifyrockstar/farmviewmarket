@@ -1,0 +1,10 @@
+<div class="blog-first-container" style="background-image: url({{ article.image | img_url: '1600x' }});">
+  <div class="blog-first-inner">
+    <div class="blog-first-content">
+     {% comment %}  <p class="blog-first-date">{{ article.published_at | time_tag: format: 'date' }}</p>{% endcomment %} 
+      <h2 class="blog-first-title">{{ article.title }}</h2>
+      <p class="blog-first-excerpt">{{ article.excerpt }}</p>
+      <a class="blog-first-btn" href="{{ article.url }}">Read story</a>
+    </div>
+  </div>
+</div>

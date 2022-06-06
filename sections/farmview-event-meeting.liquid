@@ -1,0 +1,166 @@
+<div class="page-width meeting-room-section">
+  {% if section.settings.main-title != blank %}
+  <div class="section-header text-center">
+    <h2>{{ section.settings.main-title | escape }}</h2>
+  </div>
+  {% endif %}
+  
+  <div class="meeting_room_blocks">
+    
+    <div class="left-icon-block">
+      <div class="icon-section">
+        <div class="icon-text">
+          <img class="butchers-club--image lazyload lazypreload"
+               src="{{ section.settings.icon-1| img_url: 'small' }}">
+          <p>{{ section.settings.text-1 | escape }}</p>
+        </div>
+        <div class="icon-text center-icon">
+          <img class="butchers-club--image lazyload lazypreload"
+               src="{{ section.settings.icon-2| img_url: 'small' }}">
+          <p>{{ section.settings.text-2 | escape }}</p>
+        </div>
+        <div class="icon-text">
+          <img class="butchers-club--image lazyload lazypreload"
+               src="{{ section.settings.icon-3| img_url: 'small' }}">
+          <p>{{ section.settings.text-3 | escape }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-img-block">
+      <div class="text-line">
+        <svg width="" height="" viewBox="0 0 660 274" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 137H330M330 137L1 273M330 137L1 1M330 137H659M330 137L659 273M330 137L659 1" stroke="url(#paint0_radial)"/>
+          <defs>
+            <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(330 137) rotate(-180) scale(329 466.941)">
+              <stop offset="0.615325" stop-color="#BCC1B7"/>
+              <stop offset="1" stop-color="#BCC1B7" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="club-image">
+        <img class="club-img lazyload lazypreload"
+             src="{{ section.settings.main-image| img_url: 'master' }}"
+             data-src="{{ img_url }}"
+             data-aspectratio=""
+             data-sizes="auto"
+             style="min-width: auto; object-position: center;"
+             alt="{{ section.settings.main-image | escape }}">
+      </div>
+    </div>
+
+    <div class="right-icon-block">
+      <div class="icon-section">
+        <div class="icon-text color-text">
+          <img class="butchers-club--image lazyload lazypreload"
+               src="{{ section.settings.icon-4| img_url: 'small' }}">
+          {% if section.settings.text_link != blank %}
+          <a href="{{ section.settings.text_link }}">            
+          {% endif %}
+            <p style="color:black;">{{ section.settings.text-4 | escape }}</p>
+            {% if section.settings.text_link != blank %}
+          </a>
+          {% endif %}
+        </div>
+        <div class="icon-text center-icon">
+          <img class="butchers-club--image lazyload lazypreload"
+               src="{{ section.settings.icon-5| img_url: 'small' }}">
+          <p>{{ section.settings.text-5 | escape }}</p>
+        </div>
+        <div class="icon-text color-text-link">
+          {{ section.settings.text-6  }}
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Meeting Room",
+  "class": "index-section section--featured-collection-promo meeting_room",
+  "settings": [
+	{
+      "type": "text",
+      "id": "main-title",
+      "label": "Main title"
+    },     
+	{
+        "type": "image_picker",
+        "id": "main-image",
+        "label": "Main image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon-1",
+      "label": "image 1"
+    },
+    {
+      "type": "text",
+      "id": "text-1",
+      "label": "text"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon-2",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text-2",
+      "label": "text"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon-3",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text-3",
+      "label": "text"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon-4",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text-4",
+      "label": "text"
+    },
+	{
+      "type": "url",
+      "id": "text_link",
+      "label": "text link"
+	},
+    {
+      "type": "image_picker",
+      "id": "icon-5",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text-5",
+      "label": "text"
+    },
+   {
+      "type": "html",
+      "id": "text-6",
+      "label": "text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Meeting Room",
+      "category": {
+         "en": "Collection"        
+      }
+    }
+  ]
+}
+{% endschema %}

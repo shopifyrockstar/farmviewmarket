@@ -1,0 +1,78 @@
+<div class="wholesale-contact-section">
+  <div class="wholesale-contact">
+    <div class="contact-copy-text">
+      <h4 class="inner-promo--title">{{ section.settings.contact_title }}</h4>
+      <p class="inner-promo--text">{{ section.settings.contact_text }}</p>
+    </div>    
+  </div>
+  
+  <div class="wholesale-contact-form">
+    <div class="contact-left">
+      <div  class="inner-promo--title">
+        <p class="icon"><svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 4L8.8906 9.2604C9.5624 9.7083 10.4376 9.7083 11.1094 9.2604L19 4M3 15H17C18.1046 15 19 14.1046 19 13V3C19 1.89543 18.1046 1 17 1H3C1.89543 1 1 1.89543 1 3V13C1 14.1046 1.89543 15 3 15Z" stroke="#8A9381" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg></p>
+        <p>{{ section.settings.form_left_title }}</p>
+      </div>
+        <div class="inner-promo--text">
+      {{ section.settings.form_left_text }}
+      </div>
+    </div>
+    <div class="contact-right">
+     <div class="inner-promo--title">
+     <p class="icon"><svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 4L8.8906 9.2604C9.5624 9.7083 10.4376 9.7083 11.1094 9.2604L19 4M3 15H17C18.1046 15 19 14.1046 19 13V3C19 1.89543 18.1046 1 17 1H3C1.89543 1 1 1.89543 1 3V13C1 14.1046 1.89543 15 3 15Z" stroke="#8A9381" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg></p>
+       <p> {{ section.settings.form_right_title }}</p>
+      </div>
+      <div class="inner-promo--text">
+     {{ section.settings.form_right_text }}
+      </div>
+    </div>
+  </div>
+ 
+</div>
+
+
+{% schema %}
+{
+  "name": "Wholesale Contact",
+  "class": "index-section section--featured-collection-promo wholesale-contact",
+  "settings": [
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Banner title",
+      "default": "Contact title"
+    },
+    {
+      "type": "textarea",
+      "id": "contact_text",
+      "label": "Contact text",
+      "default": "Banner text"
+    },
+    {
+      "type": "text",
+      "id": "form_left_title",
+      "label": "Form title",
+      "default": "Form title"
+    },
+    {
+      "type": "richtext",
+      "id": "form_left_text",
+      "label": "Contact text"
+    },
+    {
+      "type": "text",
+      "id": "form_right_title",
+      "label": "Form title",
+      "default": "Form title"
+    },
+    {
+      "type": "richtext",
+      "id": "form_right_text",
+      "label": "Contact text"
+    }
+  ]
+}
+{% endschema %}

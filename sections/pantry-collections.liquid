@@ -1,0 +1,110 @@
+{% comment %}
+** Image with Video - homepage partial **
+- Draggable section
+{% endcomment %}
+
+{% include 'include-collections-promo-custom' %}
+
+{% schema %}
+{
+  "name": "Collections Blocks",
+  "class": "index-section section--collections",
+  "settings": [
+  ],
+  "blocks": [
+  {
+    "name": "Collection",
+      "type": "collection",
+      "settings": [
+        {
+          "type": "text",
+          "id": "collection_title",
+          "label": "Collection title"
+        },
+        {
+          "type": "richtext",
+          "id": "collection_content",
+          "label": "Collection content"
+        },
+        {
+          "type": "image_picker",
+          "id": "block_image",
+          "label": "Collection Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "back_image",
+          "label": "Title Background Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "image_position",
+          "label": "Image right to text"
+        },
+        {
+          "type": "text",
+          "id": "btn_label",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button Link"
+        },
+        {
+          "id": "collection",
+          "type": "collection",
+          "label": {
+            "da": "Kollektion",
+            "de": "Kategorie",
+            "en": "Collection",
+            "es": "Colección",
+            "fi": "Kokoelma",
+            "fr": "Collection",
+            "hi": "कलेक्शन",
+            "it": "Collezione",
+            "ja": "コレクション",
+            "ko": "컬렉션",
+            "nb": "Samling",
+            "nl": "Collectie",
+            "pt-BR": "Coleção",
+            "pt-PT": "Coleção",
+            "sv": "Produktserie",
+            "th": "คอลเลกชัน",
+            "zh-CN": "收藏",
+            "zh-TW": "商品系列"
+          }
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pantry Collections",
+      "category": {
+        "da": "Kollektion",
+        "de": "Kategorie",
+        "en": "Collection",
+        "es": "Colección",
+        "fi": "Kokoelma",
+        "fr": "Collection",
+        "hi": "कलेक्शन",
+        "it": "Collezione",
+        "ja": "コレクション",
+        "ko": "컬렉션",
+        "nb": "Samling",
+        "nl": "Collectie",
+        "pt-BR": "Coleção",
+        "pt-PT": "Coleção",
+        "sv": "Produktserie",
+        "th": "คอลเลกชัน",
+        "zh-CN": "收藏",
+        "zh-TW": "商品系列"
+      }
+    }
+  ]
+}
+{% endschema %}
+
+
+

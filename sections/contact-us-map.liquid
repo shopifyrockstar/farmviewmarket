@@ -1,0 +1,98 @@
+{%- assign socials = "Facebook Twitter Pinterest Instagram Tumblr Snapchat YouTube Vimeo" | split: ' ' -%}
+<div class="google-map">	
+  <img class="lazyload map-image desktop-view" src="{{ section.settings.map_image | img_url: 'master' }}">  
+  <img class="lazyload map-image mobile-view" src="{{ section.settings.map_mobile_image | img_url: 'master' }}">  
+</div>
+<div class="contact-content">
+	<h1>{{ section.settings.header }}</h1>
+	<p>{{ section.settings.address_1 }}</p>
+	<p>{{ section.settings.address_2 }}</p>
+	<a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+	<a class="phone-number" href="tel:{{ section.settings.phone_number }}">{{ section.settings.phone_number }}</a>
+	{% if section.settings.social_sharing %}
+	<ul class="list--inline social-icons site-footer__icon-list contact-us-social">
+        {%- for social in socials -%}
+          {%- assign social_link = social | prepend: 'social_' | append: '_link' | downcase -%}
+          {%- assign icon_link = social | prepend: 'icon-' | downcase -%}
+          {%- if settings[social_link] != blank -%}
+            <li class="social-icons__item">
+              <a class="social-icons__link" href="{{ settings[social_link] | escape }}" aria-describedby="a11y-external-message">
+                {%- include icon_link -%}
+                <span class="icon__fallback-text">{{ social }}</span>
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+    </ul>
+    {% endif %}
+    <a class="btn map-btn" href="{{ section.settings.button_url }}">{{ section.settings.button_title }}</a>
+</div>
+
+{% schema %}
+{
+  "name": "Map Section",
+  "class": "contact-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Map Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "map_image",
+      "label": "Map image"
+    },
+    {
+      "type": "image_picker",
+      "id": "map_mobile_image",
+      "label": "Map mobile image"
+    },
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Contact Header",
+      "default": "Contact us"
+    },
+    {
+      "type": "text",
+      "id": "address_1",
+      "label": "Address 1",
+      "default": "2610 Eatonton Highway"
+    },
+    {
+      "type": "text",
+      "id": "address_2",
+      "label": "Address 2",
+      "default": "Madison, GA 30650 United States"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email Address",
+      "default": "support@farmviewmarket.com"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone Number",
+      "default": "678-729-1458"
+    },
+    {
+      "type": "text",
+      "id": "button_title",
+      "label": "Button title",
+      "default": "View on Google Maps"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button url"
+    },
+    {
+      "type": "checkbox",
+      "id": "social_sharing",
+      "label": "Enable Social Sharing"
+    }
+  ]
+}
+{% endschema %}

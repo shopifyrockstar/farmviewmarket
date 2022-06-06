@@ -1,0 +1,44 @@
+<div class="content-wrapper">
+  <img src="{{ section.settings.banner_image | img_url: 'master' }}">
+  <div class="copy-wrapper">
+    <h1>{{ section.settings.header }}</h1>
+    <p>{{ section.settings.text }}</p>
+    <a href="{{ section.settings.button_url }}" class="btn copy-promo--btn">{{ section.settings.button_label }}</a>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Middle Banner",
+  "class": "index-section cafe-section--middle-banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner image"
+    },
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Header title",
+      "default": "Farmers Market"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Promo text",
+      "default": "Our chef-prepared holiday dinners are full of seasonal favorites like our tender prime rib, or juicy tenderloin and smoked ham. And for dessert, our holiday pies, cakes, and cookies.  It’s your dinner – we’re just here to make it easy and delicious for you! Don’t wait to reserve your meal. Only available while supplies last."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "See more"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button url"
+    }
+  ]
+}
+{% endschema %}

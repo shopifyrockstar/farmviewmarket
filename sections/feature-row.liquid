@@ -1,4 +1,4 @@
-<div class="page-width feature-row {{ section.settings.custom_class }}" {% if section.settings.back_image != blank %} style="background-image:url({{ section.settings.back_image | img_url: 'master' }})" {% endif %}>
+<div class="page-width feature-row {{ section.settings.custom_class }} back-image-and-text" {% if section.settings.back_image != blank %} style="background-image:url({{ section.settings.back_image | img_url: 'master' }})" {% endif %}>
   {% capture image_layout %}
     <div class="feature-row__item">
       {% if section.settings.image != blank %}
@@ -34,15 +34,31 @@
     {% endif %}
 
     <div class="feature-row__item feature-row__text feature-row__text--{{ section.settings.layout }}">
+      {% if section.settings.title_image != blank %}
+        {%- comment -%}<img class="title_image" src="{{ section.settings.title_image | img_url: 'master' }}" alt="section.settings.title_image.alt"/>{%- endcomment -%}
+       {%- assign title_image_url = section.settings.title_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%} 
+        <img class="title_image lazyload lazypreload"
+                src="{{ section.settings.title_image | img_url: 'master' }}"
+                data-src="{{ title_image_url }}"
+                data-widths="[60, 100, 160, 200, 480, 560, 720]"
+                data-aspectratio="{{ section.settings.title_image.aspect_ratio }}"
+                data-sizes="auto"
+                style="min-width: auto; object-position: center;"
+                alt="{{ section.settings.title_image.alt | escape }}">       
+      {% endif %}
       {% if section.settings.title != blank %}
         <h2 class="title">{{ section.settings.title | escape }}</h2>
       {% endif %}
       {% if section.settings.subtitle != blank %}
       <h4 class="subtitle">{{ section.settings.subtitle | escape }}</h4>
       {% endif %}
+      {% if section.settings.divider %}
+      <img class="divider" src="https://cdn.shopify.com/s/files/1/0277/5518/4198/files/Pagination.png?v=1614363913" alt="divider"/>
+      {% endif %}
       {% if section.settings.text != blank %}
         <div class="rte rte-setting featured-row__subtext">{{ section.settings.text }}</div>
       {% endif %}
+      
       {% if section.settings.button_label != blank and section.settings.button_link != blank %}
         {%- capture ariaLabel -%}
           {{- section.settings.button_label -}}
@@ -246,10 +262,20 @@
         "zh-TW": "附文字的圖片"
       }
     },
+    {
+       "type": "image_picker",
+       "id": "title_image",
+       "label":"Title Image"  
+    },
 	{
        "type": "text",
        "id": "subtitle",
        "label":"Subtitle"  
+    },
+    {
+       "type": "checkbox",
+       "id": "divider",
+       "label":"Divider?"  
     },
     {
       "type": "richtext",

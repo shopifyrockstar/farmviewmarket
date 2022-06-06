@@ -16,11 +16,14 @@
     {% for block in section.blocks %}
     	
     <div class="grid__item medium-up--one-half js">
+      {% if block.settings.link != blank %}
+      <a href="{{ block.settings.link }}" class="">
+      {% endif %}
     	<div class="image-bar__item image-bar__item--{{ block.id }} box lazyload"
              data-bgset="{% include 'bgset', image: block.settings.image %}"
              data-sizes="auto"
              data-parent-fit="cover"
-             style="background-position: {{ block.settings.alignment }}; background-image: url('{{ block.settings.image | img_url: '300x300' }});">
+             style="background-position: {{ block.settings.alignment }}; background-image:linear-gradient(180deg, rgba(0, 0, 0, 0.4) 57.58%, rgba(0, 0, 0, 0) 100%), url('{{ block.settings.image | img_url: '300x300' }});">
           
           	<div class="image-bar__content image-bar__overlay">
                 <div class="image-bar__text">
@@ -31,19 +34,17 @@
                   {% endif %}
                   
                   <div class="content-wrapper">
-                  	<p class="image-bar__content"> {{ block.settings.cta_label }}</p>
-                    {% if block.settings.link != blank %}
-                    <a href="{{ block.settings.link }}" class="btn btn-arrow--right">
+                  	<p class="image-bar__content"> {{ block.settings.cta_label }}</p>                    
+                    <p class="btn btn-arrow--right">
                       <span class="chevron right"></span>
-                    </a>
-                  </div>
-                  
-                  {% endif %}
+                    </p>                    
+                  </div>                  
                 </div>
-              
             </div>
-          
         </div>
+      {% if block.settings.link != blank %}
+      	</a>
+      {% endif %}
     </div>
     {% endfor %}
  

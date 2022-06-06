@@ -1,0 +1,44 @@
+<div class="direction-wrapper clearfix">      
+  <div class="left-wrapper">
+    <h1 class="main-header">{{ section.settings.main_header }}<a href="{{ section.settings.url }}"><img class="arrow-image" src="{{ 'vector.png' | asset_img_url: 'master'}}"></a></h1>
+    <p>{{ section.settings.text_1 }}</p>
+  </div>
+  <div class="right-wrapper">
+    <a href="{{ section.settings.map_link }}"><img src="{{ section.settings.image_1 | img_url: 'master' }}"> </a>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Cafe directions",
+  "class": "index-section cafe-section--direction",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_header",
+      "label": "Main Header title",
+      "default": "Directions Cafe directions"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "Page url"
+    },
+    {
+      "type": "textarea",
+      "id": "text_1",
+      "label": "Promo text",
+      "default": "Located off 1-20 at Exit 114, just south of Madison"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "url",
+      "id": "map_link",
+      "label": "Map url"
+    }
+  ]
+}
+{% endschema %}

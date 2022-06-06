@@ -1,0 +1,320 @@
+/* Cheese Page */
+.promo-product--right:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(20.1deg, rgba(0, 0, 0, 0.49) 3.27%, rgba(0, 0, 0, 0) 60.94%);
+    top: 0;
+    left: 0;
+}
+.template-page-cheese .hero-page-hero-cheese .hero__inner .hero__inner-copy .mega-title{
+  /*
+	font-size: 4.5rem;
+    line-height: 4.5rem;
+  */
+}
+.template-page-cheese .hero-page-hero-cheese .hero__inner .hero__inner-copy .mega-subtitle p{
+  /*
+	font-size: 20px;
+    line-height: 32px;
+  */
+}
+.template-page-cheese .hero__btn{
+	margin-top: 40px;
+}
+.template-page-cheese .section--featured-collection-promo .product-left--copy .product-left--copy-text{
+	max-width: 100%;
+}
+.template-page-cheese .section--featured-collection-promo .product-left--copy .product-left--copy-text .copy-promo--title{
+  /*
+	font-size: 51px;
+    line-height: 56px;
+    margin-bottom: 8px;
+  */
+}
+.template-page-cheese .pantry-promo-collection .product-left--copy{
+	padding-top: 8.5rem;
+    padding-bottom: 12px;
+}
+.template-page-cheese .product-left--copy .copy-promo--text{
+  /*
+  font-size: 13px;
+  line-height: 22px;
+  margin-bottom: 15px;
+  max-width: 400px;
+  */
+}
+.template-page-cheese .section--featured-collection-promo .promo-product--right{
+	max-width: 50%;
+  	padding: 0 5.5rem 2rem 4rem;
+}
+.template-page-cheese .product-left--copy-text .copy-promo--btn{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    border-radius: 100px;	
+}
+.template-page-cheese .product-right--copy-text{
+	max-width: 100%;
+}
+.template-page-cheese .pantry-promo-collection .promo-product--right .btn{
+	display: inline-block;
+}
+.template-page-cheese .section--featured-collection-promo .promo-product--right .product-right--copy-text .inner-promo--title{
+  /*
+	font-weight: 600;
+    font-size: 32px;
+    line-height: 36px;
+    margin-bottom: 1rem;
+    max-width: 100%;	
+  */
+}
+.template-page-cheese .promo-product--right .inner-promo--text{
+  /*
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+  	margin-bottom: 6px;
+  */
+}
+.template-page-cheese .collection-wrapper .content-container{
+	padding: 0 1rem 0 4.5rem;
+}
+.cheese-collections.collections-container .collection-wrapper .heading-wrapper .content-container img{
+	opacity: 0.3;
+}
+.collections-container .collection-wrapper.first_collection .heading-wrapper .content-container .background_image{
+	left: 56px;
+    top: -97px;	
+}
+.collections-container .collection-wrapper.first_collection .heading-wrapper .content-container .second_background_image{
+	left: -200px;
+    top: -144px;
+}
+.cheese-collections .content-container{
+  max-width: 540px;
+  margin: 0 auto;
+}
+.cheese-collections .content-container h2{
+  /*
+	font-size: 51px;
+    line-height: 56px;
+    margin-bottom: 1rem;
+  	position: relative;
+  	font-weight: 800;
+  */
+}
+.cheese-collections .content-container h2:before{
+    position: absolute;
+    left: -44px;
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 5px solid #AA6E36;
+    border-radius: 50%;
+    top: calc(50% - 12px);
+  display:none;
+}
+.cheese-collections .content-container p{
+/* 	font-style: italic; */
+    font-size: 16px;
+    line-height: 28px;	
+}
+.cheese-collections .content-container .btn{
+/* 	line-height: 24px;
+    color: #192A18;
+    font-weight: 600;
+    border-radius: 100px; */
+  display:none;
+}
+.cheese-collections .product-promo--featured{
+	padding-top: 0;
+}
+.template-page-cheese .collection-wrapper .inverted-flex .content-container{
+	padding: 0;
+}
+.cheese-collections .inverted-flex .content-container h2:before{
+	left: -32px;
+}
+.collections-container .collection-wrapper.second_collection .heading-wrapper .content-container .background_image{
+    left: -45px;
+    top: -62px;
+}
+.collections-container .collection-wrapper.second_collection .heading-wrapper .content-container .second_background_image{
+    left: -35px;
+    top: -165px;
+}
+.template-page-cheese .section--featured-collection-promo .product-promo--featured .section-header h2{
+    font-weight: 800;
+    font-size: 51px;
+    line-height: 56px;	
+}
+.custom-cheese-img .hero__inner-copy{
+	max-width: 630px;
+}
+.custom-cheese-img .hero__inner-copy h3{
+	font-weight: bold;
+    font-size: 40px;
+    line-height: 42px;	
+}
+.custom-cheese-img .hero__inner-copy p{
+	font-weight: bold;
+    font-size: 13px;
+    line-height: 22px;	
+}
+.custom-cheese-img .rte-setting{
+	margin-bottom: 5px;
+}
+
+@media screen and (max-width: 1200px){
+  .template-page-cheese .section--featured-collection-promo .product-left--copy .product-left--copy-text .copy-promo--title,
+  .cheese-collections .content-container h2,
+  .template-page-cheese .section--featured-collection-promo .product-promo--featured .section-header h2{
+  	/*font-size: 3.25rem;*/
+  }
+  
+}
+
+@media screen and (max-width: 968px) and (min-width: 640px){
+  .template-page-cheese .section--featured-collection-promo .promo-product--right{
+	max-width: 100%;
+    padding: 0;
+    background-size: cover;  
+    margin: 0;
+  }
+  .template-page-cheese .product-right--copy-text{
+  	padding: 2rem;
+  }
+  .template-page-cheese .inner-promo--descr{
+	position: relative;
+    top: 0;
+    margin: 0;
+    width: 100%;	
+  }
+  .template-page-cheese .hero{
+  	height: 650px;
+  }
+  .cheese-collections .content-container h2{
+  	/*font-size: 42px;*/
+  }
+  .template-page-cheese .grid{
+	margin-left: -1rem;
+    margin-right: -1rem;
+  }
+  .template-page-cheese .product-promo--product .promo-product--right .product-right--copy-text{
+  	max-width: 50%;
+  }
+  .template-page-cheese .page-width{
+  	padding: 0 2rem;
+  }
+  .template-page-cheese .custom-cheese-img .hero{
+  	height: auto;
+  }
+  .template-page-cheese .pantry-promo-collection > div{
+  	background-position-y: 65%;
+  }
+}
+
+@media screen and (max-width: 639px){
+  .template-page-cheese .hero-page-hero-cheese .hero__inner .hero__inner-copy .mega-title{
+    /*
+    font-size: 51px;
+    line-height: 56px;
+    */
+  }
+  .template-page-cheese .mega-subtitle{
+  	margin-bottom: 0;
+  }
+  #shopify-section-page-hero-cheese .hero{
+  	height: 1100px;
+  }
+  .template-page-cheese .hero-page-hero-cheese .hero__inner .hero__inner-promo{
+  	max-width: 100%;
+  }
+  .template-page-cheese .hero-page-hero-cheese .hero__inner .hero__inner-promo .inner-promo--top{
+  	flex-direction: column;
+  }
+  .template-page-cheese .hero-banner-inner-pages .inner-promo--top .inner-promo--image{
+  	margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+  .template-page-cheese .hero__inner-promo .inner-promo--title{
+	font-size: 32px;
+    line-height: 36px;  	
+  }
+  .template-page-cheese .hero-page-hero-cheese .hero__inner .hero__inner-promo .inner-promo--top{
+  	margin-bottom: 16px;
+  }
+  .template-page-cheese .section--featured-collection-promo .promo-product--right{
+	max-width: 100%;
+    padding: 0;
+    height: 400px;
+    background-size: cover;
+  }
+  .template-page-cheese .section--featured-collection-promo .promo-product--right .product-right--copy-text{
+  	margin: 0 1rem;
+    padding-top: 140px;
+    padding-bottom: 32px;
+  }
+  .template-page-cheese .pantry-promo-collection > div{
+	background-size: 100%;
+    background-position-y: 120px;
+    background-position-x: -120px;  	
+  }
+  .template-page-cheese .section--featured-collection-promo .product-left--copy .product-left--copy-text .copy-promo--title{
+    /*
+ 	font-size: 40px;
+    line-height: 42px; 	
+    font-weight: 700;
+    */
+  }
+  .template-page-cheese .product-promo--product .product-left--copy{
+  	padding: 55px 0 10px 0;
+  }
+  .template-page-cheese .product-promo--product .product-left--copy .product-left--copy-text .copy-promo--btn{
+  	width: auto;
+    margin-bottom: 30px;
+  }
+  .template-page-cheese .collection-wrapper .content-container{
+  	padding: 0;
+  }
+  .template-page-cheese .section--featured-collection-promo .product-promo--featured .section-header h2{
+  	line-height: 42px;
+    margin-bottom: 24px;
+  }
+  .cheese-collections .content-container h2{
+    /*
+	font-size: 40px;
+    line-height: 42px;
+    font-weight: 700;
+    */
+  }
+  .cheese-collections .content-container h2:before{
+  	display: none;
+  }
+  .template-page-cheese .grid--view-items{
+  	margin-left: -15px;
+    margin-right: -15px;
+  }
+  .custom-cheese-img{
+/*   	display: none; */
+  }
+  .collections-container .collection-wrapper.first_collection .heading-wrapper .content-container .background_image{
+    left: -8px;
+    top: -67px;  	
+  }
+  .template-page-cheese .collections-container .collection-wrapper .second_background_image{
+  	display: none;
+  }
+  .collections-container .collection-wrapper.second_collection .heading-wrapper .content-container .background_image{
+	left: -25px;
+    top: -45px;  	
+  }
+  .collections-container .collection-wrapper.first_collection .heading-wrapper .image-container img{
+	min-height: 170px;
+    object-fit: cover;
+    object-position: right;  	
+  }
+}

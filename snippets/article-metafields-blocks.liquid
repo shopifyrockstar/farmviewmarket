@@ -1,0 +1,171 @@
+<div class="metafields-block-wrapper">
+  <div class="blog-events-blocks">
+    <div class="blog-events-page-template">
+      <div class="page-title article-events-link">
+        <h2>Upcoming events</h2>
+        <h2> <a href="https://www.farmviewmarket.com/blogs/events"><span>&gt;</span></a></h2>
+      </div>
+    </div>    
+    {% if article.metafields.custom_fields["upcoming"] != blank %}
+    {% assign settings = shop.metafields._cf_articles["upcoming"].settings %}
+    {% assign data_attr = shop.metafields._cf_articles["upcoming"].data_attr %}
+    {% comment %}
+    <div class="cf-widget-upcoming cf-widget__article-references" {{ data_attr }}>
+      <div class="cf-widget-items-wrapper">
+        {% for item in article.metafields.custom_fields["upcoming"] %}
+        {% assign article = blank %}
+        {% assign article_blog_handle = item.handle | split: "." %}
+        {% for a in blogs[article_blog_handle[0]].articles %}
+        {% if a.handle contains article_blog_handle[1] %}
+        {% assign article = a %}
+        {% break %}
+        {% endif %}
+        {% endfor %}
+
+        <div class="cf-widget-item" data-handle="{{ item.handle }}">
+          {% assign article_handle = item.handle %}
+          {% assign article_url = 'events/' | append: item.handle %}
+          {% assign article = articles[article_url] %}
+          <div class="inner" data-title="{{ article.title }}">        
+
+            <div class="cf-article-image-wrapper">
+              <img src="{{ article.image.src | img_url: "532x500", crop: "center" }}" class="cf-article-image">
+            </div>
+
+
+            <div class="cf-article-info">
+
+              {% if item.upcoming_time != blank %}
+              <div class="cf-widget-field cf-widget-field__upcoming_time cf-widget-field--text">
+                {{ item.upcoming_time }}
+              </div>
+              {% endif %}
+
+              <div class="cf-article-title">
+                {% if item.title_override != blank %}
+                {{ item.title_override }}
+                {% else %}
+                {{ article.title | truncate: 40 }}
+                {% endif %}
+              </div>            
+
+              {% if item.description != blank %}
+              <div class="cf-widget-field cf-widget-field__description cf-widget-field--html">
+                {{ item.description }}
+              </div>
+              {% endif %}
+
+              {% if item.upcoming_link  != blank %}
+              <a class="btn cf-article-custom-link-text" href="{{ article.url }}">
+                {{ item.upcoming_link  }}
+              </a>
+              {% endif %}
+
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+    {% endcomment %}
+
+    <div class="custom-pagination blog-events-items">
+      <ul class="grid grid--uniform grid--view-items">
+        {% for item in article.metafields.custom_fields["upcoming"] %}
+        {% assign article = blank %}
+        {% assign article_blog_handle = item.handle | split: "." %}
+        {% for a in blogs[article_blog_handle[0]].articles %}
+        {% if a.handle contains article_blog_handle[1] %}
+        {% assign article = a %}
+        {% break %}
+        {% endif %}
+        {% endfor %}
+
+        <div class="grid__item small--one-half medium-up--one-quarter js" data-handle="{{ item.handle }}">
+          {% assign article_handle = item.handle %}
+          {% assign article_url = 'events/' | append: item.handle %}
+          {% assign article = articles[article_url] %}
+          <div class="inner" data-title="{{ article.title }}">        
+
+            <div class="image-bar__item">
+              <div class="event-image">
+                <img src="{{ article.image.src | img_url: "532x500", crop: "center" }}" class="blog-evnet-image lazyload lazypreload">
+              </div>            
+            </div>
+
+
+            <div class="image-bar__content seasonal-recipes">
+              <div class="image-bar__text">
+
+                {% if item.upcoming_time != blank %}
+                <p class="date-name">{{ item.upcoming_time }}</p>
+                {% endif %}
+
+                <h4 class="image-bar__title">
+                  {% if item.title_override != blank %}
+                  {{ item.title_override }}
+                  {% else %}
+                  {{ article.title | truncate: 40 }}
+                  {% endif %}
+                </h4>
+
+
+                {% if item.description != blank %}              
+                {{ item.description }}              
+                {% endif %}
+
+
+                <div class="button-link">
+                  <p class="price"></p>
+                  {% if item.upcoming_link  != blank %}
+                  <a href="{{ article.url }}" class="btn hero__btn">
+                    <span>{{ item.upcoming_link  }}</span>
+                  </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+            {% comment %}
+            <div class="cf-article-info">
+
+
+
+              <div class="cf-article-title">
+                {% if item.title_override != blank %}
+                {{ item.title_override }}
+                {% else %}
+                {{ article.title | truncate: 40 }}
+                {% endif %}
+              </div>            
+
+              {% if item.description != blank %}
+              <div class="cf-widget-field cf-widget-field__description cf-widget-field--html">
+                {{ item.description }}
+              </div>
+              {% endif %}
+
+              {% if item.upcoming_link  != blank %}
+              <a class="btn cf-article-custom-link-text" href="{{ article.url }}">
+                {{ item.upcoming_link  }}
+              </a>
+              {% endif %}
+
+            </div>
+            {% endcomment %}
+
+
+          </div>
+        </div>
+
+        {% endfor %}
+      </ul>
+    </div>
+
+
+
+
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div id="centered-section" class="storyGifting-wrapper clearfix">  
+  <h1 class="main-header">{{ section.settings.main_header }}</h1>
+  <div class="storyGifting-content-wrapper-wrapper">
+    {% for block in section.blocks %}
+      <div class="storyGifting-content-wrapper">
+        <div class="storyGifting-content-wrapper-image">
+        	<img src="{{ block.settings.container_image | img_url: 'master' }}">
+        </div>
+        <h3>{{ block.settings.container_header }}</h3>
+        <p>{{ block.settings.container_text }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  
+</div>
+{% schema %}
+{
+  "name": "Recipes",
+  "class": "index-section story-blog-corporate",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_header",
+      "label": "Main Header title",
+      "default": "Short value adds title"
+    }
+  ],
+  "blocks": [
+     {
+       "name": "Column",
+       "type": "column",
+       "settings": [
+         {
+           "type": "image_picker",
+           "id": "container_image",
+           "label": "Image"
+         },
+		 {
+           "type": "text",
+           "id": "container_header",
+           "label": "Heading"
+         },
+		 {
+           "type": "textarea",
+           "id": "container_text",
+           "label": "Text"
+         }
+       ]
+     }
+   ]
+}
+{% endschema %}

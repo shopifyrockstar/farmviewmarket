@@ -1,0 +1,8 @@
+{% if article.metafields.custom_fields["date"] != blank %}
+  <div class="custom-field custom-field__date custom-field__type--text">
+    <h3 class="custom-field--title">date</h3>
+    <div class="custom-field--value">
+      {{ article.metafields.custom_fields["date"] }}
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,361 @@
+<div class="rokehouse-featured" {% if section.settings.section_back_image != blank %} style="background-image: url({{ section.settings.section_back_image | img_url: 'master' }});" {% endif %}>
+  <div class="mobile-background-image">
+  <img src="{{ section.settings.mobile_bg_img | img_url: "master"}}">
+  </div>
+  <div class="product-promo--product">
+      <div class="promo-product--right lazyload"
+      data-bgset="{% include 'bgset', image: section.settings.banner_image %}"
+      data-sizes="auto"
+      data-parent-fit="cover"
+      style="background-image: url('{{ section.settings.banner_image | img_url: '300x300' }});">
+        <div class="product-right--copy-text">
+          <h4 class="inner-promo--title">{{ section.settings.banner_title }}</h4>
+          <p class="inner-promo--text">{{ section.settings.banner_text }}</p>
+          <a href="{{ section.settings.banner_url }}"
+            class="btn btn-arrow--right">
+            <span class="chevron right"></span>
+          </a>
+        </div>    
+      </div>
+      <div class="page-width">
+        <div class="featured-img product-left--copy lazyload"
+          data-bgset="{% include 'bgset', image: section.settings.left_image %}"
+          data-sizes="auto"
+          data-parent-fit="cover"
+          style="background-image: url('{{ section.settings.left_image | img_url: '300x300' }});">
+          <img class="hide-desktop" src="{{ section.settings.left_image | img_url: '300x300' }}" alt="product image"/>
+          <div class="product-left--copy-text">
+            <h2 class="copy-promo--title">{{ section.settings.left_title }}</h2>
+            <p class="copy-promo--text">{{ section.settings.left_text }}</p>
+            {% if section.settings.left_url != blank %}
+            	<a href="{{ section.settings.left_url }}" class="btn copy-promo--btn">{{ section.settings.left_label }}</a>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="roke-house-featured product-promo--featured" {% if section.settings.featured_back_image != blank %} style="background-image: url({{ section.settings.featured_back_image | img_url: 'master' }}), url({{ section.settings.featured_back_texture | img_url: 'master' }});" {% endif %}>
+      <div class="grid--view-items">
+      <div class="page-width rockhouse-specialites">
+        {% if section.settings.title != blank %}
+          <div class="section-header text-left">
+            <h2>{{ section.settings.title | escape }}</h2>            
+          </div>
+        {% endif %}
+        <div class="grid--view-items">
+        <div class="content-wrapper grid__item">
+          <div class="image-wrapper">
+            <img src="{{ section.settings.left_image_1 | img_url: '400x' }}">
+          </div>
+          <div class="text-wrapper">
+            <h4>{{ section.settings.left_title_1 }}</h4>
+            {{ section.settings.left_text_1 }}
+          </div>
+          <div class="link-wrapper">
+          	{% if section.settings.left_link_1 != blank %}
+            <a class="btn" href="{{ section.settings.left_link_1 }}">{{ section.settings.left_label_1 }}</a>
+            {% endif %}
+          </div>
+         
+        </div>
+        <div class="content-wrapper grid__item">
+          <div class="image-wrapper">
+            <img src="{{ section.settings.left_image_2 | img_url: '400x' }}">
+          </div>
+          <div class="text-wrapper">
+            <h4>{{ section.settings.left_title_2 }}</h4>
+            {{ section.settings.left_text_2 }}
+          </div>
+          <div class="link-wrapper">
+          	{% if section.settings.left_link_2 != blank %}
+            <a class="btn" href="{{ section.settings.left_link_2 }}">{{ section.settings.left_label_2 }}</a>
+            {% endif %}
+          </div>
+        </div>
+        <div class="content-wrapper grid__item">
+          <div class="image-wrapper">
+            <img src="{{ section.settings.left_image_3 | img_url: '400x' }}">
+          </div>
+          <div class="text-wrapper">
+            <h4>{{ section.settings.left_title_3 }}</h4>
+            {{ section.settings.left_text_3 }}
+          </div>
+          <div class="link-wrapper">
+          	{% if section.settings.left_link_3 != blank %}
+            <a class="btn" href="{{ section.settings.left_link_3 }}">{{ section.settings.left_label_3 }}</a>
+            {% endif %}
+          </div>
+        </div>
+        <div class="content-wrapper grid__item">
+          <div class="image-wrapper">
+            <img src="{{ section.settings.left_image_4 | img_url: '400x' }}">
+          </div>
+          <div class="text-wrapper">
+            <h4>{{ section.settings.left_title_4 }}</h4>
+             {{ section.settings.left_text_4 }}
+          </div>
+          <div class="link-wrapper">
+          	{% if section.settings.left_link_4 != blank %}
+            <a class="btn" href="{{ section.settings.left_link_4 }}">{{ section.settings.left_label_4 }}</a>
+            {% endif %}
+          </div>
+        </div>
+        </div>
+
+      </div>
+      </div>
+    </div>
+
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Featured coll with promo",
+  "class": "index-section section--featured-collection-promo rockhouse-featured-promo",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "section_back_image",
+      "label": "Section Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_bg_img",
+      "label": "Section Background Mobile Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_back_texture",
+      "label": "Section Background Texture"
+    },
+    {
+      "type": "header",
+      "content": "Promo product & banner"
+    },
+    {
+      "type": "text",
+      "id": "left_title",
+      "label": "Promo title",
+      "default": "Curated boxes of grass-fed, free-range meat"
+    },
+    {
+      "type": "textarea",
+      "id": "left_text",
+      "label": "Promo text",
+      "default": "Local farm partnerships allow us to maintain the highest quality and source the best lamb, pork and wagyu beef in Georgia."
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Promo product image"
+    },
+    {
+      "type": "text",
+      "id": "left_label",
+      "label": "Button label",
+      "default": "Learn about us"
+    },
+    {
+      "type": "url",
+      "id": "left_url",
+      "label": "Button url"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner title",
+      "default": "Curated boxes of grass-fed, free-range meat"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_text",
+      "label": "Banner text",
+      "default": "Local farm partnerships allow us to maintain the highest quality and source the best lamb, pork and wagyu beef in Georgia."
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner image"
+    },
+    {
+      "type": "url",
+      "id": "banner_url",
+      "label": "Banner url"
+    },
+    {
+      "type": "header",
+      "content": "Featured collection"
+    },
+    {
+      "type": "image_picker",
+      "id": "featured_back_image",
+      "label": "Featured collection Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "featured_back_texture",
+      "label": "Featured collection Background Texture"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "da": "Overskrift",
+        "de": "Titel",
+        "en": "Heading",
+        "es": "Título",
+        "fi": "Otsake",
+        "fr": "En-tête",
+        "hi": "शीर्षक",
+        "it": "Heading",
+        "ja": "見出し",
+        "ko": "제목",
+        "nb": "Overskrift",
+        "nl": "Kop",
+        "pt-BR": "Título",
+        "pt-PT": "Título",
+        "sv": "Rubrik",
+        "th": "ส่วนหัว",
+        "zh-CN": "标题",
+        "zh-TW": "標題"
+      },
+      "default": {
+        "da": "Udvalgt kollektion",
+        "de": "Vorgestellte Kategorie",
+        "en": "Featured collection",
+        "es": "Colección destacada",
+        "fi": "Esittelyssä oleva kokoelma",
+        "fr": "Collection en vedette",
+        "hi": "फ़ीचर्ड कलेक्शन",
+        "it": "Collezione in evidenza",
+        "ja": "特集コレクション",
+        "ko": "추천 컬렉션",
+        "nb": "Fremhevet samling",
+        "nl": "Uitgelichte collectie",
+        "pt-BR": "Coleção em destaque",
+        "pt-PT": "Coleção em destaque",
+        "sv": "Utvald kollektion",
+        "th": "คอลเลกชันแนะนำ",
+        "zh-CN": "特色产品系列",
+        "zh-TW": "精選商品系列"
+      }
+    },
+	{
+      "type": "header",
+      "content": "Specialty Content"
+    },
+	{
+      "type": "image_picker",
+      "id": "left_image_1",
+      "label": "Left Image"
+    },
+    {
+      "type": "text",
+      "id": "left_title_1",
+      "label": "Promo title",
+      "default": "Grits and Cornmeal"
+    },
+    {
+      "type": "html",
+      "id": "left_text_1",
+      "label": "Promo text",
+      "default": "Two varieties of heirloom corn give Rock House Farm grits and cornmeal an exceptional flavor. We mill the corn in our grist mill each day to make Hickory King grits and cornmeal and Bloody Butcher cornmeal."
+    },
+  	{
+      "type": "url",
+      "id": "left_link_1",
+      "label": "Promo Link"
+    },
+  	{
+      "type": "text",
+      "id": "left_label_1",
+      "label": "Promo Label"
+    },
+	{
+      "type": "image_picker",
+      "id": "left_image_2",
+      "label": "Left Image"
+    },
+    {
+      "type": "text",
+      "id": "left_title_2",
+      "label": "Promo title",
+      "default": "Local Grassfed Beef"
+    },
+    {
+      "type": "html",
+      "id": "left_text_2",
+      "label": "Promo text",
+      "default": "Two varieties of heirloom corn give Rock House Farm grits and cornmeal an exceptional flavor. We mill the corn in our grist mill each day to make Hickory King grits and cornmeal and Bloody Butcher cornmeal."
+    },
+  	{
+      "type": "url",
+      "id": "left_link_2",
+      "label": "Promo Link"
+    },
+  	{
+      "type": "text",
+      "id": "left_label_2",
+      "label": "Promo Label"
+    },
+	{
+      "type": "image_picker",
+      "id": "left_image_3",
+      "label": "Left Image"
+    },
+    {
+      "type": "text",
+      "id": "left_title_3",
+      "label": "Promo title",
+      "default": "Berkshire Pork"
+    },
+    {
+      "type": "html",
+      "id": "left_text_3",
+      "label": "Promo text",
+      "default": "Two varieties of heirloom corn give Rock House Farm grits and cornmeal an exceptional flavor. We mill the corn in our grist mill each day to make Hickory King grits and cornmeal and Bloody Butcher cornmeal."
+    },
+  	{
+      "type": "url",
+      "id": "left_link_3",
+      "label": "Promo Link"
+    },
+  	{
+      "type": "text",
+      "id": "left_label_3",
+      "label": "Promo Label"
+    },
+	{
+      "type": "image_picker",
+      "id": "left_image_4",
+      "label": "Left Image"
+    },
+    {
+      "type": "text",
+      "id": "left_title_4",
+      "label": "Promo title",
+      "default": "Rock House Creamery"
+    },
+    {
+      "type": "html",
+      "id": "left_text_4",
+      "label": "Promo text",
+      "default": "Two varieties of heirloom corn give Rock House Farm grits and cornmeal an exceptional flavor. We mill the corn in our grist mill each day to make Hickory King grits and cornmeal and Bloody Butcher cornmeal."
+    },
+  	{
+      "type": "url",
+      "id": "left_link_4",
+      "label": "Promo Link"
+    },
+  	{
+      "type": "text",
+      "id": "left_label_4",
+      "label": "Promo Label"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,158 @@
+<div class="farmers-market-page-wrapper farmers-market-bg">
+   <div class="page-width">
+    <div class="farmers-market-page-container">
+      <div class="farmers-market-page-left">
+        <div class="farmers-market-details-text">
+          <h2 class="farmers-market-details-title">{{ section.settings.left_header }}</h2>
+          <p class="farmers-market-details-message">{{ section.settings.left_text }}</p>
+        </div>
+        <picture class="farmers-market-details-image">          
+          <img src="{{ section.settings.left_image | img_url: 'master' }}">
+        </picture>
+      </div>
+
+      <div class="farmers-market-page-right">
+        <h2 class="farmers-market-events-title">{{ section.settings.right_header }}</h2>
+
+        <div class="farmers-market-events-list">
+          
+          {% for block in section.blocks %}
+            <div class="farmers-market-events-list-item">
+              <img class="farmers-market-events-list-item-image" src="{{ block.settings.tab_image | img_url: 'master'}}">
+              <div class="farmers-market-events-list-item-text">
+                <p class="farmers-market-events-list-item-title">{{ block.settings.tab_title }}</p>
+                <p class="farmers-market-events-list-item-date">{{ block.settings.tab_content_title }}</p>
+              </div>
+              <div class="farmers-market-events-list-item-arrow">
+                <a href="{{ block.settings.link_url }}"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0.29289 0.29289C-0.09763 0.68342 -0.0976301 1.31658 0.29289 1.70711L3.5858 5L0.29289 8.2929C-0.0976304 8.6834 -0.0976304 9.3166 0.29289 9.7071C0.68342 10.0976 1.31658 10.0976 1.70711 9.7071L5.7071 5.7071C6.0976 5.3166 6.0976 4.68342 5.7071 4.29289L1.70711 0.29289C1.31658 -0.0976299 0.68342 -0.09763 0.29289 0.29289Z" fill="#242721"/>
+                  </svg></a>
+              </div>
+            </div>
+            {% unless forloop.last == true %}
+            	<hr class="farmers-market-events-hr">
+            {% endunless %}
+          {% endfor %}
+        </div>
+
+        <div class="farmers-market-question">
+          <h3 class="farmers-market-question-title">{{ section.settings.right_vendor_title }}</h3>
+          <p class="farmers-market-question-message">{{ section.settings.right_vendor_content }}</p>
+        </div>
+
+        <div class="farmers-market-question">
+          <h3 class="farmers-market-question-title">{{ section.settings.right_question_title }}</h3>
+          <p class="farmers-market-question-message">{{ section.settings.right_question_content }}</p>
+        </div>
+
+        <a class="farmers-market-map-image-wrapper" href="{{ section.settings.map_url }}" target="_blank">
+          <picture class="farmers-market-map-image">            
+            <img src="{{ section.settings.map_image | img_url: 'master' }}">
+          </picture>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Farmers Market Content",
+  "class": "market-content",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left Content"
+    },
+    {
+      "type": "text",
+      "id": "left_header",
+      "label": "Left Header",
+      "default": "Sat. 9/19 is our last regular season Farmers Market!"
+    },
+    {
+      "type": "text",
+      "id": "left_text",
+      "label": "Left Text",
+      "default": "In addition to our regular weekly market, we have several events planned this year that coincide with the farmers market that you won’t want to miss!"
+    },
+	{
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Image"
+    },
+	{
+      "type": "header",
+      "content": "Right Content"
+    },
+    {
+      "type": "text",
+      "id": "right_header",
+      "label": "Right Header",
+      "default": "2020 Events"
+    },
+	{
+      "type": "text",
+      "id": "right_vendor_title",
+      "label": "Title",
+      "default": "Interested in becoming a vendor?"
+    },
+	{
+      "type": "textarea",
+      "id": "right_vendor_content",
+      "label": "Content",
+      "default": "Weekly Space Rental is $10, or $175 for the entire year. Download an application and guidelines to get started."
+    },
+	{
+      "type": "text",
+      "id": "right_question_title",
+      "label": "Title",
+      "default": "Questions?"
+    },
+	{
+      "type": "textarea",
+      "id": "right_question_content",
+      "label": "Content",
+      "default": "For more info, contact"
+    },
+    {
+      "type": "url",
+      "id": "map_url",
+      "label": "Map Link"
+    },
+	{
+      "type": "image_picker",
+      "id": "map_image",
+      "label": "Map Image"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Event",
+        "type": "Tabs",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "tab_image",
+            "label": "Tab Image"
+          },
+          {
+            "type": "text",
+            "id": "tab_title",
+            "label": "Tab title"
+          },
+          {
+            "type": "text",
+            "id": "tab_content_title",
+            "label": "Tab content title"
+          },
+          {
+            "type": "url",
+            "id": "link_url",
+            "label": "Button url"
+          }
+        ]
+      }
+    ]
+}
+{% endschema %}

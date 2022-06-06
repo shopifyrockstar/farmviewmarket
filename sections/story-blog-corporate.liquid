@@ -1,0 +1,75 @@
+<div class="storyGifting-wrapper clearfix">  
+  <h2 class="main-header">{{ section.settings.main_header }}</h2>
+  <div class="storyGifting-content-wrapper-wrapper">
+    {% for block in section.blocks %}
+      <div class="storyGifting-content-wrapper">
+        <a href="{{ block.settings.container_url }}">
+          <div class="storyGifting-content-wrapper-image" style="background:url({{ block.settings.container_image | img_url: 'master' }}) no-repeat;background-size:cover;">
+              <div class="storyGifting-content-wrapper-image-overlay">
+                <span class="gifts_subtext">Gifts Under</span>
+                <span class="gifts_pricing">${{ block.settings.container_pricing }}</span>
+              </div>
+          </div>
+        </a>
+        <h3>{{ block.settings.container_header }}</h3>
+        <p>{{ block.settings.container_text }}</p>
+        <a href="{{ block.settings.container_url }}" class="btn copy-promo--btn">
+          {{ block.settings.container_url_text }}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  
+</div>
+{% schema %}
+{
+  "name": "Gifting",
+  "class": "index-section  story-blog-corporate",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_header",
+      "label": "Main Header title",
+      "default": "Gifting"
+    }
+  ],
+  "blocks": [
+     {
+       "name": "Column",
+       "type": "column",
+       "settings": [
+         {
+           "type": "image_picker",
+           "id": "container_image",
+           "label": "Image"
+         },
+		 {
+           "type": "text",
+           "id": "container_header",
+           "label": "Heading"
+         },
+		 {
+           "type": "textarea",
+           "id": "container_text",
+           "label": "Text"
+         },
+		 {
+           "type": "url",
+           "id": "container_url",
+           "label": "Button Url"
+         },
+		 {
+           "type": "text",
+           "id": "container_url_text",
+           "label": "Button Text"
+         },
+		 {
+           "type": "number",
+           "id": "container_pricing",
+           "label": "Pricing"
+         }
+       ]
+     }
+   ]
+}
+{% endschema %}

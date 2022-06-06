@@ -1,0 +1,64 @@
+<div class="content-wrapper">
+  <div class="left-wrapper">    
+    <div class="left-text-wrapper">
+      <h1>{{ section.settings.left_header }}</h1>
+      <p>{{ section.settings.left_text }}</p>
+      <a class="btn" href="{{ section.settings.button_url }}">{{ section.settings.button_title }}</a>  
+    </div>
+    <div class="left-image-wrapper">
+      <img class="lazyload" src="{{ section.settings.left_image | img_url: 'master' }}">
+    </div>
+  </div>  
+  <div class="right-wrapper" >    
+  </div>
+  <img class="lazyload right-image" src="{{ section.settings.right_image | img_url: 'master' }}">
+</div>
+{% schema %}
+{
+  "name": "Left content Right Image",
+  "class": "homegift-section left-content-right-image",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left Content"
+    },
+    {
+      "type": "text",
+      "id": "left_header",
+      "label": "Left Header",
+      "default": "Home Goods & Decor"
+    },
+    {
+      "type": "text",
+      "id": "left_text",
+      "label": "Left Text",
+      "default": "Shop for home decor and kitchen accessories from local Georgia artisans."
+    },
+    {
+      "type": "text",
+      "id": "button_title",
+      "label": "Button text",
+      "default": "See all goods"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button url"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left bottom image"
+    },
+    {
+      "type": "header",
+      "content": "Right Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right side image"
+    }
+  ]
+}
+{% endschema %}

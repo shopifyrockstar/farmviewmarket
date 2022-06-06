@@ -6,7 +6,18 @@
     - The output CSS is compressed and comments are removed
     - You cannot use native CSS/Sass @imports in this file without a build script
 ==============================================================================*/
-
+/*FONT*/
+@font-face {
+  font-family: claredon;
+  src: url({{ 'ClarendonRoman.ttf' | asset_url }});
+}
+@font-face {
+  font-family: gotham-bold;
+  src: url({{ 'Gotham_Bold.otf' | asset_url }});
+}
+body{
+	font-family: gotham-bold;
+}
 
 $rem-base: 16px;
 
@@ -385,7 +396,7 @@ $rem-base: 16px;
 ==============================================================================*/
 $grid-medium: 768px;
 $grid-large: 990px;
-$grid-widescreen: 1400px;
+$grid-widescreen: 1440px;
 $grid-gutter: 24px;
 $grid-gutter-mobile: 20px;
 
@@ -504,7 +515,7 @@ $gutter-site: rem-calc(80);
 $gutter-site-mobile: 24px;
 $section-spacing: 55px;
 $section-spacing-small: 35px;
-$border-radius: 24px;
+$border-radius: 100px;
 $icon-size: 20px;
 $connected-submit-size: $icon-size * 2.5;
 
@@ -1489,17 +1500,21 @@ h1 {
 
   @include media-query($small) {
     //font-size: em(floor($font-size-header * 1.25));
-    font-size: 60px;
+    //font-size: 60px;
+  }
+  @media only screen and (max-width: 968px){
+  
+    font-size: 51px;
   }
 }
 
 h2 {
   //font-size: em(floor($font-size-header * 0.78));
-  font-size: rem-calc(51);
+  font-size: rem-calc(40);
   text-transform: none;
   letter-spacing: 0;
 
-  @include media-query($small) {
+  @media only screen and (max-width: 968px) {
     //font-size: em(floor(($font-size-header * 0.78) * 0.9));
     font-size: 40px;
   }
@@ -1511,7 +1526,7 @@ h3 {
   text-transform: none;
   letter-spacing: 0;
 
-  @include media-query($small) {
+  @media only screen and (max-width: 968px) {
     //font-size: em(floor($font-size-header * 0.78));
     font-size: 35px;
   }
@@ -1521,7 +1536,7 @@ h4 {
   //font-size: em(floor($font-size-header * 0.68));
  	font-size: rem-calc(32);
   font-weight:600;
-  @include media-query($small) {
+  @media only screen and (max-width: 968px){
     //font-size: em(floor(($font-size-header * 0.68) * 0.9));
     font-size: 30px;
   }
@@ -1530,7 +1545,7 @@ h4 {
 h5 {
   //font-size: em(floor($font-size-header * 0.58));
   font-size: rem-calc(25);
-  @include media-query($small) {
+  @media only screen and (max-width: 968px){
     //font-size: em(floor(($font-size-header * 0.58) * 0.9));
     font-size: 25px;
   }
@@ -1539,7 +1554,7 @@ h5 {
 h6 {
   //font-size: em(floor($font-size-header * 0.54));
 	font-size: rem-calc(20);
-  @include media-query($small) {
+  @media only screen and (max-width: 968px){
     //font-size: em(floor(($font-size-header * 0.54) * 0.9));
      font-size: 20px;
   }
@@ -2032,6 +2047,16 @@ a[href^="tel"] {
   border-radius: 100px;
   padding: 16px;
   display: inline-block;
+  @media (max-width:1299px){
+    padding: 10px;
+    width: 36px;
+    height: 36px;
+  }
+  @media (max-width:968px){
+    padding: 16px;
+    width: 48px;
+    height: 48px;
+  }
 
   .chevron {
     &:before {
@@ -2105,9 +2130,9 @@ a[href^="tel"] {
 
 .text-link--accent {
   color: $color-btn-primary;
-  border-bottom: 1px solid currentColor;
+  //border-bottom: 1px solid currentColor;
   padding-bottom: 1px;
-
+  font-weight:700;
   &:not([disabled]):hover,
   &:focus {
     color: $color-btn-primary-focus;
@@ -2216,13 +2241,14 @@ svg:not(:root) {
 }
 
 .video-wrapper {
+
   position: relative;
   overflow: hidden;
   max-width: 100%;
   padding-bottom: 56.25%;
   height: 0;
   height: auto;
-
+	//padding-bottom: calc(685 / 1440 * 100%); /* 41.66666667% */
   iframe {
     position: absolute;
     top: 0;
@@ -2639,8 +2665,9 @@ textarea {
   }
 }
 #AccessibleNav {
-  @include media-query($widescreen-down) {
+  @include media-query($medium-down) {
     display: none;
+    
   }
 }
 
@@ -2775,14 +2802,14 @@ textarea {
 }
 
 .site-nav__childlist-grid {
-  @include display-flexbox();
-  @include flex-wrap(wrap);
+  /*@include display-flexbox();
+  @include flex-wrap(wrap);*/
   width: auto;
   margin-bottom: -15px;
 }
 
 .site-nav__childlist-item {
-  @include flex(0 1 auto);
+ /* @include flex(0 1 auto)*/;
   margin-bottom: 15px;
 }
 
@@ -3042,7 +3069,8 @@ hr {
   width: 100%;
   .grid-view-item__image-wrapper & {
     position: absolute;
-    top: 0;
+    //top: 0;
+    bottom:0;
   }
 
   &.lazyload {
@@ -4219,7 +4247,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   opacity: 1;
 
   @include media-query($small) {
-    height: 180px;
+    height: 100%;
   }
 }
 
@@ -4969,7 +4997,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   position: relative;
   white-space: nowrap;
 
-  @include media-query($widescreen-down) {
+  @include media-query($medium-down) {
     width: 80%;
   }
 
@@ -5008,7 +5036,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   &.site-header__icon {
     display: none;
 
-    @include media-query($widescreen) {
+    @include media-query($medium-down) {
       display: block;
     }
   }
@@ -5083,7 +5111,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 }
 
 .site-header__icon {
-  @include media-query($widescreen-down) {
+  @include media-query($medium-down) {
     display: inline-block;
     vertical-align: middle;
     padding: 10px 11px;
@@ -7154,10 +7182,10 @@ $transition-controls-slideshow: color 0.2s $ease-transition,
   }
 }
 
-.price-item {
+/*.price-item {
   color: $color-body-text;
   font-weight: $font-weight-body--bolder;
-}
+} */
 
 .price-item--sale {
   color: $color-sale-text;
@@ -7241,7 +7269,7 @@ $toolbar-height-small: 46px;
   margin-bottom: $gutter-site-mobile;
 
   @include media-query($medium-up) {
-    margin-bottom: $section-spacing;
+   // margin-bottom: $section-spacing;
   }
 }
 
@@ -8413,7 +8441,7 @@ $linklist-spacing-small: 12px;
     }
 
     .product-card__title {
-      border-bottom-color: $color-text;
+      //border-bottom-color: $color-text;
     }
   }
 }
@@ -8988,7 +9016,8 @@ $min-height-disclosure: 92px;
   display: flex;
   width: 100%;
   flex-direction: row;
-
+  align-items: center;
+  
   .inner-promo--text {
     margin-bottom: 0;
     margin-right: 8px;
@@ -9020,10 +9049,7 @@ $min-height-disclosure: 92px;
 } 
 /*================ section--featured-collection-promo ================*/
 .section--featured-collection-promo {
-  background-image:  url({{ "farmview-curated-boxes-grass-fed-center-2.png" | asset_url }}), url({{ "bg-rect-promo-left.png" | asset_url }});
-  background-position: left center, left top;
-  background-repeat: no-repeat, repeat-x;
-  background-size: 460px 678px, auto 814px;
+ 
 }
 .product-promo--product {
   position: relative;
@@ -9046,7 +9072,7 @@ $min-height-disclosure: 92px;
   flex-direction: column;
   height: 100%;
   color: #fff;
-  max-width: 400px;
+  max-width: 600px;
 
   .inner-promo--title {
     font-weight: 600;    
@@ -9079,9 +9105,9 @@ $min-height-disclosure: 92px;
 }
 .product-promo--featured {
   padding-top: 165px;
-  background-image:  url({{ "featured-beacon-svg.png" | asset_url }}), url({{ "featured-beacon-bg-min.png" | asset_url }});
-  background-position: top 50px center, top center;
-  background-repeat: no-repeat, no-repeat;
+    background-position: top 100px center;
+    background-repeat: no-repeat;
+    background-size: 200px;
 
   h2 {
     font-weight: 800;
@@ -9092,5 +9118,106 @@ $min-height-disclosure: 92px;
     //text-align: center;
     //color: #505649;
   }
+  
+  @media only screen and (max-width: 1024px){
+  	background-position: top 0px center;
+  }
 }
 
+.price-item {
+  
+    color: #242721 !important;
+    font-weight: 700;
+}
+
+.deals-tab {
+
+    border-radius: 15px 0 0 15px !important;
+}
+
+/* Subscribe Button Form Field CSS */
+
+.cKWTQv.cKWTQv.cKWTQv.cKWTQv.cKWTQv.cKWTQv {
+  
+    border-radius: 2px;
+    padding: 0px 0px 0px 16px;
+    height: 35px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    background-color: rgb(255, 255, 255);
+    margin-left: 20px;
+    margin-bottom: 5px;
+  	border: none !important;
+}
+
+.hjbVbe.hjbVbe.hjbVbe.hjbVbe.hjbVbe.hjbVbe {
+  
+    border-radius: 2px;
+    padding: 0px 0px 0px 16px;
+    height: 35px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    background-color: rgb(255, 255, 255);
+    margin-left: 20px;
+    margin-bottom: 5px;
+  	border: none !important;
+}
+
+.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+   
+  	border-radius: 50px !important;
+  	display: none !important;
+}
+
+/* Place Holder Butcher Page */
+
+.placeholder-noblocks {
+  
+    display: none;
+}
+
+/* Shadow text banner for Corporate Gifting */
+
+.gifting-hero__title-wrapper p {
+  
+    color: #fff;
+    justify-content: initial;
+    line-height: 1.2;
+    text-shadow: 3px 3px #000000 !important;
+}
+
+h1.gifting-hero__title-fv.page-width {
+  
+	text-shadow: 3px 3px #000000 !important;
+}
+
+.hero__inner .mega-title {
+  
+	text-shadow: 3px 3px #000000 !important;
+}
+
+.hero__inner .mega-subtitle {
+  
+	text-shadow: 3px 3px #000000 !important;
+}
+
+.content-wrapper {
+    padding-left: 10px !important;
+}
+
+.grid--view-items .grid__item {
+     padding: 0 !important;
+}
+
+footer.site-footer {
+    padding-left: 2.5rem !important;
+    padding-right: 2.5rem !important;
+}

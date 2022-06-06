@@ -7,8 +7,55 @@
       <div class="custom-fields-section__item custom-fields-section__item--{{ block.type }} custom-fields-section__item--{{ block.type }}--{{ block.settings.key }}" {{ block.shopify_attributes }}>
         {% case block.settings.key %}
         
-          {% when "full_description" %}
-            {% render "custom_fields.products.full_description" %}
+          {% when "additional_information" %}
+            {% render "custom_fields.products.additional_information" %}
+        
+          {% when "short_description" %}
+            {% render "custom_fields.products.short_description" %}
+        
+          {% when "video" %}
+            {% render "custom_fields.products.video" %}
+        
+          {% when "video_text" %}
+            {% render "custom_fields.products.video_text" %}
+        
+          {% when "vendor_image" %}
+            {% render "custom_fields.products.vendor_image" %}
+        
+          {% when "vendor_link" %}
+            {% render "custom_fields.products.vendor_link" %}
+        
+          {% when "vendor_name" %}
+            {% render "custom_fields.products.vendor_name" %}
+        
+          {% when "vendor_url" %}
+            {% render "custom_fields.products.vendor_url" %}
+        
+        {% endcase %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  
+    {% if resource_type == "articles" %}
+    <div class="custom-fields-section__articles">
+      {% for block in blocks %}
+      {% if block.type contains "cf_" %}
+      <div class="custom-fields-section__item custom-fields-section__item--{{ block.type }} custom-fields-section__item--{{ block.type }}--{{ block.settings.key }}" {{ block.shopify_attributes }}>
+        {% case block.settings.key %}
+        
+          {% when "price" %}
+            {% render "custom_fields.articles.price" %}
+        
+          {% when "date" %}
+            {% render "custom_fields.articles.date" %}
+        
+          {% when "time" %}
+            {% render "custom_fields.articles.time" %}
+        
+          {% when "upcoming" %}
+            {% render "custom_fields.articles.upcoming" %}
         
         {% endcase %}
       </div>

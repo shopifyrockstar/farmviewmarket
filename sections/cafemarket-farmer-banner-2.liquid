@@ -1,0 +1,56 @@
+<div class="product-promo--product cafe_farmer-events-space">
+  <div class="product-left--copy clear-both">  
+     <div class="product-left--copy-image">
+        <img src="{{ section.settings.banner_image | img_url: 'master' }}">
+      </div>
+      <div class="product-left--copy-text">
+        <h2 class="copy-promo--title">{{ section.settings.left_title }}</h2>
+        <p class="copy-promo--text">{{ section.settings.left_text }}</p>
+        <p> {{ section.settings.text }} </p>
+        <a href="{{ section.settings.button_url }}" class="btn copy-promo--btn">{{ section.settings.button_label }}</a>
+      </div>
+      
+    </div>
+</div>
+{% schema %}
+{
+  "name": "Event Space Banner",
+  "class": "index-section cafe-section--event-banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner image"
+    },
+    {
+      "type": "text",
+      "id": "left_title",
+      "label": "Main title",
+      "default": "Farmers Market"
+    },
+    {
+      "type": "text",
+      "id": "left_text",
+      "label": "Sub text",
+      "default": "Be our guest"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Promo text",
+      "default": "Our chef-prepared holiday dinners are full of seasonal favorites like our tender prime rib, or juicy tenderloin and smoked ham. And for dessert, our holiday pies, cakes, and cookies.  It’s your dinner – we’re just here to make it easy and delicious for you! Don’t wait to reserve your meal. Only available while supplies last."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Read more"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button url"
+    }
+  ]
+}
+{% endschema %}

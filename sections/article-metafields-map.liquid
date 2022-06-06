@@ -1,0 +1,99 @@
+
+<div class="events-page event-map-section">
+  <div class="article-events-inner" style="background-image: url('{{ section.settings.left_img | img_url: 'master' }}'), url('{{ section.settings.right_img | img_url: 'master' }}');
+    background-repeat: no-repeat, no-repeat;">
+    <div class="page-width page-width-article-events events-content">
+      <div class="rte">
+        {{ article.content }}
+      </div>
+    </div>
+
+   <div class="article-events-map-image event-map-text-section">
+     <a href="{{ section.settings.button_link }}" target="_blank">
+      <img src="{{ section.settings.map_image | img_url: 'master' }}" class="map_image">
+     <div class="map_block">
+       <div class="map_content-block">
+         <p class="map_title">{{ section.settings.map_title | escape }}</p>
+         {{ section.settings.address_name }}
+         <span class="article-events-map-image" >
+           {{ section.settings.button_label }}
+         </span>
+       </div>
+       <div class="map-icon">
+         <img src="{{ section.settings.map_icone | img_url: 'small' }}">
+       </div>
+     </div>
+     </a>
+    </div>
+    <div class="article-events-gallery-image">
+      <img src="{{ section.settings.banner_image | img_url: 'master' }}">
+    </div>
+  </div>
+  
+</div>
+
+{% schema %}
+{
+  "name": {
+     "en": "Articl event locally"
+  },
+  "class": "index-section index-section--flush articl-events-locally",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_title",
+     "label":"Heading"
+    },
+    {
+      "type": "html",
+      "id": "text",
+      "label": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_img",
+      "label":"Right Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_img",
+      "label":"Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "map_image",
+      "label":"Map Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "map_icone",
+      "label":"Map Icone"
+    },
+    {
+      "type": "text",
+      "id": "map_title",
+     "label":"Heading"
+    },
+    {
+      "type": "html",
+      "id": "address_name",
+     "label":"Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label":"Banner Image"
+    },
+    {
+      "type": "html",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label":"Button link"
+    }
+  ]
+}
+{% endschema %}

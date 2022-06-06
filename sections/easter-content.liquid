@@ -1,0 +1,322 @@
+{% comment %}
+** Easter Content - custom view **
+- Uses blocks
+{% endcomment %}
+
+<div class="easter-sections">
+
+{% if section.blocks.size > 0 %}
+  {% for block in section.blocks %}
+    {% if block.type == "heading_with_text" %}
+  		
+        <div class="heading-with-text">
+          <div class="page-width">
+          	<h2>{{ block.settings.title }} </h2>
+          	<div class="heading-with-text-content">{{ block.settings.text }} </div>
+          </div>
+  		</div>
+  	  {% elsif block.type == "meal_packages" %}
+  		
+        <div class="meal_packages padding-50">
+          <div class="page-width">
+          	<h2 class="center">{{ block.settings.title }} </h2>
+          	<div class="heading-with-text-content center">{{ block.settings.text }} </div>
+            <div class="package-wrapper row">
+              	<div class="medium-6 column">
+                  <h4>{{ block.settings.package1heading }} </h4>
+                  <div class="package-content">{{ block.settings.package1description }} </div>
+                  <a href="{{ block.settings.package_link }} " class="btn hero__btn" aria-label="{{ block.settings.package_button_label }}">{{ block.settings.package_button_label }}</a>
+                </div>
+              	<div class="medium-6 column">
+                  <h4>{{ block.settings.package2heading }} </h4>
+                  <div class="package-content">{{ block.settings.package2description }} </div>
+                  <a href="{{ block.settings.package_2_link }} " class="btn hero__btn" aria-label="{{ block.settings.package_2_button_label }}">{{ block.settings.package_2_button_label }}</a>
+                </div>
+            </div>
+          </div>
+  		</div>
+      {% elsif block.type == "head_image_text" %}
+  		
+        <div class="image_package padding-50">
+          <div class="page-width">
+          	{% if block.settings.title != blank %}<h2 class="center">{{ block.settings.title }} </h2>{% endif %}
+          	{% if block.settings.text != blank %}<div class="heading-with-text-content center">{{ block.settings.text }} </div>{% endif %}
+            <div class="package-wrapper row {% if block.settings.text != blank %}has-text{% endif %}">
+              	<div class="medium-6 column " style="order:{% if block.settings.image_position == false %}1{%else%}0{%endif%};">
+                 	<img src="{{ block.settings.package_image_1 | img_url: 'master' }}">
+                </div>
+              	<div class="medium-6 column">
+                  <h4>{{ block.settings.packageheading }} </h4>
+                  <div class="package-content">{{ block.settings.packagetext }} </div>
+                  <a href="{{ block.settings.link }} " class="btn hero__btn" aria-label="{{ block.settings.button_label }}">{{ block.settings.button_label }}</a>
+                </div>
+            </div>
+          </div>
+  		</div>
+  		{% elsif block.type == "carte_packages" %}
+  		
+        <div class="carte_packages padding-50">
+          <div class="page-width">
+          	{% if block.settings.title != blank %}<h2 class="center">{{ block.settings.title }} </h2>{% endif %}
+          	{% if block.settings.text != blank %}<div class="heading-with-text-content center">{{ block.settings.text }} </div>{% endif %}
+            <div class="package-wrapper row">
+              	<div class="medium-6 column">
+                  <h4>{{ block.settings.package1heading }} </h4>
+                  {% if block.settings.package_image_1 %} <img src="{{ block.settings.package_image_1 | img_url: 'master' }}"> {% endif %}
+                  <div class="package-content green-bg">{{ block.settings.package1description }} </div>
+                  <div class="package-descriptive-content">{{ block.settings.Package_1_content }}
+                  	<a href="{{ block.settings.package_link }} " class="btn hero__btn" aria-label="{{ block.settings.package_button_label }}">{{ block.settings.package_button_label }}</a>
+                  </div>
+                </div>
+              	<div class="medium-6 column">
+                  <h4>{{ block.settings.package2heading }} </h4>
+                  {% if block.settings.package_image_2 %} <img src="{{ block.settings.package_image_2 | img_url: 'master' }}"> {% endif %}
+                  <div class="package-content green-bg">{{ block.settings.package2description }} </div>
+                   <div class="package-descriptive-content">{{ block.settings.Package_2_content }} 
+                   <a href="{{ block.settings.package_2_link }} " class="btn hero__btn" aria-label="{{ block.settings.package_2_button_label }}">{{ block.settings.package_2_button_label }}</a>
+                  </div>
+                 
+                </div>
+            </div>
+          </div>
+  		</div>
+	 {% endif %}
+  {% endfor %}
+{% endif %}
+</div>
+
+{% schema %}
+
+{
+  "name": "Easter | details",
+  "class": "page-easter-section",
+  "max_blocks": 20,
+  "blocks": [
+  
+      {
+        "type": "heading_with_text",
+        "name": "Heading with text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Your headline"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>description appears here.</p>"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label",
+            "default": "View all"
+          }
+        ]
+      },
+	{
+        "type": "meal_packages",
+        "name": "Meal Packages",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Your headline"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>description appears here.</p>"
+          },
+		  {
+            "type": "text",
+            "id": "package1heading",
+            "label": "Package 1 Heading"
+          },
+		  {"type": "richtext",
+            "id": "package1description",
+            "label": "Package 1 Items",
+            "default": "<p>Package Items</p>"
+          },
+          {
+            "type": "url",
+            "id": "package_link",
+            "label": "Package 1 Link"
+          },
+          {
+            "type": "text",
+            "id": "package_button_label",
+            "label": "Package 1 Button label",
+            "default": "Order Online"
+          },{
+            "type": "text",
+            "id": "package2heading",
+            "label": "Package 2 Heading"
+          },
+		  {"type": "richtext",
+            "id": "package2description",
+            "label": "Package 2 Items",
+            "default": "<p>Package Items</p>"
+          },
+          {
+            "type": "url",
+            "id": "package_2_link",
+            "label": "Package 2 Link"
+          },
+          {
+            "type": "text",
+            "id": "package_2_button_label",
+            "label": "Package 2 Button label",
+            "default": "Order Online"
+          }
+        ]
+      }, {
+        "type": "head_image_text",
+        "name": "Heading with Image",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Your headline"
+          },
+		  
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>description appears here.</p>"
+          },
+		  {
+          "type": "checkbox",
+          "id": "image_position",
+          "label": "Image Left"
+          },
+		  {
+          "type": "image_picker",
+          "id": "package_image_1",
+          "label": "Package Image"
+           },
+		  {
+            "type": "text",
+            "id": "packageheading",
+            "label": "Package Heading"
+          },
+			{
+            "type": "richtext",
+            "id": "packagetext",
+            "label": "Package Text",
+            "default": "<p>Package description appears here.</p>"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label",
+            "default": "View all"
+          }
+        ]
+      },
+		{
+        "type": "carte_packages",
+        "name": "carte Packages",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Your headline"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>description appears here.</p>"
+          },
+		  {
+            "type": "text",
+            "id": "package1heading",
+            "label": "Package 1 Heading"
+          },
+		  {
+          "type": "image_picker",
+          "id": "package_image_1",
+          "label": "Package 1 Image"
+           },
+		  {"type": "richtext",
+            "id": "package1description",
+            "label": "Package 1 Subtitle",
+            "default": "<p>Package Subtitle</p>"
+          },{
+          "type": "textarea",
+          "id": "Package_1_content",
+          "label": "Package 1 content"
+         },
+          {
+            "type": "url",
+            "id": "package_link",
+            "label": "Package 1 Link"
+          },
+          {
+            "type": "text",
+            "id": "package_button_label",
+            "label": "Package 1 Button label",
+            "default": "Order Online"
+          },{
+            "type": "text",
+            "id": "package2heading",
+            "label": "Package 2 Heading"
+          },
+			{
+          "type": "image_picker",
+          "id": "package_image_2",
+          "label": "Package 2 Image"
+           },
+		  {"type": "richtext",
+            "id": "package2description",
+            "label": "Package 2 SubTitle",
+            "default": "<p>Package Subtitle</p>"
+          },
+		  {
+          "type": "textarea",
+          "id": "Package_2_content",
+          "label": "Package 2 content"
+         },
+          {
+            "type": "url",
+            "id": "package_2_link",
+            "label": "Package 2 Link"
+          },
+          {
+            "type": "text",
+            "id": "package_2_button_label",
+            "label": "Package 2 Button label",
+            "default": "Order Online"
+          }
+        ]
+      }
+      
+   
+  ],
+  "default": {
+    "blocks": [
+      
+    ]
+  }
+}
+
+{% endschema %}

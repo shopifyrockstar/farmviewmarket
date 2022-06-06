@@ -1,0 +1,203 @@
+<div class="page-width supplier-image-text">
+ 
+    {% for block in section.blocks %}
+
+    <div class="grid__item medium-up--one-half js">
+      {%- if block.settings.supplier_link != blank -%}<a href="{{ block.settings.supplier_link }}">{% endif %}
+        <div class="image-bar__item image-bar__item--{{ block.id }}">
+          <div class="supplier-image">
+            <img class="butchers-club--image lazyload lazypreload"
+                 src="{{ block.settings.image| img_url: 'master' }}"
+                 data-src="{{ img_url }}"
+
+                 data-aspectratio=""
+                 data-sizes="auto"
+                 style="min-width: auto; object-position: center;"
+                 alt="{{ block.settings.img | escape }}">
+          </div>
+          <div class="image-bar__content image-bar__overlay">
+            <div class="image-bar__text">
+
+              <h4 class="image-bar__title">{{ block.settings.title | escape }}</h4>
+
+              {{ block.settings.cta_label }}                   
+
+            </div>
+          </div>
+
+        </div>
+      {%- if block.settings.supplier_link != blank -%}</a>{% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+<div class="supplier-footer-banner-section">
+  {%- if section.settings.image != blank -%}
+  <div class="footer-banner-image desktop-img">
+        <img class="hero-fixed-width__image lazyload lazypreload"
+             src="{{ section.settings.image | img_url: 'master' }}"
+             data-src="{{ img_url }}"
+             data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+             data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+             data-sizes="auto"
+             style="{%- if slide_width <= max_width -%}
+                      {%- assign min_width = slide_width | times: 100 | divided_by: max_width -%}
+                      min-width: {{ min_width }}%;
+                    {%- endif -%}
+                    object-position: {{ section.settings.alignment }};"
+             alt="{{ section.settings.image.alt | escape }}">
+  </div>
+  {% endif %}
+  {%- if section.settings.bg_mobile != blank -%}
+  <div class="footer-banner-image mobile-img">
+        <img class="hero-fixed-width__image lazyload lazypreload"
+             src="{{ section.settings.bg_mobile | img_url: 'master' }}"
+             data-src="{{ img_url }}"
+             data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+             data-aspectratio="{{ section.settings.bg_mobile.aspect_ratio }}"
+             data-sizes="auto"
+             style="{%- if slide_width <= max_width -%}
+                      {%- assign min_width = slide_width | times: 100 | divided_by: max_width -%}
+                      min-width: {{ min_width }}%;
+                    {%- endif -%} "
+             alt="{{ section.settings.bg_mobile.alt | escape }}">
+  </div>
+  {% endif %}
+  
+  <div class="supplier-text-block" style="background: linear-gradient(0deg, rgba(5, 2, 3, 0.2), rgba(5, 2, 3, 0.2)), url({{ section.settings.bg_image | img_url: 'master' }});">
+    <p>{{ section.settings.text}}</p>
+  </div>
+</div>
+
+
+  {% if section.blocks.size == 0 %}
+  {% include 'no-blocks' %}
+  {% endif %}
+
+
+
+{% schema %}
+{
+  "name": "Supplier Gallery",
+  "class": "index-section index-section--flush supplier-page",
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_height",
+      "label": "Section height",
+      "default": "medium",
+      "options": [
+  		
+        {
+          "label":"Extra Small",
+          "value": "x-small"
+        },
+        {
+  		  "label":"Small",
+          "value": "small"
+        },
+        {
+          "label": "Medium",
+          "value": "medium"
+        },
+        {
+          "label":"Large",
+          "value": "large"
+        },
+        {
+          "label": "Extra Large",
+          "value": "x-large"
+        }
+      ]
+    }, 
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label":"Image"  
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label":"Image"  
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_mobile",
+      "label":"Image"  
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label":"Image"  
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label":"Image alignment",
+          "default": "center",
+          "options": [
+            {
+              "value": "top",
+              "label":"Top"
+  			},
+            {
+              "value": "center",
+              "label":"Middle"
+               
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ]
+        },
+  		{
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+  		{
+          "type": "html",
+          "id": "cta_label",
+          "label": "Caption"
+        },
+		{
+          "type": "url",
+          "id": "supplier_link",
+          "label": "Supplier Link"
+        }
+        
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Supplier Images with Text",
+      "category":"Custom FarmView",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,27 @@
+<div class="blog-first-wrapper">
+    <img class="blog-first-background-one blog-first-background" src="https://cdn.shopify.com/s/files/1/0277/5518/4198/files/tomato2_1_40d03c9c-ea14-4d2e-a153-938f5fbef037.png?v=1616709872">
+  	<img class="blog-first-background-two blog-first-background" src="https://cdn.shopify.com/s/files/1/0277/5518/4198/files/tomato2_1_40d03c9c-ea14-4d2e-a153-938f5fbef037.png?v=1616709872">
+    <div class="blog-first-container" style="background-image: url({{ article.image | img_url: '1600x' }});">
+        <div class="blog-first-inner">
+          <div class="blog-first-content">
+            <h2 class="blog-first-title">{{ article.title }}</h2>
+            <p class="blog-first-excerpt">{{ article.excerpt }}</p>
+            <div class="blog-first-tags">
+              {% for tag in article.tags %}
+                {% if tag != 'Recipes' %}
+                <a href="/blogs/recipes/tagged/{{ tag | handle }}">{{tag}}</a>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="share_buttons">
+              <a class="share_pinterest" href="https://www.instagram.com/farmviewmarket/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a class="share_twitter" href="https://twitter.com/FarmviewMarket"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a class="share_facebook" href="https://www.facebook.com/FarmviewMarket"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <img src="https://cdn.shopify.com/s/files/1/0277/5518/4198/files/Vector_1.png?v=1616708217">
+              <span>Share</span>
+            </div>
+          </div>
+        </div>
+        <a class="blog-recipes-link" href="{{ article.url }}"></a>
+    </div>
+</div>

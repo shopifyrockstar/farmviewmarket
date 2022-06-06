@@ -1,0 +1,380 @@
+{%- if section.settings.hero_layout == 'full_width' and section.settings.hero_size == 'adapt' -%}
+  {%- if section.settings.image.aspect_ratio == blank -%}
+    {%- assign min_aspect_ratio = 2.0 -%}
+  {%- else -%}
+    {%- assign min_aspect_ratio = section.settings.image.aspect_ratio -%}
+  {%- endif -%}
+  {%- assign wrapper_height = 100 | divided_by: min_aspect_ratio -%}
+  {%- style -%}
+    .hero-{{ section.id }} {
+      height: {{- wrapper_height -}}vw !important;
+    }
+  {%- endstyle -%}
+{%- endif -%}
+<div data-section-id="{{ section.id }}" data-section-type="hero-section" class="wholesale_hero-section">
+  {%- if section.settings.hero_layout == 'fixed_width' -%}
+    <div class="page-width">
+  {%- endif -%}
+  {%- if section.settings.hero_layout == 'fixed_width' and section.settings.hero_size ==  'adapt' -%}
+    {%- assign slide_width = 1090 -%}
+    {%- assign min_aspect_ratio = section.settings.image.aspect_ratio | default: 2.0 -%}
+    <div class="hero-fixed-width hero--adapt"
+         id="Hero-{{ section.id }}"
+         data-layout="{{ section.settings.hero_layout }}">
+      {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+      {%- if section.settings.image.width < max_width -%}
+        {%- assign slide_width = section.settings.image.width -%}
+      {%- endif -%}
+      <div class="hero-fixed-width__content">
+        <div class="page-width text-left">
+          <div class="hero__inner-copy">
+            {%- if section.settings.title != blank -%}
+              <h2 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title | escape }}</h2>
+            {%- endif -%}
+            {%- if section.settings.text != blank -%}
+              <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
+            {%- endif -%}
+            {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+              <a href="{{ section.settings.button_link }}" class="btn hero__btn">
+                {{ section.settings.button_label | escape }}
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+      {%- if section.settings.image != blank -%}
+        <img class="hero-fixed-width__image lazyload lazypreload"
+             src="{{ section.settings.image | img_url: '300x300' }}"
+             data-src="{{ img_url }}"
+             data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+             data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+             data-sizes="auto"
+             style="{%- if slide_width <= max_width -%}
+                      {%- assign min_width = slide_width | times: 100 | divided_by: max_width -%}
+                      min-width: {{ min_width }}%;
+                    {%- endif -%}
+                    object-position: {{ section.settings.alignment }};"
+             alt="{{ section.settings.image.alt | escape }}">
+      {%- else -%}
+        <span>
+          {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+          {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+        </span>
+      {%- endif -%}
+      <noscript>
+        <div class="hero-fixed-width__image"{% if section.settings.image %}{% unless section.settings.image.alt == blank %} role="img" aria-label="{{ section.settings.image.alt | escape }}"{% endunless %} style="background-image: url('{{ section.settings.image | img_url: '2048x' }}'); background-position: center {{ section.settings.alignment }};"{% endif %}></div>
+      </noscript>
+    </div>
+  {%- else -%}
+    <div class="hero hero--{{ section.settings.hero_size }} hero-{{ section.id }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %} box ratio-container lazyload js"
+         id="Hero-{{ section.id }}"
+         data-layout="{{ section.settings.hero_layout }}"
+         {%- if section.settings.image -%}
+         data-sizes="auto"
+         data-parent-fit="cover"
+         style="background-position: {{ section.settings.alignment }}; background-image:linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 82.4%), url('{{ section.settings.image | img_url: 'master' }});"
+         {%- endif -%}>
+    {%- if section.settings.image == blank -%}
+      <div class="placeholder-background">
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+    {%- endif -%}
+      <div class="wholesale-hero__inner">
+        {% if section.settings.promo_on %}
+          {%- assign promo_img_url = section.settings.promo_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+          <div class="wholesale-hero__inner-promo">
+            <div class="inner-promo--text-wrapper">
+              <p class="inner-promo--text">{{ section.settings.promo_text }}</p>
+            </div> 
+            <div class="inner-title">
+              <p class="inner-promo--title">{{ section.settings.promo_title }}</p>
+            </div>
+
+          </div>
+        {% endif %}
+        
+        <div class="page-width text-left wholesale_text_section">
+          <div class="hero__inner-copy">
+            {%- if section.settings.title != blank -%}
+              <h2 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title | escape }}</h2>
+            {%- endif -%}
+            {%- if section.settings.text != blank -%}
+              <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
+            {%- endif -%}
+            {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+              {%- capture ariaLabel -%}
+                {{- section.settings.button_label -}}
+                {%- if section.settings.button_link.type == 'frontpage_link' -%}
+                  : {{ 'homepage.general.title' | t -}}
+                {%- elsif section.settings.button_link.type == 'catalog_link' -%}
+                  : {{ 'collections.catalog.title' | t -}}
+                {%- elsif section.settings.button_link.object.title -%}
+                  : {{ section.settings.button_link.object.title -}}
+                {%- endif -%}
+              {%- endcapture -%}
+
+              <a href="{{ section.settings.button_link }}"
+                class="btn hero__btn"
+                aria-label="{{ ariaLabel }}">
+                {{- section.settings.button_label | escape -}}
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+    <noscript>
+      <div class="hero hero--{{ section.settings.hero_size }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %}"{% if section.settings.image %}{% unless section.settings.image.alt == blank %} role="img" aria-label="{{ section.settings.image.alt | escape }}"{% endunless %} style="background-image: url('{{ section.settings.image | img_url: '2048x' }}'); background-position: center {{ section.settings.alignment }};"{% endif %}></div>
+    </noscript>
+  {%- endif -%}
+  {%- if section.settings.hero_layout == 'fixed_width' -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": {
+    "da": "Billede med tekstoverlejring",
+    "de": "Foto mit überlegtem Text",
+    "en": "Image with text overlay"
+ },
+  "class": "index-section index-section--flush section--hero-banner wholsesale-hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": {
+        "da": "Billede",
+        "de": "Foto",
+        "en": "Image"
+      }
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": {
+        "da": "Justering af billede",
+        "de": "Fotoausrichtung",
+        "en": "Image alignment",
+        "es": "Alineación de imagen"
+      },
+      "default": "center",
+      "options": [
+        {
+          "value": "top",
+          "label": {
+            "da": "Top",
+            "de": "Oben",
+            "en": "Top"
+          }
+        },
+        {
+          "value": "center",
+          "label": {
+            "da": "I midten",
+            "de": "Mitte",
+            "en": "Middle"
+          }
+        },
+        {
+          "value": "bottom",
+          "label": {
+            "da": "Bund",
+            "de": "Unten",
+            "en": "Bottom"
+          }
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "hero_layout",
+      "label": {
+        "da": "Layout",
+        "de": "Layout",
+        "en": "Layout"
+      },
+      "default": "full_width",
+      "options": [
+        {
+          "label": {
+            "da": "Fuld bredde",
+            "de": "Volle Breite",
+            "en": "Full width"
+          },
+          "value": "full_width"
+        },
+        {
+          "label": {
+            "da": "Fast bredde",
+            "de": "Feste Breite",
+            "en": "Fixed width"
+          },
+          "value": "fixed_width"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "hero_size",
+      "label": {
+        "da": "Højde på afsnit",
+        "de": "Bereichs-Höhe",
+        "en": "Section height"
+      },
+      "default": "medium",
+      "options": [
+        {
+          "label": {
+            "da": "Tilpas til billede",
+            "de": "An Bild anpassen",
+            "en": "Adapt to image"
+          },
+          "value": "adapt"
+        },
+        {
+          "label": {
+            "da": "Ekstra lille",
+            "de": "Extra klein",
+            "en": "Extra Small",
+            "es": "Extra pequeña"
+          },
+          "value": "x-small"
+        },
+        {
+          "label": {
+            "da": "Lille",
+            "de": "Klein",
+            "en": "Small"
+          },
+          "value": "small"
+        },
+        {
+          "label": {
+            "da": "Medium",
+            "de": "Mitte",
+            "en": "Medium"
+          },
+          "value": "medium"
+        },
+        {
+          "label": {
+            "da": "Stor",
+            "de": "Groß",
+            "en": "Large",
+            "es": "Grande"
+          },
+          "value": "large"
+        },
+        {
+          "label": {
+            "da": "Ekstra stor",
+            "de": "Extra groß",
+            "en": "Extra Large"
+          },
+          "value": "x-large"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": {
+        "da": "Tekststørrelse",
+        "de": "Textgröße",
+        "en": "Text size",
+        "es": "Tamaño del texto"
+      },
+      "default": "medium",
+      "options": [
+        {
+          "label": {
+            "da": "Medium",
+            "de": "Mitte",
+            "en": "Medium",
+            "es": "Mediano"
+          },
+          "value": "medium"
+        },
+        {
+          "label": {
+            "da": "Stor",
+            "de": "Groß",
+            "en": "Large"
+          },
+          "value": "large"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "da": "Overskrift",
+        "de": "Titel",
+        "en": "Heading"
+      },
+      "default": {
+        "da": "Billede med tekstoverlejring",
+        "de": "Foto mit überlegtem Text",
+        "en": "Image with text overlay",
+        "es": "magen con texto superpuesto"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text"
+      },
+      "default": {
+        "da": "<p>Brug tekstoverlejring til at give dine kunder indblik i dit brand. Vælg billeder og tekst, der passer til din stil og historie.</p>",
+        "de": "<p>Nutzen Sie überlegten Text, um Kunden über Ihre Marke zu informieren. Wählen Sie Fotos und Text aus, die zu Ihrer Marke passen.</p>",
+        "en": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>"
+      }
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": {
+        "da": "Knaptekst",
+        "de": "Button-Etikett",
+        "en": "Button label"
+      }
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": {
+        "da": "Knaplink",
+        "de": "Button-Etikett",
+        "en": "Button link"
+      }
+    },
+    {
+      "type": "header",
+      "content": "promo block",
+      "info": "Promo product on the banner"
+    },
+    {
+      "type": "checkbox",
+      "id": "promo_on",
+      "label": "enable promo block",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "promo_title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "promo_text",
+      "label": "Text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,42 @@
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+{% paginate blog.articles by 9 %}
+
+<div class="page-width blog-recipes">
+  <h1 class="blog-title">{{ blog.title }}</h1>
+  
+  {% for article in blog.articles %}
+    {% if forloop.first %}
+      {% include 'blog-recipes-first-article' with article: article %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+  
+  <div class="blog-grid">
+    {% for article in blog.articles %}
+      {% if forloop.first %}
+        {% continue %}
+      {% endif %}
+   
+        <div class="blog-grid-item">
+        	{% include 'blog-grid-item' with article: article %}
+        </div>
+    {% endfor %}
+  </div>
+  
+  {%- if paginate.pages > 1 -%}
+    {% include 'pagination', paginate: paginate %}
+  {%- endif -%}
+</div>
+
+{% endpaginate %}
+
+<script>
+  $(window).load(function(){
+    $(".blog-grid-item-image").each(function(){
+    	var height = $(this).width();
+      	console.log("height", height);
+      	$(this).height(height);
+    });
+  });
+</script>

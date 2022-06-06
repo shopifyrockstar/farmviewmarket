@@ -1,150 +1,158 @@
-<div class="product-promo--product">
-  <div class="promo-product--right lazyload"
-  data-bgset="{% include 'bgset', image: section.settings.banner_image %}"
-  data-sizes="auto"
-  data-parent-fit="cover"
-  style="background-image: url('{{ section.settings.banner_image | img_url: '300x300' }});">
-    <div class="product-right--copy-text">
-      <h4 class="inner-promo--title">{{ section.settings.banner_title }}</h4>
-      <p class="inner-promo--text">{{ section.settings.banner_text }}</p>
-      <a href="{{ section.settings.banner_url }}"
-        class="btn btn-arrow--right">
-        <span class="chevron right"></span>
-      </a>
-    </div>    
-  </div>
-  <div class="page-width">
-    <div class="product-left--copy lazyload"
-      data-bgset="{% include 'bgset', image: section.settings.left_image %}"
+<div  id="product-promo--produ5ct-{{section.id}}">
+  	
+  	{% if section.settings.section_back_image != blank %}
+  		<div class="background-image" style="background-image: url({{ section.settings.section_back_image | img_url: 'master' }});"></div>
+  	{% endif %}
+  	<div class="product-promo--product">
+      <div class="promo-product--right lazyload"
+      data-bgset="{% include 'bgset', image: section.settings.banner_image %}"
       data-sizes="auto"
       data-parent-fit="cover"
-      style="background-image: url('{{ section.settings.left_image | img_url: '300x300' }});">
-      <div class="product-left--copy-text">
-        
-          
-            <div class="newsletter-header">
-              {% if section.settings.newsletter_title != blank %}
-                <h3>{{ section.settings.newsletter_title | escape }}</h3>
-              {% endif %}
-              {% if section.settings.newsletter_content != blank %}
-                <div class="rte">
-                  <p class="additional-text">{{ section.settings.newsletter_content }}</p>
-              </div>
-              {% endif %}
-            </div>
-            {%- assign formId = 'Contact_' | append: section.id -%}
-            {% form 'customer', id: formId, novalidate: 'novalidate', class: 'contact-form form-single-field' %}
-              {%- if form.posted_successfully? -%}
-                <p class="form-message form-message--success" tabindex="-1" data-form-status>
-                  {{ 'general.newsletter_form.confirmation' | t }}
-                </p>
-              {%- endif -%}
-              <input type="hidden" name="contact[tags]" value="newsletter">
-              <div class="input-group {% if form.errors %} input-group--error{% endif %}">
-                <input type="email"
-                  name="contact[email]"
-                  id="{{ formId }}-email"
-                  class="input-group__field{% if form.errors %} input--error{% endif %}"
-                  value="{{ form.email }}"
-                  placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
-                  aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
-                  aria-required="true"
-                  autocorrect="off"
-                  autocapitalize="off"
-                  {% if form.errors %}
-                    aria-invalid="true"
-                    aria-describedby="{{ formId }}-email-error"
-                    data-form-status
+      style="background-image: url('{{ section.settings.banner_image | img_url: '300x300' }});">
+        <div class="product-right--copy-text">
+          <h4 class="inner-promo--title">{{ section.settings.banner_title }}</h4>
+          <p class="inner-promo--text">{{ section.settings.banner_text }}</p>
+          <a href="{{ section.settings.banner_url }}"
+            class="btn btn-arrow--right">
+            <span class="chevron right"></span>
+          </a>
+        </div>    
+      </div>
+      <div class="page-width">
+        <div class="product-left--copy lazyload"
+          data-bgset="{% include 'bgset', image: section.settings.left_image %}"
+          data-sizes="auto"
+          data-parent-fit="cover"
+          style="background-image: url('{{ section.settings.left_image | img_url: '300x300' }});">
+          <div class="product-left--copy-text">
+
+
+                <div class="newsletter-header">
+                  {% if section.settings.newsletter_title != blank %}
+                    <h3>{{ section.settings.newsletter_title | escape }}</h3>
                   {% endif %}
-                  >
-                <span class="input-group__btn">
-                  <button type="submit" class="btn" name="commit" id="Subscribe">
-                    <span>{{ 'general.newsletter_form.submit' | t }}</span>
-                  </button>
-                </span>
-              </div>
-              {%- if form.errors contains 'email' -%}
-                <span id="{{ formId }}-email-error" class="input-error-message">
-                  <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                  {% include 'icon-error' %}
-                  <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
-                </span>
-              {%- endif -%}
-            {% endform %}
-         
-        
-        <h2 class="copy-promo--title">{{ section.settings.left_title }}</h2>
-        <p class="copy-promo--text">{{ section.settings.left_text }}</p>
-        {% if section.settings.left_url != blank %}
-        	<a href="{{ section.settings.left_url }}" class="btn copy-promo--btn">{{ section.settings.left_label }}</a>
-        {% endif %}
+                  {% if section.settings.newsletter_content != blank %}
+                    <div class="rte">
+                      <p class="additional-text">{{ section.settings.newsletter_content }}</p>
+                  </div>
+                  {% endif %}
+                </div>
+            	<div class="klaviyo-form-RbP49J"></div>
+            	{% comment %}
+                {%- assign formId = 'Contact_' | append: section.id -%}
+            	{% form 'customer', id: formId, novalidate: 'novalidate', class: 'contact-form form-single-field' %}
+                  {%- if form.posted_successfully? -%}
+                    <p class="form-message form-message--success" tabindex="-1" data-form-status>
+                      {{ 'general.newsletter_form.confirmation' | t }}
+                    </p>
+                  {%- endif -%}
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <div class="input-group {% if form.errors %} input-group--error{% endif %}">
+                    <input type="email"
+                      name="contact[email]"
+                      id="{{ formId }}-email"
+                      class="input-group__field{% if form.errors %} input--error{% endif %}"
+                      value="{{ form.email }}"
+                      placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                      aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                      aria-required="true"
+                      autocorrect="off"
+                      autocapitalize="off"
+                      {% if form.errors %}
+                        aria-invalid="true"
+                        aria-describedby="{{ formId }}-email-error"
+                        data-form-status
+                      {% endif %}
+                      >
+                    <span class="input-group__btn">
+                      <button type="submit" class="btn" name="commit" id="Subscribe">
+                        <span>{{ 'general.newsletter_form.submit' | t }}</span>
+                      </button>
+                    </span>
+                  </div>
+                  {%- if form.errors contains 'email' -%}
+                    <span id="{{ formId }}-email-error" class="input-error-message">
+                      <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                      {% include 'icon-error' %}
+                      <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                    </span>
+                  {%- endif -%}
+                {% endform %}
+				{% endcomment %}
+
+            <h2 class="copy-promo--title">{{ section.settings.left_title }}</h2>
+            <p class="copy-promo--text">{{ section.settings.left_text }}</p>
+            {% if section.settings.left_url != blank %}
+                <a href="{{ section.settings.left_url }}" class="btn copy-promo--btn">{{ section.settings.left_label }}</a>
+            {% endif %}
+          </div>
+        </div>
+
       </div>
     </div>
-    
-  </div>
-</div>
 
-<div class="product-promo--featured">
-  <div class="page-width">
-    {% if section.settings.title != blank %}
-      <div class="section-header text-center">
-        <h2>{{ section.settings.title | escape }}</h2>
-        <p>{{ section.settings.text }}</p>
+    <div class="product-promo--featured">
+      <div class="page-width">
+        {% if section.settings.title != blank %}
+          <div class="section-header text-center">
+            <h2>{{ section.settings.title | escape }}</h2>
+            <p>{{ section.settings.text }}</p>
+          </div>
+        {% endif %}
+
+        {%- assign collection = collections[section.settings.collection] -%}
+
+        {% case section.settings.grid %}
+          {% when 2 %}
+            {%- assign max_height = 530 -%}
+            {%- assign grid_item_width = 'medium-up--one-half' -%}
+          {% when 3 %}
+            {%- assign max_height = 345 -%}
+            {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
+          {% when 4 %}
+            {%- assign max_height = 250 -%}
+            {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+          {% when 5 %}
+            {%- assign max_height = 195 -%}
+            {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
+        {% endcase %}
+
+        {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
+
+        <ul class="grid grid--uniform grid--view-items">
+          {% for product in collection.products limit: product_limit %}
+            <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+              {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+            </li>
+          {% else %}
+
+            {% for i in (1..product_limit) %}
+              <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+                <div class="grid-view-item product-card">
+                  <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="#">
+                    <span class="visually-hidden">{{ 'homepage.onboarding.product_title' | t }}</span>
+                  </a>
+                  <div class="grid-view-item__image-wrapper">
+                    {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                    {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                  </div>
+                  <div class="h4 grid-view-item__title" aria-hidden="true">{{ 'homepage.onboarding.product_title' | t }}</div>
+                  {% include 'product-price' %}
+                </div>
+              </li>
+            {% endfor %}
+          {% endfor %}
+        </ul>
+
+        {% if section.settings.show_view_all %}
+          <hr class="hr--invisible" aria-hidden="true" />
+          <div class="text-center">
+            <a href="{{ collection.url }}" class="btn" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">
+              {{ 'collections.general.view_all' | t }}
+            </a>
+          </div>
+        {% endif %}
+
       </div>
-    {% endif %}
-  
-    {%- assign collection = collections[section.settings.collection] -%}
-  
-    {% case section.settings.grid %}
-      {% when 2 %}
-        {%- assign max_height = 530 -%}
-        {%- assign grid_item_width = 'medium-up--one-half' -%}
-      {% when 3 %}
-        {%- assign max_height = 345 -%}
-        {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
-      {% when 4 %}
-        {%- assign max_height = 250 -%}
-        {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
-      {% when 5 %}
-        {%- assign max_height = 195 -%}
-        {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
-    {% endcase %}
-  
-    {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
-  
-    <ul class="grid grid--uniform grid--view-items">
-      {% for product in collection.products limit: product_limit %}
-        <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-          {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
-        </li>
-      {% else %}
-  
-        {% for i in (1..product_limit) %}
-          <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-            <div class="grid-view-item product-card">
-              <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="#">
-                <span class="visually-hidden">{{ 'homepage.onboarding.product_title' | t }}</span>
-              </a>
-              <div class="grid-view-item__image-wrapper">
-                {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-                {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
-              </div>
-              <div class="h4 grid-view-item__title" aria-hidden="true">{{ 'homepage.onboarding.product_title' | t }}</div>
-              {% include 'product-price' %}
-            </div>
-          </li>
-        {% endfor %}
-      {% endfor %}
-    </ul>
-  
-    {% if section.settings.show_view_all %}
-      <hr class="hr--invisible" aria-hidden="true" />
-      <div class="text-center">
-        <a href="{{ collection.url }}" class="btn" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">
-          {{ 'collections.general.view_all' | t }}
-        </a>
-      </div>
-    {% endif %}
-  
-  </div>
+    </div>
 </div>
