@@ -782,38 +782,3 @@ $('.btn-apply').click(function(){
   }
   
 })
-
-
-$('.btn-cancel').click(function(){
-//   var banner_top_position = $(".recipe-main-header").offset();
-//   var banner_height = $(".recipe-main-header").height();
-  $(".recipe-filter-wrapper .filter-content-wrapper").toggle("medium");
-//   $("html, body").animate({ scrollTop: (banner_top_position.top + banner_height - 50) });
-//   $(".filter-content-wrapper .custom").each(function(index){
-//     if( $(this).is(":checked") ){
-//       $(this).prop('checked', false);
-//     }
-//   })
-//   $.ajax({
-//     url: '/blogs/recipes',
-//     type: 'GET',
-//     beforeSend: function() {
-//       $(".loading-wrapper").removeClass("hide");
-//       $(".page-width.blog-content .blog-grid .blog-content-wrapper").html("");
-//     },
-//     success: function(response) {
-//       setTimeout(function(){          
-//         $(".page-width.blog-content .blog-grid").replaceWith($(response).find(".page-width.blog-content .blog-grid"));
-//         $(".loading-wrapper").addClass("hide");
-//         $("#pagination").removeClass("hide");
-//       }, 500);
-//     },
-//     error: function(xhr, status, error){
-//       var errorMessage = xhr.status + ': ' + xhr.statusText
-//       console.log('Error - ' + errorMessage);
-//       $(".page-width.blog-content .blog-grid .blog-content-wrapper").html('<p class="error-message">There is no search result</p>');
-//       $("#pagination").addClass("hide");
-//       $(".loading-wrapper").addClass("hide");
-//     }
-//   })
-})
