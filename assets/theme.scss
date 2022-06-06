@@ -9,11 +9,11 @@
 /*FONT*/
 @font-face {
   font-family: claredon;
-  src: url(//cdn.shopify.com/s/files/1/0277/5518/4198/t/31/assets/ClarendonRoman.ttf?v=17301729936330420419);
+  src: url(//cdn.shopify.com/s/files/1/0277/5518/4198/t/35/assets/ClarendonRoman.ttf?v=17301729936330420419);
 }
 @font-face {
   font-family: gotham-bold;
-  src: url(//cdn.shopify.com/s/files/1/0277/5518/4198/t/31/assets/Gotham_Bold.otf?v=3104390264381314983);
+  src: url(//cdn.shopify.com/s/files/1/0277/5518/4198/t/35/assets/Gotham_Bold.otf?v=3104390264381314983);
 }
 body{
 	font-family: gotham-bold;
@@ -532,7 +532,7 @@ $z-index-predictive-search-wrapper: 1000;
 $z-index-skip-to-content: 10000; // really high to be safe of app markup
 
 /*================ SVG ================*/
-$svg-select-icon: #{'//cdn.shopify.com/s/files/1/0277/5518/4198/t/31/assets/ico-select.svg?v=4236985159546521852'};
+$svg-select-icon: #{'//cdn.shopify.com/s/files/1/0277/5518/4198/t/35/assets/ico-select.svg?v=4236985159546521852'};
 
 /*================ Drawers ================*/
 $transition-drawer: all $transition-duration-slow cubic-bezier(0.29, 0.63, 0.44, 1);
@@ -662,7 +662,7 @@ $slick-opacity-not-active: 0.25;
 
 // Only called once so make sure proper file is grabbed
 @function slick-image-url($url) {
-  @return url(//cdn.shopify.com/s/files/1/0277/5518/4198/t/31/assets/ajax-loader.gif?v=4135686330247201572);
+  @return url(//cdn.shopify.com/s/files/1/0277/5518/4198/t/35/assets/ajax-loader.gif?v=4135686330247201572);
 }
 
 // Unused intentionally
@@ -2020,6 +2020,7 @@ a[href^="tel"] {
   background-color: transparent;
   color: $color-btn-primary;
   border-color: $color-btn-primary;
+  display:none;
 
   &:not([disabled]):hover,
   &:focus {
@@ -9013,7 +9014,7 @@ $min-height-disclosure: 92px;
   right: 0px;
   bottom: 0px;
 
-  background: linear-gradient(180deg, rgba(250, 245, 240, 0) 0%, #FAF5F0 100%), url(//cdn.shopify.com/s/files/1/0277/5518/4198/t/31/assets/marjanblan.jpg?35769), linear-gradient(0deg, #FAF5F0, #FAF5F0);
+  background: linear-gradient(180deg, rgba(250, 245, 240, 0) 0%, #FAF5F0 100%), url(//cdn.shopify.com/s/files/1/0277/5518/4198/t/35/assets/marjanblan.jpg?37908), linear-gradient(0deg, #FAF5F0, #FAF5F0);
   background-blend-mode: normal, luminosity, normal;
   border: 1px solid #FFFFFF;
   border-radius: 0px;

@@ -1685,7 +1685,7 @@ li.site-nav--has-dropdown:after {
   width:16px;
   height:22px;
   display:inline-block;
-  background: url(//cdn.shopify.com/s/files/1/0277/5518/4198/t/31/assets/Check.png?v=17239696658631478450);
+  background: url(//cdn.shopify.com/s/files/1/0277/5518/4198/t/35/assets/Check.png?v=17239696658631478450);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -3072,7 +3072,7 @@ div[data-section-id="events-thanksgiving-hero"] .hero__inner .hero__inner-copy h
   transform: translateY(-50%);
   width: 50%; */
 }
-.template-article .hero-outer-wrapper .pf-c .hero .banner-text-wrapper{
+.template-article .hero-outer-wrapper .pf-c .hero .banner-text-wrapper {
   position: absolute;
   left: 0;
   top: 40%;
@@ -3081,12 +3081,14 @@ div[data-section-id="events-thanksgiving-hero"] .hero__inner .hero__inner-copy h
   transform: translateY(-50%);
   width: 100%;
 }
-.template-article .hero-outer-wrapper .pf-c .hero .share_article .social_buttons .share-btn{
+.template-article .hero-outer-wrapper .pf-c .hero .share_article .social_buttons .share-btn, 
+.recipe-banner-hero .social_buttons .share-btn {
   display: inline-block;
   margin-right: 15px;
   line-height: 30px;
 }
-.template-article .hero-outer-wrapper .pf-c .hero .share_article .social_buttons .share-btn a{  
+.template-article .hero-outer-wrapper .pf-c .hero .share_article .social_buttons .share-btn a,
+.recipe-banner-hero .social_buttons .share-btn a {  
   display: inline-block;
   line-height: 30px;
 }
@@ -4103,6 +4105,112 @@ div[data-section-id="events-thanksgiving-hero"] .hero__inner .hero__inner-copy h
 }  
 
 
+/* NEW CART CSS */
+
+#shopify-section-cart-template .cart-header {
+	display:flex; flex-direction:row; flex-wrap:wrap;
+  	justify-content:space-between; align-items:center;
+  	padding:1.5rem 0 0.5rem 0; text-align: left;
+}
+
+.column-one { flex-basis:50%; }
+.column-two { flex-basis:50%; text-align:right; }
+
+#gs__toggle-box {
+	background-color:transparent !important;
+  	display:block !important; padding:32px 0 16px 0 !important;
+}
+
+#shopify-section-cart-template form {
+ 	clear:both; 
+}
+#shopify-section-cart-template form table {
+ 	border-bottom: 0 !important;
+}
+
+.form-table {
+ 	border-top:1px solid #bcc1b7; padding-top:2.0rem;
+}
+
+.cart-column { vertical-align:top; }
+
+.cart-items-column { vertical-align:top; width:75%; }
+.spacer-column { vertical-align:top; width:15%; }
+.subtotal-column { vertical-align:top; width:10%; }
+
+.cart__quantity-td, .cart-remove { align-items:center; }
+
+.cart__product-information { align-items:center; }
+
+.cart td { padding-top:0px !important; padding-bottom:0 !important; }
+
+table.line-item { margin-bottom:24px; }
+
+.cart-subtotal { font-weight:700; }
+
+#gsAppContainer, .gsAppContainer {
+ 	margin:32px 0 !important;
+}
+.gs__row input, .gs__row textarea, input.gs__input, textarea.gs__msg, textarea.gs__textarea {	
+  border-radius:3px !important;
+  border-color:#bcc1b7 !important;
+}
+
+.button-checkout {
+  display:block !important; 
+}
+.button-checkout .cart__submit { float:right; }
+.button-continue { margin-top:24px; }
+
+@media only screen and (max-width: 768px) {
+  
+  .column-one, .column-two { float:none; width:100%; }
+  .column-two { display:none; }
+  
+  #gs__toggle-box { padding:16px 0 !important; }
+  #gs__toggle-box label { font-size:13px !important; }
+  
+  .cart-items-column { display:block; width:100%; }
+  .spacer-column { display:block; margin-top:5%; width:100%; }
+  .subtotal-column { display:block; width:100%; }
+  
+  #shopify-section-cart-template form .cart__meta { width:60%; }
+  .cart-remove { vertical-align:middle !important; text-align:center; }
+  
+  .cart-subtotal, .cart__shipping { text-align:right; }
+  
+  .cart__qty { margin-top:0; text-align:center; }
+  
+  .cart__buttons-container { max-width:100%; justify-content:flex-end; }
+  
+  .button-checkout { float:none; }
+  .button-continue { text-align:right; }
+  
+  .cart__submit { width:50%; }
+  
+  #gsAppContainer, .gsAppContainer { width:100%; }
+  #gsAppContainer .gs__wrapper, .gsAppContainer .gs__wrapper, .gs__app-container .gs__wrapper { width:280px !important; }
+  
+  .hideonmobile { display:none !important; }
+  
+}
 
 
+/* NEW TWEAKS TO RECIPES MAIN PAGES 04/11 */
+#shopify-section-blog-recipe-main-template .blog-grid {
+ 	justify-content: center; 
+}
 
+#shopify-section-blog-recipe-main-template .blog-grid .grid--view-items .blog-grid-item-inner {
+	margin:1rem; padding:1rem; 
+  	text-align:center;
+}
+
+#shopify-section-blog-recipe-main-template .blog-grid .grid--view-items:first-child .grid__item {
+ 	margin-bottom: auto; 
+}
+
+#shopify-section-blog-recipe-main-template .blog-grid .grid--view-items .blog-grid-item-title {
+	height:auto;
+  	min-height:1px;
+}

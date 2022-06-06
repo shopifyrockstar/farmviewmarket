@@ -63,6 +63,7 @@
         </button>
       {%- endif -%}
 
+      
 
       {% if product.media.size > 1 %}
         {% if product.media.size > 4 %}
@@ -124,7 +125,18 @@
 		
         <h2 class="product-single__title">{{ product.title }}</h2>
         
-        
+        <div class="yotpo bottomLine"
+    data-appkey="2NU6orBD9n19UG58yeuVMbIDh8vDWlpYEElLFlTU"
+    data-domain="{{shop.permanent_domain | escape }}"
+    data-product-id="{{ product.id }}"
+    data-product-models="{{ product.id }}"
+    data-name="{{ product.title | escape }}"
+    data-url="{{ shop.url }}{{ product.url }}"
+    data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+    data-description="{{ product.description | escape }}"
+    data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+		</div>
+
 		
        
           <div class="product__price">
@@ -249,6 +261,20 @@
               </div>
             </div>
           {% endform %}
+        <!-- MultiVariants app code start [ https://apps.shopify.com/multivariants ] -->
+		<div id="MULTIVARIANTS_APP_SECTION_PLACE"></div><script type="text/javascript" src="https://sapp.multivariants.com/gate/out/sys/js/init.js?shop=farmviewmarket.myshopify.com&product_id={{product.id}}&locale={{shop.locale}}"></script>
+		<!-- MultiVariants App code end -->
+        
+        <!-- CSS -->
+        <style type="text/css">
+          .multivariants_add_to_cart_button { padding:0.2rem 2rem !important; align-items:center; }
+          button.multivariants_add_to_cart_button span { margin:0 4px; }
+          
+          .multivariants_setbox_alert { 
+            background:transparent; font-size:16px; padding: 0.25rem 0; border-radius:0; margin-top:1rem;
+    		border-top: 1px solid rgb(204, 204, 204); border-bottom: 1px solid rgb(204, 204, 204);
+          }
+        </style>
         
         {% if product.metafields.custom_fields["product_specs"] != blank %}
           <div class="custom-field custom-field__product-specs custom-field__type--text-repeater">
@@ -297,11 +323,12 @@
 {%- else -%}
       {%- assign reviews_count = product.metafields.spr.reviews | split: '"reviewCount": "' | last | split: '"' | first | plus: 0 -%}
 {%- endif -%}
-  <ul id="product-tabs">
+  
+  <!--<ul id="product-tabs">
     <li><a id="tab1">Meet the Maker</a></li>
     {% comment %}<li><a id="tab2">More Info</a></li>{% endcomment %}
     <li><a id="tab3">Reviews {% if reviews_count > 0 %} <span class="count-badge">{{reviews_count}}</span> {% endif %} </a></li>
-  </ul>
+  </ul> -->
   
   <div class="tab-container" id="tab1C">
     
@@ -351,7 +378,8 @@
   </div>{% endcomment %}
   <div class="tab-container" id="tab3C">
     
-    <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+<div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
+
   
   </div>
 </div>

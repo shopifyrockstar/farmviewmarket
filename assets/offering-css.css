@@ -2708,3 +2708,52 @@
     font-size: 40px;
   }
 }
+
+/* REWORKING BLOG EVENTS CSS - LIVE 03/28/2022 */
+
+.hero--large.hero-blog-events-hero {
+	height:475px; 
+}
+@media only screen and (min-width: 768px) {
+	.hero--large.hero-blog-events-hero {
+    	height: 475px !important;
+	}
+}
+  
+.hero-blog-events-hero .events-note-date-container {
+ 	margin-top:24px; margin-bottom:24px; 
+}
+  
+.hero-blog-events-hero .events-hero-note-footer {
+	margin-bottom:0px; 
+}
+
+.blog-events-blocks .blog-events-items {
+	padding:0 5%; margin-bottom:10%;
+}
+
+.blog-events-items .grid--view-items .grid__item {
+	margin-bottom:5%;
+  	padding:0 2% !important;
+  	text-align:center;
+}
+
+.blog-events-blocks .button-link .price { display:none !important; }
+
+.blog-events-blocks .blog-events-items .date-name { min-height:24px; }
+.blog-events-blocks .blog-events-items .image-bar__title {
+ 	margin:10px 0;
+	min-height:24px;
+}
+.seasonal-recipes p {
+	min-height:auto !important; 
+}
+
+@media only screen and (max-width: 767px) {
+	.blog-events-items .grid--view-items .grid__item {
+    	padding:4% 2%!important;
+	}
+  	.blog-events-banner .events-hero-note-title {
+    	font-size: 1.75rem;
+	}
+}	
