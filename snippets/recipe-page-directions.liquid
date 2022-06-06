@@ -1,0 +1,11 @@
+<div class="ingredient-wrapper directions-wrapper">
+  <h1 class="section-title">{{ section.settings.title }}</h1>
+  <div class="directions-content-wrapper">
+    {% for block in section.blocks %}
+      <div class="directions-individual-wrapper">
+        <h1 class="directions-title">{{ block.settings.title }}</h1>
+        <div class="directions-content">{{ block.settings.content }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

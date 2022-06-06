@@ -1,0 +1,163 @@
+.template-page-cafe-directions {
+  #shopify-section-footer {
+    position: relative;
+  }
+  
+  .insta-feed {
+    display: none;
+  }
+  
+  .site-footer {
+    margin-top: 0;
+  }
+}
+
+.cafe-directions-page {
+  background: url(https://cdn.shopify.com/s/files/1/0277/5518/4198/files/accent-tomatos.png?v=1614756500);
+  background-repeat: no-repeat;
+  background-size: 703px 387px;
+  background-position: 60% calc(100% - 20px);
+  padding-bottom: 120px;
+}
+
+.cafe-directions-page-container {
+  @media only screen and (min-width: 1024px) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.cafe-directions-page-left {
+  @media only screen and (min-width: 1024px) {
+    flex-basis: 49%;
+    width: 49%;
+  }
+}
+
+.cafe-directions-page-right {
+  @media only screen and (min-width: 1024px) {
+    flex-basis: 49%;
+    width: 49%;
+  }
+}
+
+.cafe-directions-title {
+  padding-top: 36px;
+  font-size: 51px;
+  line-height: 56px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  
+  @media only screen and (min-width: 1024px) {
+    padding-top: 56px;
+    font-size: 72px;
+    line-height: 72px;
+  }
+}
+
+.cafe-directions-sub {
+  font-size: 16px;
+  line-height: 28px;
+  margin-bottom: 32px;
+}
+
+.cafe-directions-hours-container {
+  background-color: #fff;
+  border: 1px solid #E3E5E0;
+  margin-bottom: 32px;
+  
+  @media only screen and (min-width: 768px) {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+.cafe-directions-hours-inner {
+  padding: 24px;
+  
+  &:first-child {
+    border-bottom: 1px solid #E3E5E0;
+  }
+  
+  @media only screen and (min-width: 768px) {
+    flex-basis: 50%;
+    width: 50%;
+    
+    &:first-child {
+      border-bottom: none;
+      border-right: 1px solid #E3E5E0;
+    }
+  }
+}
+
+.cafe-directions-hours-title {
+  font-size: 25px;
+  line-height: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.cafe-directions-hours-sub {
+  font-size: 16px;
+  line-height: 28px;
+  margin-bottom: 0;
+}
+
+.cafe-directions-address {
+  font-size: 25px;
+  line-height: 32px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  
+  @media only screen and (min-width: 768px) {
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+
+.cafe-directions-icon-holder {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.cafe-directions-icon {
+  margin-right: 11px;
+}
+
+.cafe-directions-btn {
+  margin-top: 56px;
+  margin-bottom: 56px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  
+  @media only screen and (min-width: 480px) {
+    width: auto;
+  }
+  
+  @media only screen and (min-width: 1024px) {
+    margin-bottom: 0;
+  }
+}
+
+.cafe-directions-btn-text {
+  margin-right: 13px;
+}
+
+.cafe-directions-btn-icon {
+  svg {
+    display: block;
+  }
+}
+
+.cafe-directions-map-image {
+  img {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+}

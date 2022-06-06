@@ -1,4 +1,7 @@
-<div class="page-width">
+<div class="login-container">
+ <div class="login-image-container">
+    <img class="login-image" alt="Login Image" src="{{ 'Sign-in.jpg' | asset_url }}"/>
+  </div>
   <div class="grid">
 
     <div class="grid__item medium-up--one-half medium-up--push-one-quarter">
@@ -6,9 +9,9 @@
         {{ 'customer.recover_password.success' | t }}
       </div>
 
-      <div id="CustomerLoginForm" class="form-vertical">
+      <div id="CustomerLoginForm" class="form-vertical account-form">
 
-        <h1 id="LoginHeading" class="text-center">{{ 'customer.login.title' | t }}</h1>
+        <h2 id="LoginHeading" class="text-left title">{{ 'customer.login.title' | t }}</h2>
 
         {% form 'customer_login', novalidate: 'novalidate' %}
 
@@ -27,6 +30,7 @@
             autocomplete="email"
             autocorrect="off"
             autocapitalize="off"
+            placeholder="{{ 'customer.login.email' | t }}"
             {%- if form.errors contains 'form' -%}
               class="input--error"
               aria-invalid="true"
@@ -40,6 +44,7 @@
               value=""
               name="customer[password]"
               id="CustomerPassword"
+              placeholder="{{ 'customer.login.password' | t }}"
               {%- if form.errors contains 'form' -%}
                 class="input--error"
                 aria-invalid="true"
@@ -47,15 +52,28 @@
             >
           {% endif %}
 
-          <div class="text-center">
+          <div class="text-left">
             {% if form.password_needed %}
-              <p><a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a></p>
+              <p class="forgot-password"><a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a></p>
             {% endif %}
+            
+            
+            <p class="remember-container">
+            <input type="checkbox" id="rememberMe" name="remember">
+            <label for="rememberMe" class="remember-label unhide-label"> Remember me</label>
+            </p>
+            
+            
+            <p class="terms-container">
+            <input type="checkbox" id="termsBtn" name="terms">
+            <label for="termsBtn" class="terms-label unhide-label"> I have read and accept the <a href="/policies/terms-of-service">Terms and Conditions</a></label>
+            </p>
+            
 
-            <input type="submit" class="btn" value="{{ 'customer.login.sign_in' | t }}">
+            <input disabled type="submit" class="btn" id="loginBtn" value="{{ 'customer.login.sign_in' | t }}">
 
             <p>
-              {{ 'layout.customer.create_account' | t | customer_register_link }}
+              Don't have an account? {{ 'layout.customer.create_account' | t | customer_register_link }}
             </p>
           </div>
 
@@ -64,9 +82,10 @@
 
       <div id="RecoverPasswordForm" class="hide">
 
-        <div class="text-center">
-          <h2 id="RecoverHeading">{{ 'customer.recover_password.title' | t }}</h2>
+        <div class="text-center heading">
+          <h2 id="RecoverHeading" class="title">{{ 'customer.recover_password.title' | t }}</h2>
           <p>{{ 'customer.recover_password.subtext' | t }}</p>
+          
         </div>
 
         <div class="form-vertical">
@@ -88,6 +107,7 @@
               class="input-full{% if form.errors %} input--error{% endif %}"
               autocorrect="off"
               autocapitalize="off"
+              placeholder="{{ 'customer.recover_password.email' | t }}"
               {% if form.errors %}
                 aria-invalid="true"
                 aria-describedby="RecoverEmail-email-error"
@@ -101,7 +121,7 @@
               </span>
             {%- endif -%}
 
-            <div class="text-center">
+            <div class="text-left btn-container">
               <p>
                 <input type="submit" class="btn" value="{{ 'customer.recover_password.submit' | t }}">
               </p>

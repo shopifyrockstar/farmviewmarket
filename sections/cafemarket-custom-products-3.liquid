@@ -1,0 +1,113 @@
+{% comment %}
+** Image with Video - homepage partial **
+- Draggable section
+{% endcomment %}
+
+{% include 'include-products-promo-custom' %}
+
+{% schema %}
+{
+  "name": "Custom Products",
+  "class": "index-section section--collections mt-150 cafemarket-products",
+  "settings": [
+  ],
+  "blocks": [
+  {
+    "name": "Products",
+      "type": "products",
+      "settings": [
+        {
+          "type": "text",
+          "id": "collection_title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "collection_content",
+          "label": "Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "block_image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "back_image",
+          "label": "Title Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "second_back_image",
+          "label": "Second Title Background Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "image_position",
+          "label": "Image right to text"
+        },
+        {
+          "type": "text",
+          "id": "btn_label",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "custom_class",
+          "label": "Custom Class"
+        },
+		{
+          "type": "product",
+          "id": "product_1",
+          "label": "Product 1"
+        },
+		{
+          "type": "product",
+          "id": "product_2",
+          "label": "Product 2"
+        },
+		{
+          "type": "product",
+          "id": "product_3",
+          "label": "Product 3"
+        },
+		{
+          "type": "product",
+          "id": "product_4",
+          "label": "Product 4"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Products Cafe Market",
+      "category": {
+        "da": "Kollektion",
+        "de": "Kategorie",
+        "en": "Collection",
+        "es": "Colección",
+        "fi": "Kokoelma",
+        "fr": "Collection",
+        "hi": "कलेक्शन",
+        "it": "Collezione",
+        "ja": "コレクション",
+        "ko": "컬렉션",
+        "nb": "Samling",
+        "nl": "Collectie",
+        "pt-BR": "Coleção",
+        "pt-PT": "Coleção",
+        "sv": "Produktserie",
+        "th": "คอลเลกชัน",
+        "zh-CN": "收藏",
+        "zh-TW": "商品系列"
+      }
+    }
+  ]
+}
+{% endschema %}

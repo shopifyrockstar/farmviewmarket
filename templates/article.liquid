@@ -1,182 +1,62 @@
-{%- comment -%}
-  Comments may not appear right after they are submitted, either to be checked by Shopify's spam filter
-  or to await moderation. When a comment is submitted, the browser is redirected to a page
-  that includes the new comment id in its URL.
-    Example: http://shopname.myshopify.com/blogs/news/2022072-my-post?comment=3721372
-{%- endcomment -%}
-
-{%- if comment.status == 'pending' -%}
-  {%- assign number_of_comments = article.comments_count | plus: 1 -%}
-{%- else -%}
-  {%- assign number_of_comments = article.comments_count -%}
-{%- endif -%}
-
-<article class="page-width">
-  <div class="grid">
-    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
-      {% section 'article-template' %}
-    </div>
-  </div>
-</article>
-
-{% if blog.comments_enabled? %}
-  {% if number_of_comments > 0 %}
-    <hr aria-hidden="true">
-    <div class="page-width">
-      <div class="grid">
-        <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
-          <h2 class="h3">{{ 'blogs.comments.comments_with_count' | t: count: number_of_comments }}</h2>
-
-          {% paginate article.comments by 5 %}
-
-            {% comment %}
-              #comments is required, it is used as an anchor link by Shopify.
-            {% endcomment %}
-            <div id="comments">
-              <ul class="comments">
-                {% comment %}
-                  If a comment was just submitted with no blank field, show it.
-                {% endcomment %}
-                {% if comment.status == 'pending' %}
-                  <li id="{{ comment.id }}" class="comment">
-                    {% include 'comment', comment: comment %}
-                  </li>
-                {% endif %}
-
-                {% for comment in article.comments %}
-                  <li id="{{ comment.id }}" class="comment">
-                    {% include 'comment', comment: comment %}
-                  </li>
-                {% endfor %}
-              </ul>
-
-              {%- if paginate.pages > 1 -%}
-                {% include 'pagination', paginate: paginate %}
-              {%- endif -%}
-
-            </div>
-          {% endpaginate %}
-        </div>
-      </div>
-    </div>
-  {% endif %}
-
-  <hr aria-hidden="true">
-  <div class="page-width">
-    <div class="grid">
-      <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
-        <div class="comment-form form-vertical">
-          {% form 'new_comment', article %}
-
-            {%- assign formId = 'CommentForm' -%}
-
-            <h2 class="h3">{{ 'blogs.comments.title' | t }}</h2>
-
-            {%- assign post_message = 'blogs.comments.success' -%}
-            {%- if blog.moderated? and comment.status == 'pending' -%}
-              {%- assign post_message = 'blogs.comments.success_moderated' -%}
-            {%- elsif comment.status == 'unapproved' or comment.status == 'spam' -%}
-              {%- assign post_message = 'blogs.comments.unapproved' -%}
-            {%- endif -%}
-
-            {% include 'form-status', form: form, form_id: formId, success_message: post_message %}
-
-            <div class="grid">
-
-              <div class="grid__item medium-up--one-half">
-                <label for="{{ formId }}-author">{{ 'blogs.comments.name' | t }}</label>
-                <input type="text" name="comment[author]" id="{{ formId }}-author" class="input-full{% if form.errors contains 'author' %} input--error{% endif %}" value="{{ form.author }}"{% if form.errors contains 'author' %} aria-invalid="true" aria-describedby="{{ formId}}-author-error"{% endif %}>
-                {% if form.errors contains 'author' %}
-                  <span id="{{ formId}}-author-error" class="input-error-message">
-                    <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                    {% include 'icon-error' %}
-                    <span>{{ 'blogs.comments.name' | t }} {{ form.errors.messages['author'] }}.</span>
-                  </span>
-                {% endif %}
-              </div>
-
-              <div class="grid__item medium-up--one-half">
-                <label for="{{ formId }}-email">{{ 'blogs.comments.email' | t }}</label>
-                <input type="email" name="comment[email]" id="{{ formId }}-email" class="input-full{% if form.errors contains 'email' %} input--error{% endif %}" value="{{ form.email }}" autocorrect="off" autocapitalize="off" {% if form.errors contains 'email' %} aria-invalid="true" aria-describedby="{{ formId}}-email-error"{% endif %}>
-                {% if form.errors contains 'email' %}
-                  <span id="{{ formId}}-email-error" class="input-error-message">
-                    <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                    {% include 'icon-error' %}
-                    <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
-                  </span>
-                {% endif %}
-              </div>
-
-              <div class="grid__item">
-                <label for="{{ formId }}-body">{{ 'blogs.comments.message' | t }}</label>
-                <textarea name="comment[body]" id="{{ formId }}-body" class="input-full{% if form.errors contains 'body' %} input--error{% endif %}"{% if form.errors contains 'body' %} aria-invalid="true" aria-describedby="{{ formId}}-body-error"{% endif %}>{{ form.body }}</textarea>
-                {% if form.errors contains 'body' %}
-                  <span id="{{ formId}}-body-error" class="input-error-message">
-                    <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                    {% include 'icon-error' %}
-                    <span>{{ 'blogs.comments.message' | t }} {{ form.errors.messages['body'] }}.</span>
-                  </span>
-                {% endif %}
-              </div>
-
-            </div>
-
-            {% if blog.moderated? %}
-              <p class="fine-print">{{ 'blogs.comments.moderated' | t }}</p>
-            {% endif %}
-
-            <input type="submit" class="btn" value="{{ 'blogs.comments.post' | t }}">
-          {% endform %}
-        </div>
+<div class="article-hero" style="background-image: url({{ article.image | img_url: '1600x' }});">
+  <div class="article-hero-inner">
+    <div>
+      <h1 class="article-hero-title">{{ article.title }}</h1>
+      <div class="article-share-container">
+        <a class="article-share-icon" target="_blank" href="//pinterest.com/pin/create/button/?url={{ shop.url | append: article.url }}&amp;media={{ article.image | img_url: '1024x1024' }}&amp;description={{ article.title | url_param_escape }}">
+          <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m12 0c-6.62716 0-12 5.35082-12 11.9508 0 5.0656 3.16049 9.3935 7.62469 11.1344-.10864-.9442-.19753-2.4.03951-3.4327.21728-.9345 1.40247-5.941 1.40247-5.941s-.35556-.7181-.35556-1.7705c0-1.6623.9679-2.90166 2.17289-2.90166 1.0271 0 1.5209.76722 1.5209 1.68196 0 1.023-.6518 2.5574-.9975 3.9836-.2864 1.1902.6025 2.164 1.7778 2.164 2.1333 0 3.7728-2.2427 3.7728-5.4689 0-2.8623-2.0642-4.85902-5.0173-4.85902-3.41724 0-5.42218 2.54754-5.42218 5.18362 0 1.0229.39506 2.1246.88889 2.7246.09876.118.10864.2262.07901.3442-.08889.3738-.2963 1.1902-.3358 1.3574-.04939.2164-.17778.2656-.40494.1574-1.50124-.6984-2.43951-2.8721-2.43951-4.6328 0-3.7672 2.74568-7.2295 7.93083-7.2295 4.1581 0 7.3976 2.95082 7.3976 6.9049 0 4.1213-2.6074 7.4361-6.2223 7.4361-1.2148 0-2.3604-.6295-2.7456-1.3771 0 0-.6025 2.282-.75065 2.8427-.26667 1.0426-.99753 2.3409-1.49136 3.1377 1.12593.3442 2.31111.5311 3.55551.5311 6.6272 0 12-5.3508 12-11.9508.0198-6.61968-5.353-11.9705-11.9802-11.9705z" fill="#fff"/></svg>
+        </a>
+        
+        <a class="article-share-icon" target="_blank" href="//twitter.com/share?text={{ article.title | url_param_escape }}&amp;url={{ shop.url | append: article.url }}">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12ZM11.6406 9.75375L11.6658 10.169L11.2461 10.1181C9.71843 9.92323 8.38383 9.26226 7.25067 8.15216L6.69668 7.60135L6.55399 8.0081C6.25181 8.91482 6.44487 9.87239 7.0744 10.5164C7.41015 10.8723 7.33461 10.9232 6.75544 10.7113C6.55399 10.6435 6.37772 10.5927 6.36093 10.6181C6.30218 10.6774 6.50362 11.4486 6.66311 11.7536C6.88134 12.1773 7.32621 12.5925 7.81305 12.8383L8.22434 13.0332L7.73751 13.0417C7.26746 13.0417 7.25067 13.0501 7.30103 13.2281C7.46891 13.7789 8.13201 14.3636 8.87066 14.6178L9.39108 14.7958L8.93781 15.067C8.26631 15.4568 7.4773 15.6771 6.68829 15.694C6.31057 15.7025 6 15.7364 6 15.7618C6 15.8466 7.02404 16.3211 7.61999 16.5075C9.40786 17.0584 11.5315 16.8211 13.1263 15.8805C14.2595 15.211 15.3926 13.8806 15.9214 12.5925C16.2068 11.9062 16.4922 10.652 16.4922 10.0503C16.4922 9.66054 16.5174 9.60969 16.9874 9.14362C17.2644 8.87245 17.5246 8.57586 17.575 8.49112C17.6589 8.33012 17.6505 8.33011 17.2224 8.47417C16.509 8.72839 16.4083 8.6945 16.7608 8.31317C17.021 8.042 17.3316 7.5505 17.3316 7.40645C17.3316 7.38102 17.2057 7.42339 17.063 7.49966C16.9119 7.5844 16.5761 7.71151 16.3243 7.78778L15.8711 7.93184L15.4598 7.65219C15.2331 7.49966 14.9142 7.33018 14.7463 7.27934C14.3182 7.1607 13.6635 7.17765 13.2774 7.31323C12.2282 7.69456 11.5651 8.67755 11.6406 9.75375Z" fill="white"/>
+          </svg>
+        </a>
+        
+        <a class="article-share-icon" target="_blank" href="//www.facebook.com/sharer.php?u={{ shop.url | append: article.url }}">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12ZM13.2508 19.0557V12.5271H15.053L15.2918 10.2773H13.2508L13.2538 9.15125C13.2538 8.56447 13.3096 8.25006 14.1524 8.25006H15.279V6H13.4766C11.3116 6 10.5495 7.0914 10.5495 8.92678V10.2776H9.2V12.5274H10.5495V19.0557H13.2508Z" fill="white"/>
+          </svg>
+        </a>
+        
+        <span class="article-share-message">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.68387 11.3419C6.88616 10.9381 7 10.4824 7 10C7 9.5176 6.88616 9.0619 6.68387 8.6581V11.3419ZM6.68387 11.3419C6.19134 12.3251 5.17449 13 4 13C2.34315 13 1 11.6569 1 10C1 8.3431 2.34315 7 4 7C5.17449 7 6.19134 7.67492 6.68387 8.6581V11.3419ZM6.68387 11.3419L13.3161 14.6581L6.68387 11.3419ZM6.68387 8.6581L13.3161 5.34193L6.68387 8.6581ZM13.3161 5.34193C13.8087 6.32508 14.8255 7 16 7C17.6569 7 19 5.65685 19 4C19 2.34315 17.6569 1 16 1C14.3431 1 13 2.34315 13 4C13 4.48237 13.1138 4.93815 13.3161 5.34193ZM13.3161 14.6581C13.1138 15.0619 13 15.5176 13 16C13 17.6569 14.3431 19 16 19C17.6569 19 19 17.6569 19 16C19 14.3431 17.6569 13 16 13C14.8255 13 13.8087 13.6749 13.3161 14.6581Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p>Share</p>
+        </span>
       </div>
     </div>
   </div>
-{% endif %}
-
-<div class="text-center return-link-wrapper page-width">
-  <a href="{{ blog.url }}" class="btn btn--secondary btn--has-icon-before">
-    {% include 'icon-arrow-left' %}
-    {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
-  </a>
 </div>
 
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Article",
-  "articleBody": {{ article.content | strip_html | json }},
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": {{ shop.url | append: page.url | json }}
-  },
-  "headline": {{ article.title | json }},
-  {% if article.excerpt != blank %}
-    "description": {{ article.excerpt | strip_html | json }},
-  {% endif %}
-  {% if article.image %}
-    {% assign image_size = article.image.width | append: 'x' %}
-    "image": [
-      {{ article | img_url: image_size | prepend: "https:" | json }}
-    ],
-  {% endif %}
-  "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
-  "dateCreated": {{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
-  "author": {
-    "@type": "Person",
-    "name": {{ article.author | json }}
-  },
-  "publisher": {
-    "@type": "Organization",
-    {% if settings.share_image %}
-      {% assign image_size = settings.share_image.width | append: 'x' %}
-      "logo": {
-        "@type": "ImageObject",
-        "height": {{ settings.share_image.height | json }},
-        "url": {{ settings.share_image | img_url: image_size | prepend: "https:" | json }},
-        "width": {{ settings.share_image.width | json }}
-      },
-    {% endif %}
-    "name": {{ shop.name | json }}
-  }
-}
-</script>
+<div class="page-width">
+  <div class="article-content-wrapper">
+    <div class="article-content">
+      {{ article.content }}
+    </div>
+    
+    <div class="article-footer">
+      {% if blog.previous_article %}
+        <a class="article-footer-link" href="{{ blog.previous_article.url }}">
+          <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 1L1 8L8 15" stroke="#192A18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="article-footer-text">Previous post</p>
+        </a>
+      {% endif %}
+      
+
+      <div class="article-footer-seperator"></div>
+
+      {% if blog.next_article %}
+        <a class="article-footer-link" href="{{ blog.next_article.url }}">
+          <p class="article-footer-text">Next post</p>
+          <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L8 8L1 15" stroke="#192A18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>

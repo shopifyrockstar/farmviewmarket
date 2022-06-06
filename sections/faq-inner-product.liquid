@@ -1,0 +1,54 @@
+<div class="rte">
+  <h1 class="main-title">{{ section.settings.main_header }}</h1>
+  <hr class="page-image-header-divider">
+  {% for block in section.blocks %}
+    <div class="page-image-header-section">
+      <div class="page-image-header-section-title">
+        <div class="page-image-header-arrow">
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.29289 0.29289C0.68342 -0.09763 1.31658 -0.09763 1.70711 0.29289L5 3.5858L8.2929 0.29289C8.6834 -0.09763 9.3166 -0.09763 9.7071 0.29289C10.0976 0.68342 10.0976 1.31658 9.7071 1.70711L5.7071 5.7071C5.3166 6.0976 4.68342 6.0976 4.29289 5.7071L0.29289 1.70711C-0.09763 1.31658 -0.09763 0.68342 0.29289 0.29289Z" fill="#242721"/>
+          </svg>
+        </div>
+        <h2>{{ block.settings.title }}</h2>
+      </div>
+      
+      <div class="page-image-header-section-content">{{ block.settings.content }}</div>
+      
+      <hr class="page-image-header-divider">
+    </div>
+  {% endfor %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "FAQ Products",
+	"class": "faq-content-wrapper faq-content-product-wrapper",
+    "settings": [
+		{
+          "type": "text",
+          "id": "main_header",
+          "label": "Block title",
+          "default": "About Farmview Market"
+        }
+	],
+    "blocks": [
+      {
+        "type": "html",
+        "name": "Custom HTML",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Section title"
+          },
+          {
+            "type": "html",
+            "id": "content",
+            "label": "Section content"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

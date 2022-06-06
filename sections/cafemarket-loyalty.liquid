@@ -1,0 +1,74 @@
+<div class="loyalty-wrapper clearfix">  
+  <h1 class="main-header">{{ section.settings.main_header }}<a href="{{ section.settings.page_link}}"><img class="arrow-image" src="{{ 'vector.png' | asset_img_url: 'master'}}"></a></h1>
+  <div class="loyalty-left-wrapper">
+    <img src="{{ section.settings.left_image | img_url: 'master' }}">
+    <h3>{{ section.settings.left_header }}</h3>
+    <p>{{ section.settings.left_text }}</p>
+  </div>
+  <div class="loyalty-right-wrapper">
+    <img src="{{ section.settings.right_image | img_url: 'master' }}">
+    <h3>{{ section.settings.right_header }}</h3>
+    <p>{{ section.settings.right_text }}</p>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Loyalty programs",
+  "class": "index-section cafe-section--loyalty-program",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_header",
+      "label": "Main Header title",
+      "default": "Loyalty programs"
+    },
+    {
+      "type": "header",
+      "content": "Left Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left image"
+    },
+    {
+      "type": "text",
+      "id": "left_header",
+      "label": "Left Header title",
+      "default": "Farmers Market"
+    },
+    {
+      "type": "url",
+      "id": "page_link",
+      "label": "Left Header url"
+    },
+    {
+      "type": "textarea",
+      "id": "left_text",
+      "label": "Promo text",
+      "default": "Our chef-prepared holiday dinners are full of seasonal favorites like our tender prime rib, or juicy tenderloin and smoked ham. And for dessert, our holiday pies, cakes, and cookies.  It’s your dinner – we’re just here to make it easy and delicious for you! Don’t wait to reserve your meal. Only available while supplies last."
+    },
+    {
+      "type": "header",
+      "content": "Right Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right image"
+    },
+    {
+      "type": "text",
+      "id": "right_header",
+      "label": "Right Header title",
+      "default": "Farmers Market"
+    },
+    {
+      "type": "textarea",
+      "id": "right_text",
+      "label": "Promo text",
+      "default": "Our chef-prepared holiday dinners are full of seasonal favorites like our tender prime rib, or juicy tenderloin and smoked ham. And for dessert, our holiday pies, cakes, and cookies.  It’s your dinner – we’re just here to make it easy and delicious for you! Don’t wait to reserve your meal. Only available while supplies last."
+    }
+  ]
+}
+{% endschema %}

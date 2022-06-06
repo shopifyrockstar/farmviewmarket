@@ -1,0 +1,177 @@
+<div class="recipes-wrapper cafe-market-recipes clearfix">  
+  <h1 class="main-header">{{ section.settings.main_header }}<a href="{{ section.settings.page_link}}"><img class="arrow-image" src="{{ 'vector.png' | asset_img_url: 'master'}}"></a></h1>
+  <div class="recipes-content-wrapper-wrapper rows_0">
+    <div class="recipes-content-wrapper ">
+      <img src="{{ section.settings.image_1 | img_url: 'master' }}">
+      <h3>{{ section.settings.header_1 }}</h3>
+      <p>{{ section.settings.text_1 }}</p>
+      <a href="{{ section.settings.url_1 }}" class="btn copy-promo--btn">{{ section.settings.label_1 }}</a>
+    </div>
+    <div class="recipes-content-wrapper">
+      <img src="{{ section.settings.image_2 | img_url: 'master' }}">
+      <h3>{{ section.settings.header_2 }}</h3>
+      <p>{{ section.settings.text_2 }}</p>
+      <a href="{{ section.settings.url_2 }}" class="btn copy-promo--btn">{{ section.settings.label_2 }}</a>
+    </div>
+    <div class="recipes-content-wrapper">
+      <img src="{{ section.settings.image_3 | img_url: 'master' }}">
+      <h3>{{ section.settings.header_3 }}</h3>
+      <p>{{ section.settings.text_3 }}</p>
+      <a href="{{ section.settings.url_3 }}" class="btn copy-promo--btn">{{ section.settings.label_3 }}</a>
+    </div>
+    <div class="recipes-content-wrapper">
+      <img src="{{ section.settings.image_4 | img_url: 'master' }}">
+      <h3>{{ section.settings.header_4 }}</h3>
+      <p>{{ section.settings.text_4 }}</p>
+      <a href="{{ section.settings.url_4 }}" class="btn copy-promo--btn">{{ section.settings.label_4 }}</a>
+    </div>
+  </div>
+  
+</div>
+{% schema %}
+{
+  "name": "Recipes",
+  "class": "index-section cafe-section--recipes",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_header",
+      "label": "Main Header title",
+      "default": "Recipes"
+    },
+    {
+      "type": "url",
+      "id": "page_link",
+      "label": "Left Header url"
+    },
+    {
+      "type": "header",
+      "content": "Content 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "text",
+      "id": "header_1",
+      "label": "Header title",
+      "default": "Atlanta Eats Local at Farmview Market"
+    },
+    {
+      "type": "textarea",
+      "id": "text_1",
+      "label": "Promo text",
+      "default": "“Nothing tastes better than local.” Just ask our friends at Atlanta Eats. The TV show (which airs 7 days a week on..."
+    },
+    {
+      "type": "text",
+      "id": "label_1",
+      "label": "Button label",
+      "default": "See details"
+    },
+    {
+      "type": "url",
+      "id": "url_1",
+      "label": "Button url"
+    },
+    {
+      "type": "header",
+      "content": "Content 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "text",
+      "id": "header_2",
+      "label": "Header title",
+      "default": "Put Some Pork on Your Fork!"
+    },
+    {
+      "type": "textarea",
+      "id": "text_2",
+      "label": "Promo text",
+      "default": "Pork is the most versatile meat.  It can be marinated, roasted, grilled, dry rubbed, boiled, baked, barbecued, stir-fried sm..."
+    },
+    {
+      "type": "text",
+      "id": "label_2",
+      "label": "Button label",
+      "default": "See details"
+    },
+    {
+      "type": "url",
+      "id": "url_2",
+      "label": "Button url"
+    },
+    {
+      "type": "header",
+      "content": "Content 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image 3"
+    },
+    {
+      "type": "text",
+      "id": "header_3",
+      "label": "Header title",
+      "default": "Vinegar Adds Big Flavor to Your Cooking"
+    },
+    {
+      "type": "textarea",
+      "id": "text_3",
+      "label": "Promo text",
+      "default": "If you haven’t given much thought to the role vinegar plays in your cooking, let’s examine it for a moment."
+    },
+    {
+      "type": "text",
+      "id": "label_3",
+      "label": "Button label",
+      "default": "See details"
+    },
+    {
+      "type": "url",
+      "id": "url_3",
+      "label": "Button url"
+    },
+    {
+      "type": "header",
+      "content": "Content 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Image 4"
+    },
+    {
+      "type": "text",
+      "id": "header_4",
+      "label": "Header title",
+      "default": "10 Ways to Celebrate National Bacon Day"
+    },
+    {
+      "type": "textarea",
+      "id": "text_4",
+      "label": "Promo text",
+      "default": "If ever there was a food that deserved its own day, it is bacon.  Invented in 1997 by Danya “D” Goodman and Meff “Human..."
+    },
+    {
+      "type": "text",
+      "id": "label_4",
+      "label": "Button label",
+      "default": "See details"
+    },
+    {
+      "type": "url",
+      "id": "url_4",
+      "label": "Button url"
+    }
+  ]
+}
+{% endschema %}

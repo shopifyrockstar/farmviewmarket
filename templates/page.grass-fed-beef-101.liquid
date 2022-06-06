@@ -1,0 +1,113 @@
+{% section 'hero-grassfed' %}
+{% section 'grassfed-content' %}
+{% section 'grassfed-collection' %}
+{% comment %}
+<div class="beef101-hero">
+  <h1 class="beef101-hero-title">Grass-fed beef 101</h1>
+  <h2 class="beef101-hero-subtitle">100% grass-fed, grass-finished, beef.</h2>
+  <p class="beef101-hero-message">
+    Flavor and marbling are the main differences between grass-fed and grain-fed beef. Here at Farmview Market, we know grass-fed beef can be just as flavorful and just as tender as grain-fed when raised right.
+    <br><br>
+    Read on to learn why Farmview Market insists on delivering the best grass-fed beef to our communities.
+  </p>
+</div>
+
+<div class="beef101-page-width">
+  <div class="beef101-section its-healthy">
+    <div class="beef101-section-content">
+      <div class="beef101-section-content-inner">
+        <h2 class="beef101-section-content-title">
+          <img src="https://cdn.shopify.com/s/files/1/0277/5518/4198/files/icon-its-healthy.svg?v=1614751846">
+          <span>It’s Healthy</span>
+        </h2>
+        <p class="beef101-section-content-message">Grass-fed beef is packed with heart-healthy omega-3’s and has less fat than grain-fed beef. We take it a step further, working with forage specialists to grow seasonal grasses that help our cows grow strong while eating what they love.</p>
+      </div>
+    </div>
+    <div class="beef101-section-image">
+      <img src="https://cdn.shopify.com/s/files/1/0277/5518/4198/files/beef101-its-healthy.jpg?v=1614751530">
+    </div>
+  </div>
+  
+  <div class="beef101-section its-flavorful">
+    <div class="beef101-section-content">
+      <div class="beef101-section-content-inner">
+        <h2 class="beef101-section-content-title">
+          <img src="https://cdn.shopify.com/s/files/1/0277/5518/4198/files/icon-its-flavorful.svg?v=1614753210">
+          <span>It’s Flavorful</span>
+        </h2>
+        <p class="beef101-section-content-message">It starts with selecting the right breeds for the best flavor attributes. We then work with forage specialists to grow grass that promotes the best flavor and tenderness. From there, we harvest at just the right time and use a 28-day dry aging process to ensure the highest quality. We are always working diligently to provide you the best eating experience.</p>
+      </div>
+    </div>
+    <div class="beef101-section-image">
+      <img src="https://cdn.shopify.com/s/files/1/0277/5518/4198/files/beef101-its-flavorful.jpg?v=1614753115">
+    </div>
+  </div>
+  
+  <div class="beef101-section its-humane">
+    <div class="beef101-section-content">
+      <div class="beef101-section-content-inner">
+        <h2 class="beef101-section-content-title">
+          <img src="https://cdn.shopify.com/s/files/1/0277/5518/4198/files/icon-its-humane.svg?v=1614753237">
+          <span>It’s Humane</span>
+        </h2>
+        <p class="beef101-section-content-message">Our cows are born and raised pastures, roaming freely their entire lives. We treat our cows with love and respect, making for healthier animals and healthier meat.</p>
+      </div>
+    </div>
+    <div class="beef101-section-image">
+      <img src="https://cdn.shopify.com/s/files/1/0277/5518/4198/files/beef101-its-humane.jpg?v=1614753115">
+    </div>
+  </div>
+  
+  <div class="beef101-section its-sustainable">
+    <div class="beef101-section-content">
+      <div class="beef101-section-content-inner">
+        <h2 class="beef101-section-content-title">
+          <img src="https://cdn.shopify.com/s/files/1/0277/5518/4198/files/icon-its-sustainable.svg?v=1614753259">
+          <span>It’s Sustainable</span>
+        </h2>
+        <p class="beef101-section-content-message">Grass requires nothing but sun and water. Unlike with grain-fed beef, we don't need to continually tear up the soil to grow more corn for our cows. Additionally, the manure fertilizes the soil without the need for chemicals.</p>
+      </div>
+    </div>
+    <div class="beef101-section-image">
+      <img src="https://cdn.shopify.com/s/files/1/0277/5518/4198/files/beef101-its-sustainable.jpg?v=1614753115">
+    </div>
+  </div>
+  
+  <div class="beef101-collection">
+    <h2 class="beef101-collection-title">Shop Grass-fed Beef</h2>
+    <p class="beef101-collection-message">The natural flavors of Georgia, sustainably sourced and hand selected for delicious taste.</p>
+    
+    <div>
+      <ul class="grid grid--uniform grid--view-items">
+        {%- assign collection = collections['beef'] -%}
+        {%- assign max_height = 250 -%}
+        {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+        {%- assign product_limit = 4 -%}
+        
+        {% for product in collection.products limit: product_limit %}
+          <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+            {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+          </li>
+        {% else %}
+
+          {% for i in (1..product_limit) %}
+            <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+              <div class="grid-view-item product-card">
+                <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="#">
+                  <span class="visually-hidden">{{ 'homepage.onboarding.product_title' | t }}</span>
+                </a>
+                <div class="grid-view-item__image-wrapper">
+                  {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                  {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+                <div class="h4 grid-view-item__title" aria-hidden="true">{{ 'homepage.onboarding.product_title' | t }}</div>
+                {% include 'product-price' %}
+              </div>
+            </li>
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endcomment %}

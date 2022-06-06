@@ -1,0 +1,67 @@
+{% if article.metafields.custom_fields["upcoming"] != blank %}
+{% assign settings = shop.metafields._cf_articles["upcoming"].settings %}
+{% assign data_attr = shop.metafields._cf_articles["upcoming"].data_attr %}
+<div class="cf-widget-upcoming cf-widget__article-references" {{ data_attr }}>
+  <div class="cf-widget-items-wrapper">
+    {% for item in article.metafields.custom_fields["upcoming"] %}
+    {% assign article = blank %}
+    {% assign article_blog_handle = item.handle | split: "." %}
+    {% for a in blogs[article_blog_handle[0]].articles %}
+    {% if a.handle contains article_blog_handle[1] %}
+    {% assign article = a %}
+    {% break %}
+    {% endif %}
+    {% endfor %}
+    {% if article.published_at != blank and article != blank %}
+    <div class="cf-widget-item">
+      <div class="inner">
+        <a href="{{ article.url }}" class="cf-article-link"></a>
+
+        {% if article.image.src != blank %}
+        <div class="cf-article-image-wrapper">
+          <img src="{{ article.image.src | img_url: "532x500", crop: "center" }}" class="cf-article-image">
+        </div>
+        {% endif %}
+
+        <div class="cf-article-info">
+          <div class="cf-article-title">
+            {% if item.title_override != blank %}
+            {{ item.title_override }}
+            {% else %}
+            {{ article.title | truncate: 40 }}
+            {% endif %}
+          </div>
+
+          
+            {% if item.upcoming_time != blank %}
+            <div class="cf-widget-field cf-widget-field__upcoming_time cf-widget-field--text">
+              {{ item.upcoming_time }}
+            </div>
+            {% endif %}
+          
+            {% if item.description != blank %}
+            <div class="cf-widget-field cf-widget-field__description cf-widget-field--html">
+              {{ item.description }}
+            </div>
+            {% endif %}
+          
+            {% if item.upcoming_link != blank %}
+            <div class="cf-widget-field cf-widget-field__upcoming_link cf-widget-field--text">
+              {{ item.upcoming_link }}
+            </div>
+            {% endif %}
+          
+          {% if settings.link_title != blank %}
+          <a class="btn cf-article-custom-link-text" href="{{ article.url }}">
+            {{ settings.link_title }}
+          </a>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

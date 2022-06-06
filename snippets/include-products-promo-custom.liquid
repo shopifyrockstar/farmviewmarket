@@ -1,0 +1,72 @@
+<div class="collections-container cheese-collections">
+  <div class="page-width">
+    
+  {% if section.blocks.size > 0 %}
+   
+    {% for block in section.blocks %}
+      <div class="collection-wrapper {% if block.settings.custom_class != nil %}{{ block.settings.custom_class }}{% endif %}">
+        <div class="heading-wrapper {% if block.settings.image_position %} inverted-flex {% endif %} {% if block.settings.block_image != nil %} image {% endif %}">
+            {% if block.settings.block_image != nil %}
+              <div class="image-container">
+                 <img src="{{ block.settings.block_image | img_url: 'master' }}" alt="block.settings.block_image.alt" />
+              </div>
+            {% endif %}
+            <div class="content-container">
+                {% if block.settings.back_image != nil %}
+                   <img class="background_image" src="{{ block.settings.back_image | img_url: 'master' }}" alt="block.settings.back_image.alt" />
+                {% endif %}
+                {% if block.settings.second_back_image != nil %}
+                   <img class="second_background_image" src="{{ block.settings.second_back_image | img_url: 'master' }}" alt="block.settings.second_back_image.alt" />
+                {% endif %}
+              	{% if block.settings.collection_title != blank %}
+                	<h2>{{ block.settings.collection_title | escape }}</h2>
+              	{% endif %}
+              	{% if block.settings.collection_content != blank %}
+                	<div class="content">{{ block.settings.collection_content }}</div>
+              	{% endif %}
+                {% if block.settings.btn_label != "" %}
+                <a href="{{ block.settings.btn_url }}" class="btn copy-promo--btn">{{ block.settings.btn_label }}</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="products-wrapper product-promo--featured">
+            {%- assign collection = collections[block.settings.collection] -%}
+            {%- assign max_height = 250 -%}
+            {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+            {%- assign product_limit = 4 -%}
+            
+             <ul class="grid grid--uniform grid--view-items">
+               {% assign product_item_1 = all_products[block.settings.product_1] %}
+               {% assign product_item_2 = all_products[block.settings.product_2] %}
+               {% assign product_item_3 = all_products[block.settings.product_3] %}
+               {% assign product_item_4 = all_products[block.settings.product_4] %}
+               
+               {% if product_item_1.url != "" %}
+               <li class="grid__item collection-item grid__item-- {{ grid_item_width }}">
+                  {% include 'product-card-grid', max_height: max_height, product: product_item_1 %}
+                </li>
+               {% endif %}
+               {% if product_item_2.url != "" %}
+               <li class="grid__item collection-item grid__item-- {{ grid_item_width }}">
+                  {% include 'product-card-grid', max_height: max_height, product: product_item_2 %}
+                </li>
+               {% endif %}
+               {% if product_item_3.url != "" %}
+               <li class="grid__item collection-item grid__item-- {{ grid_item_width }}">
+                  {% include 'product-card-grid', max_height: max_height, product: product_item_3 %}
+                </li>
+               {% endif %}
+               {% if product_item_4.url != "" %}
+               <li class="grid__item collection-item grid__item-- {{ grid_item_width }}">
+                  {% include 'product-card-grid', max_height: max_height, product: product_item_4 %}
+                </li>
+               {% endif %}
+              
+            </ul>
+        </div>
+     </div>
+    {% endfor %}
+    
+  {% endif %}
+  </div>
+</div>

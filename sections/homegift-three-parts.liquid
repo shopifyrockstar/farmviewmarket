@@ -1,0 +1,80 @@
+<div class="content-wrapper">
+  {% if section.settings.top_small_image %}  
+  	<img class="lazyload top-small-image" src="{{ section.settings.top_small_image | img_url: '200x' }}">    
+  {% endif %}
+  <div class="left-wrapper">
+    {%- assign product = all_products[section.settings.left_featured_product] -%}
+    <a href="{{ product.url }}">
+    	<img class="lazyload left-image" src="{{ product.featured_image | img_url: 'master' }}">  
+    </a>
+  </div>  
+  <div class="middle-wrapper">
+    <h1>{{ section.settings.middle_header }}</h1>
+    <p>{{ section.settings.middle_text }}</p>
+    <a class="btn" href="{{ section.settings.button_url }}">{{ section.settings.button_title }}</a>  
+  </div>
+  <div class="right-wrapper">    
+    {%- assign product = all_products[section.settings.right_featured_product] -%}
+    <a href="{{ product.url }}">
+    	<img class="lazyload" src="{{ product.featured_image | img_url: 'master' }}">
+    </a>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Three parts section",
+  "class": "homegift-section three-parts-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "top_small_image",
+      "label": "Top samll image"
+    },
+    {
+      "type": "header",
+      "content": "Left Image"
+    },
+    {
+      "type": "product",
+      "id": "left_featured_product",
+      "label": "Left Product"
+    },
+    {
+      "type": "header",
+      "content": "Middle content"
+    },
+    {
+      "type": "text",
+      "id": "middle_header",
+      "label": "Middle Header",
+      "default": "Artisan Craft"
+    },
+    {
+      "type": "text",
+      "id": "middle_text",
+      "label": "Middle Text",
+      "default": "Handcrafted products to give your home that unique southern charm"
+    },
+    {
+      "type": "text",
+      "id": "button_title",
+      "label": "Button text",
+      "default": "See all"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button url"
+    },
+    {
+      "type": "header",
+      "content": "Right Image"
+    },
+    {
+      "type": "product",
+      "id": "right_featured_product",
+      "label": "Right Product"
+    }    
+  ]
+}
+{% endschema %}

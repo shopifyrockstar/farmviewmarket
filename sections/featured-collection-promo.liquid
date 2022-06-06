@@ -1,98 +1,119 @@
-<div class="product-promo--product">
-  <div class="promo-product--right lazyload"
-  data-bgset="{% include 'bgset', image: section.settings.banner_image %}"
-  data-sizes="auto"
-  data-parent-fit="cover"
-  style="background-image: url('{{ section.settings.banner_image | img_url: '300x300' }});">
-    <div class="product-right--copy-text">
-      <h4 class="inner-promo--title">{{ section.settings.banner_title }}</h4>
-      <p class="inner-promo--text">{{ section.settings.banner_text }}</p>
-      <a href="{{ section.settings.banner_url }}"
-        class="btn btn-arrow--right">
-        <span class="chevron right"></span>
-      </a>
-    </div>    
-  </div>
-  <div class="page-width">
-    <div class="product-left--copy lazyload"
-      data-bgset="{% include 'bgset', image: section.settings.left_image %}"
+<div {% unless template contains 'index' %} {% if section.settings.section_back_image != blank %} style="background-image: url({{ section.settings.section_back_image | img_url: 'master' }}), url({{ section.settings.section_back_texture | img_url: 'master' }});" {% endif %} {% else %}{% if section.settings.section_back_image != blank %} style="background-image: url({{ section.settings.section_back_image | img_url: 'master' }});" {% endif %}{% endunless %}>
+    <div class="product-promo--product" {% if section.settings.section_back_texture != blank and template contains 'index' %} style="background-image: url({{ section.settings.section_back_texture | img_url: 'master' }});" {% endif %}>
+      <div class="promo-product--right lazyload"
+      data-bgset="{% include 'bgset', image: section.settings.banner_image %}"
       data-sizes="auto"
       data-parent-fit="cover"
-      style="background-image: url('{{ section.settings.left_image | img_url: '300x300' }});">
-      <div class="product-left--copy-text">
-        <h2 class="copy-promo--title">{{ section.settings.left_title }}</h2>
-        <p class="copy-promo--text">{{ section.settings.left_text }}</p>
-        <a href="{{ section.settings.left_url }}" class="btn copy-promo--btn">{{ section.settings.left_label }}</a>
+      style="background-image: url('{{ section.settings.banner_image | img_url: '300x300' }});">
+        <div class="product-right--copy-text">
+          <h4 class="inner-promo--title">{{ section.settings.banner_title }}</h4>
+          <p class="inner-promo--text">{{ section.settings.banner_text }}</p>
+          <a href="{{ section.settings.banner_url }}"
+            class="btn btn-arrow--right">
+            <span class="chevron right"></span>
+          </a>
+        </div>    
+      </div>
+      <div class="page-width">
+        <div class="product-left--copy lazyload"
+          data-bgset="{% include 'bgset', image: section.settings.left_image %}"
+          data-sizes="auto"
+          data-parent-fit="cover"
+          style="background-image: url('{{ section.settings.left_image | img_url: '300x300' }});">
+          <img class="hide-desktop" src="{{ section.settings.left_image | img_url: '300x300' }}" alt="product image"/>
+          <div class="product-left--copy-text">
+            <h2 class="copy-promo--title">{{ section.settings.left_title }}</h2>
+            <p class="copy-promo--text">{{ section.settings.left_text }}</p>
+            <a href="{{ section.settings.left_url }}" class="btn copy-promo--btn">{{ section.settings.left_label }}</a>
+          </div>
+        </div>
+
       </div>
     </div>
-    
-  </div>
+
+    <div class="product-promo--featured tttst" {% if section.settings.featured_back_image != blank %} style="background-image: url({{ section.settings.featured_back_image | img_url: 'master' }});" {% endif %}>
+      <div class="page-width">
+        {% if section.settings.title != blank %}
+          <div class="section-header text-center">
+            <h2>{{ section.settings.title | escape }}</h2>
+            <p>{{ section.settings.text }}</p>
+          </div>
+        {% endif %}
+
+        {%- assign collection = collections[section.settings.collection] -%}
+
+        {% case section.settings.grid %}
+          {% when 2 %}
+            {%- assign max_height = 530 -%}
+            {%- assign grid_item_width = 'medium-up--one-half' -%}
+          {% when 3 %}
+            {%- assign max_height = 345 -%}
+            {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
+          {% when 4 %}
+            {%- assign max_height = 250 -%}
+            {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+          {% when 5 %}
+            {%- assign max_height = 195 -%}
+            {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
+        {% endcase %}
+
+        {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
+
+        {% assign rows = '' %}
+        {% assign columns = '' %}
+        {% assign mobile_rows = '' %}
+        {% assign mobile_columns = '' %}
+
+        {% unless limit < collection.all_products_count %}
+        {% assign rows = collection.all_products_count | minus: 1 | divided_by: 4 %}
+        {% if rows > 0 %}
+        {% assign columns = collection.all_products_count | modulo: 4 %}
+        {% endif %}
+        {% assign mobile_rows = collection.all_products_count | minus: 1 | divided_by: 2 %}
+        {% if mobile_rows > 0 %}
+        {% assign mobile_columns = collection.all_products_count | modulo: 2 %} 
+        {% endif %}
+        {% endunless %}
+        
+        <ul class="grid grid--uniform grid--view-items">
+          {% for product in collection.products limit: product_limit %}
+            <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+              {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+            </li>
+          {% else %}
+
+            {% for i in (1..product_limit) %}
+              <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+                <div class="grid-view-item product-card">
+                  <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="#">
+                    <span class="visually-hidden">{{ 'homepage.onboarding.product_title' | t }}</span>
+                  </a>
+                  <div class="grid-view-item__image-wrapper">
+                    {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                    {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                  </div>
+                  <div class="h4 grid-view-item__title" aria-hidden="true">{{ 'homepage.onboarding.product_title' | t }}</div>
+                  {% include 'product-price' %}
+                </div>
+              </li>
+            {% endfor %}
+          {% endfor %}
+        </ul>
+
+        {% if section.settings.show_view_all %}
+          <hr class="hr--invisible" aria-hidden="true" />
+          <div class="text-center">
+            <a href="{{ collection.url }}" class="btn" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">
+              {{ 'collections.general.view_all' | t }}
+            </a>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+
 </div>
 
-<div class="product-promo--featured">
-  <div class="page-width">
-    {% if section.settings.title != blank %}
-      <div class="section-header text-center">
-        <h2>{{ section.settings.title | escape }}</h2>
-        <p>{{ section.settings.text }}</p>
-      </div>
-    {% endif %}
-  
-    {%- assign collection = collections[section.settings.collection] -%}
-  
-    {% case section.settings.grid %}
-      {% when 2 %}
-        {%- assign max_height = 530 -%}
-        {%- assign grid_item_width = 'medium-up--one-half' -%}
-      {% when 3 %}
-        {%- assign max_height = 345 -%}
-        {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
-      {% when 4 %}
-        {%- assign max_height = 250 -%}
-        {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
-      {% when 5 %}
-        {%- assign max_height = 195 -%}
-        {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
-    {% endcase %}
-  
-    {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
-  
-    <ul class="grid grid--uniform grid--view-items">
-      {% for product in collection.products limit: product_limit %}
-        <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-          {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
-        </li>
-      {% else %}
-  
-        {% for i in (1..product_limit) %}
-          <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-            <div class="grid-view-item product-card">
-              <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="#">
-                <span class="visually-hidden">{{ 'homepage.onboarding.product_title' | t }}</span>
-              </a>
-              <div class="grid-view-item__image-wrapper">
-                {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-                {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
-              </div>
-              <div class="h4 grid-view-item__title" aria-hidden="true">{{ 'homepage.onboarding.product_title' | t }}</div>
-              {% include 'product-price' %}
-            </div>
-          </li>
-        {% endfor %}
-      {% endfor %}
-    </ul>
-  
-    {% if section.settings.show_view_all %}
-      <hr class="hr--invisible" aria-hidden="true" />
-      <div class="text-center">
-        <a href="{{ collection.url }}" class="btn" aria-label="{{ 'collections.general.view_all_label' | t: collection_name: collection.title }}">
-          {{ 'collections.general.view_all' | t }}
-        </a>
-      </div>
-    {% endif %}
-  
-  </div>
-</div>
 
 
 {% schema %}
@@ -100,6 +121,16 @@
   "name": "Featured coll with promo",
   "class": "index-section section--featured-collection-promo",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "section_back_image",
+      "label": "Section Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_back_texture",
+      "label": "Section Background Texture"
+    },
     {
       "type": "header",
       "content": "Promo product & banner"
@@ -157,6 +188,16 @@
     {
       "type": "header",
       "content": "Featured collection"
+    },
+    {
+      "type": "image_picker",
+      "id": "featured_back_image",
+      "label": "Featured collection Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "featured_back_texture",
+      "label": "Featured collection Background Texture"
     },
     {
       "type": "text",

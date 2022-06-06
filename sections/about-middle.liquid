@@ -1,0 +1,36 @@
+<div class="page-width">
+  <img class="position-absolute left-image" src="{{ section.settings.image_1 | img_url: 'master' }}">
+  <img class="position-absolute right-image" src="{{ section.settings.image_2 | img_url: 'master' }}">
+  <div class="content" style="background-image:url({{ section.settings.image_3 | img_url: 'master' }});">
+    <p>{{ section.settings.content }}</p>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "About Middle",
+  "class": "about-middle",
+  "settings": [
+	{
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+	{
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+	{
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Background Image"
+    },
+	{
+      "type": "textarea",
+      "id": "content",
+      "label": "Content",
+      "default": "Free shipping"
+    }
+  ]
+}
+{% endschema %}

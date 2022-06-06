@@ -1,0 +1,2710 @@
+/*   loyalty page styling CSS  */
+
+.loyalty-page {
+  padding: 0 5%;
+}
+.loyalty-page .hero__inner {
+	padding-top: 15%;
+}
+.loyalty-page-template h1 {
+	font-weight: 800;
+}
+.loyalty-pag-blocks {
+	padding: 0 2%;
+}
+.hero-loyalty-hero .hero__inner-copy h2 {
+	    font-family: Vollkorn;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 42px;
+}
+.hero-loyalty-hero .hero__inner-copy p {
+	font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 22px;
+    color: #fff;
+    max-width: 613px;
+}
+.loyalty-programs-content .image-bar__text h4 {
+	color: #242721;
+    font-family: Vollkorn;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+  min-height: 48px;
+}
+.loyalty-programs-content .image-bar__text p {
+  color: #242721;
+  font-size: 13px;
+  line-height: 22px;
+}
+.loyalty-pag-blocks .custom-pagination .grid--view-items .grid__item, .loyalty-pag-blocks .custom-pagination .grid--view-items .grid__item:nth-child(4n+2) {
+	border: none !important;
+}
+.loyalty-pag-blocks .grid--view-items .grid__item:nth-child(2):after, .loyalty-pag-blocks .grid--view-items .grid__item:nth-child(4):after {
+	display: none;
+}
+.loyalty-programs-content {
+	padding-top: 3%;
+}
+
+/*   end loyalty page styling CSS */
+
+/*  wholesale page styling CSS  */
+
+.hero-wholesale-hero .wholesale-hero__inner {
+	position: relative;
+}
+.wholesale-hero__inner-promo {
+	position: absolute;
+    bottom: -23%;
+    left: 0;
+    right: 0;
+    display: flex;
+    max-width: 90%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    align-items: flex-end;
+}
+.wholesale-hero__inner-promo .inner-promo--text-wrapper {
+	width: 50%;
+    max-width: 620px;
+    margin: 0 auto;
+}
+.wholesale-hero__inner-promo .inner-promo--text {
+	font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 28px;
+}
+.wholesale-hero__inner-promo .inner-title {
+	width: 50%;
+    background: #EEA452;
+    max-width: 620px;
+    margin: 0 auto;
+}
+.wholesale-hero__inner-promo .inner-promo--title {
+	font-family: Vollkorn;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+    color: #242721;
+    font-size: 2rem;
+    padding: 5rem 2.5rem;
+}
+.wholesale-hero__inner .wholesale_text_section {
+	padding-top: 10rem;
+}
+.wholesale-contents-block {
+	margin-top: 8%;
+}
+.wholesale-contents-section {
+	display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: stretch;
+}
+.wholesale-contents-left{
+	width: 60%;
+}
+.wholesale-contents-left .product-right--copy-text {
+	display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    height: 100%;
+    color: #fff;
+    max-width: 757px;
+    margin-left: 10%;
+}
+.wholesale-contents-left .inner-promo--title {
+  	/*
+	font-family: Vollkorn;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 42px;
+   	font-size: 2.4rem;
+  	*/
+    color: #242721;
+  	
+  	line-height: 1;
+  
+   
+  
+}
+.wholesale-contents-left .inner-promo--text {
+	font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 28px;
+    color: #585F51;
+}
+.wholesale-contents-right {
+    width: 40%;
+}
+.wholesale-contact-section {
+	padding: 0 5.5%;
+}
+.wholesale-contact .contact-copy-text .inner-promo--title {
+	font-family: Vollkorn;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 56px;
+    font-size: 3.2rem;
+}
+.wholesale-contact .contact-copy-text .inner-promo--text {
+	font-style: normal;
+    font-weight: normal;
+    font-size: 1.1rem;
+    line-height: 32px;
+}
+.wholesale-contact-form {
+	display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+   margin-top: 3%;
+}
+.wholesale-contact-form .contact-left, .wholesale-contact-form .contact-right {
+  width: 50%;
+  padding: 3%;
+}
+.wholesale-contact-form .contact-left {
+	border-right: 1px solid #E3E5E0;
+}
+.wholesale-contact-form .inner-promo--title {
+	display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+.wholesale-contact-form .inner-promo--title .icon {
+	margin-bottom: 0;
+    width: 6%;
+}
+.wholesale-contact-form .inner-promo--title p {
+	font-family: Vollkorn;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 32px;
+    width: 94%;
+}
+.wholesale-contact-form .inner-promo--text p {
+	font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 28px;
+}
+.wholesale-contact-form .inner-promo--text {
+	margin-left: 6%;
+    margin-top: 2%;
+}
+.wholesale-contact-form .inner-promo--text span {
+   color: #EEA452;	
+}
+.wholesale-footer-banner .wholesale_mobile {
+	display: none;
+}
+
+/* end wholesale page styling CSS */
+
+
+.shopify-section .insta-feed {
+	margin-top: 4rem;
+}
+.story-join .product-promo--product .promo-product--right {
+	max-height: 529px;
+  background-position: center;
+}
+
+.story-join .has-background:before{
+  top: 94%;
+  left: -110px;
+}
+.story-join.section--featured-collection-promo .product-left--copy .product-left--copy-text p {
+  /*
+  font-size: 13px;
+  line-height: 22px;
+  */
+}
+#shopify-section-story-join {
+	margin-bottom: 6%;
+}
+.story-wholesale.rockhouse-inquiries .newsletter-section .right-image {
+    max-width: 280px;
+    top: 60px;
+}
+.story-wholesale.rockhouse-inquiries .newsletter-section .left-image {
+    max-width: 350px;
+    top: -50px;
+}
+.rockhouse-specialites .content-wrapper p span {
+	color: #EEA452;
+}
+.rockhouse-specialites .content-wrapper p {
+  min-height: 216px;
+  font-size: 1rem;
+}
+.rockhouse-specialites .content-wrapper .btn {
+	padding: 12px 24px;
+  margin-top: 20px;
+}
+.shopify-section.rockhouse-featured-promo .product-promo--featured .content-wrapper .image-wrapper {
+	max-width: 100%;
+    margin: 0 auto;
+    background: #FAF5F0;
+    text-align: center;
+}
+.shopify-section.rockhouse-featured-promo .product-promo--featured .content-wrapper .link-wrapper {
+	clear: both;
+}
+.rockhouse-featured-promo .grid--view-items .content-wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.left-image.mobile_images, .right-image.mobile_images {
+	display: none;
+}
+.roke-house-featured .section-header {
+	text-align: center !important;
+}
+
+
+
+/*  Seasonal Offering page CSS style */
+
+.offering-hero .hero__inner .hero__inner-copy {
+	max-width: 70%;
+}
+#shopify-section-seasonal-offerings .page-width.text-left .hero__inner-copy .mega-title {
+  font-family: Vollkorn;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 4.4rem;
+  line-height: 72px;
+  color: #FFFFFF;
+}
+
+#shopify-section-seasonal-offerings .hero__inner {
+	padding-top: 0;
+}
+
+#shopify-section-seasonal-offerings .hero__inner .page-width.text-left .hero__inner-copy .mega-subtitle p {
+	font-size: 20px;
+    line-height: 32px;
+}
+.pantry-promo-collection .offering-seciton {
+	display: flex;
+    flex-wrap: wrap;
+   align-items: stretch;
+}
+.offering-seciton .offering-featured, .offering-seciton .offering-img-section {
+	width: 50%;
+}
+
+.offering-img-section .offering-product {
+  background-size: cover;
+  height: 100%;
+  background-position: center top;
+ 
+}
+.offering-featured .grid--uniform {
+	width: 100%;
+    margin: 30px 0 0;
+}
+.offering-featured .grid--uniform .grid__item {
+	width: 50%;
+    padding: 2% 6%;
+}
+.offering-featured .grid--uniform .grid__item:last-child {
+  border-image: linear-gradient(
+    360deg
+    , rgba(0, 0, 0, 0), #bdc3b8, #bdc3b8, rgba(0, 0, 0, 0)) 1 100%;
+  border-width: 0 0 0 1px;
+  border-style: solid;
+}
+.product-offering--copy-text {
+  margin-left: 5%;
+  padding-top: 20%;
+}
+.product-offering--copy-text .offering-copy-promo--title {
+  font-family: Vollkorn;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.5rem;
+    line-height: 42px;
+    color: #fff;
+    max-width: 95%;
+
+}
+.product-offering--copy-text .offering-copy-promo--title span {
+  font-size: 1.8rem;
+}
+.offering-seciton .copy-offering--btn {
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  color: #192A18;
+  padding: 11px 23px;
+}
+.product-offering--copy-text .copy-promo--text {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 22px;
+  color: #FFFFFF;
+  max-width: 576px;
+  padding-top: 20px;
+  margin-bottom: 0;
+
+}
+.product-offering--copy-text .copy-promo--text .new {
+  color: #07d007;
+}
+.product-offering--copy-text .copy-promo--text .more {
+  color: #e89334;
+}
+.offering-four-featured .grid .grid__item  {
+  border-image: linear-gradient( 
+    360deg
+    , rgba(0, 0, 0, 0), #bdc3b8, #bdc3b8, rgba(0, 0, 0, 0)) 1 100%;
+  border-width: 0 0 0 1px;
+  border-style: solid;
+}
+.offering-four-featured .grid--view-items {
+  margin: 0;
+}
+.offering-four-featured .grid--view-items .product-card .product-info {
+  margin-top: 0;
+  min-height: 75px;
+}
+.product-offering--four-text {
+  margin-left: 5%;
+  padding-top: 40%;
+}
+.last-offering .offering-copy-promo--title {
+  font-family: Vollkorn;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 42px;
+  color: #FFFFFF;
+  max-width: 574px;
+}
+.last-offering .copy-promo--text {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 22px;
+  color: #FFFFFF;
+  max-width: 576px;
+  margin-top: 15px;
+}
+
+.button-block {
+  display: flex;
+  align-items: center;
+}
+.button-block .price-button {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+  color: #fff;
+  margin-left: 24px;
+}
+
+/*  end Seasonal Offering page CSS style */
+
+
+/*  Holiday Speicals page CSS style */
+
+.index-section.section--hero-banner.holiday-hero {
+	margin-top: -55px;
+}
+.holiday-banner-section .hero__inner .text-left {
+	margin-top: -150px;
+}
+
+/*   end Holiday Speicals page CSS style */
+
+/*   Butchers Club page CSS style  */
+
+.butchers-club-page .hero__inner-promo {
+	padding: 0;
+    border: 0;
+}
+.butchers-banner{
+	margin-top: -55px;
+}
+.butchers-club-page .hero_bg-img  {
+  background-size: cover;
+  min-width: 480px;
+  width: 100%;
+  min-height: 280px;
+  background-color: #fff;
+  background-position: right;
+  display: flex;
+  align-items: center;
+  padding-top: 5%;
+  padding-left: 8%;
+  background-color: rgba(250, 245, 240, 1);
+}
+.butchers-club-page .inner-promo--descr{
+	max-width: 65%;
+  width: 100%;
+}
+.butchers-club-page .inner-promo--title p {
+	font-family: Vollkorn;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+}
+.get_off span {
+  font-size: 2.6rem;
+  line-height: 22px;
+  color: #54AA50;
+
+}
+
+/*  end Butchers Club page CSS style  */ 
+
+/*   Blog detials page CSS style  */
+.article_wrapper .article-secitons, .article_page .article-footer {
+  width: 100%;
+  padding: 0 20%;
+}
+.article-hero.article-blocks {
+	margin-bottom: 8%;
+}
+.first-img .bg-main-img img, .second-img .bg-main-img img {
+  max-height: 100%;
+  margin: 0;
+}
+.article-secitons.second-content {
+	padding-bottom: 5%;
+    padding-top: 2%;
+}
+.article-secitons.third-content {
+	padding-top: 5%;
+}
+.article-content .third-content a {
+	color: #EEA452;
+}
+.article-events-link {
+	display: flex;
+  flex-wrap: wrap;
+}
+.third-img-width {
+	display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    padding-top: 2%;
+    padding-bottom: 5%;
+}
+.third-img-width .text-blocks, .third-img-width .img-blocks {
+	    width: 50%;
+}
+.article-content .third-img-width img {
+	margin: 0;
+}
+.article_wrapper .article-secitons.img-text-section {
+	width: 100%;
+    padding-left: 20%;
+    padding-right: 5.5%;
+}
+.article-secitons.video-section .video-bg {
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+     z-index: 1;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.article-secitons .main-title {
+	font-size: 40px;
+    font-weight: 800;
+    line-height: 42px;
+    margin-bottom: 16px;
+  color: #242721;
+  font-family: Vollkorn;
+  font-style: normal;
+}
+.text-blocks p {
+	max-width: 460px;
+}
+.second-content p {
+	max-width: 840px;
+}
+.bg-main-img .mobile-img {display: none}
+
+ 
+/*  Butchers club page CSS style  */
+.butchers-club .medium-up--one-half {
+	padding: 1% 1.3%;
+}
+.butchers-club .image-bar__title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  color: #242721;
+  font-style: normal;
+  margin-top: 15px;
+}
+.butchers-club .club-content {
+  font-size: 13px;
+  line-height: 22px;
+  min-height: 135px;
+}
+.butchers-club .club-content a {
+  color: #EEA452;
+}
+.butchers-club .image-bar__content  {
+	padding-bottom: 5%;
+}
+
+.newsletter .newsletter-section.butcher-club-join .right-image {
+	max-width: 14rem;
+}
+.newsletter .newsletter-section.butcher-club-join .left-image {
+	max-width: 14rem;
+}
+.newsletter .newsletter-section.butcher-club-join {
+	padding-bottom: 8.125rem;
+}
+.newsletter .butcher-club-join .section-header {
+	    max-width: 55rem;
+}
+.newsletter .newsletter-section.butcher-club-join .section-header h2 {
+	font-size: 3.4rem;
+}
+.newsletter .butcher-club-join .section-header .rte .additional-text {
+	    font-size: 3.4rem;
+}
+.butcher-club-join .form-single-field {
+	    max-width: 51rem;
+}
+.newsletter .butcher-club-join .input-group .input-group__btn .btn {
+	    width: 17rem;
+}
+.newsletter .butcher-club-join .input-group .input-group__field {
+	    background-color: #fff;
+}
+.butcher-club-join .btn {
+	padding: 0;
+}
+/* end Butchers club page CSS style  */
+
+/*  Farmview event space page CSS style  */
+
+.mega-subtext {
+	font-size: 1.5rem;
+  color: #fff;
+}
+.meeting_room .meeting-room-section .section-header {
+  margin-top: 8%;
+}
+.meeting_room .meeting-room-section .meeting_room_blocks {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: center;
+  align-items: flex-end;
+}
+.meeting_room_blocks .left-icon-block {
+	width: 27.5%;
+    text-align: center;
+}
+.meeting_room_blocks .main-img-block {
+  width: 45%;
+  text-align: center;
+}
+.meeting_room_blocks .right-icon-block {
+	width: 27.5%;
+  text-align: center;
+}
+.main-img-block .text-line{
+  margin: 0 auto;
+  position: absolute;
+  top: 30px;
+  bottom: 0;
+  left: 0px;
+  right: 0;
+  width: 100%;
+  max-width: 658px;
+}
+.club-image {
+  width: 100%;
+  z-index: 99;
+  position: relative;
+}
+.club-image img {
+  width: 100%;
+  max-width: 412px;
+}
+.left-icon-block .icon-section {
+  width: 70%;
+  float: right;
+  min-width: 200px;
+}
+.icon-section .center-icon {
+	padding: 20% 0;
+}
+.icon-section .icon-text {
+  width: 100%;
+  text-align: center;
+}
+.icon-section .icon-text p {
+     margin-top: 10px;
+}
+.right-icon-block .icon-section {
+  width: 70%;
+  float: left;
+   min-width: 200px;
+}
+.color-text-link p a {
+	color: #EEA452;
+    text-decoration: underline;
+}
+.color-text p {
+  color: #EEA452;
+}
+.meeting-room-bottom .room_secton {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.meeting-room-bottom .left-seciton {
+  width: 42%;
+}
+.meeting-room-bottom .left-seciton .left-img {
+  width: 100%;
+}
+.meeting-room-bottom .left-seciton .left-img img {
+  height: 40rem;
+  min-width: 100% !important;
+}
+.meeting-room-bottom .right-seciton {
+  width: 58%;
+  padding-left: 5.5%;
+  position: relative;
+}
+.right-seciton .number-text .fa {
+  padding-right: 10px;
+  color: #8A9381;
+}
+.right-seciton .background-block {
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.background-block .bottom-left-img {
+ position: relative;
+    z-index: 999;
+    padding-right: 18%;
+}
+.bottom-left-img .butchers-club--image {
+  filter: drop-shadow(0px 12px 36px rgba(0, 0, 0, 0.05));
+  height: 23rem;
+}
+
+.background-block .map-blocks {
+  position: absolute;
+  bottom: 7rem;
+    left: 14rem;
+}
+.background-block .map-icon {
+  text-align: center;
+  padding-top: 10px;
+}
+.map-link {
+	padding: 5px 0;
+}
+.map-link a span {
+  color: #EEA452;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+}
+.map-blocks .map-text {
+  background-color: #fff;
+  padding: 15px;
+}
+.map-link-text {
+	margin-right: 8px;
+}
+.map-text-block .main-text {
+	font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 10px;
+  font-weight: 600;
+}
+.map-text-block .sub-text {
+	font-size: 13px;
+    line-height: 22px;
+}
+.tomato-img {
+  display: block;
+  width: 100%;
+}
+.right-seciton .tomato-img {
+  height: 28rem;
+  margin-top: 0px;
+}
+
+.index-section.section--featured-collection-promo.meeting_room {
+	padding-bottom: 8%;
+}
+.text-block .mail-to {
+	background: #EEA452;
+    border-radius: 100px;
+    max-width: 267px;
+    text-align: center;
+    padding: 16px 0;
+}
+.mail-to a {
+	font-weight: bold;
+}
+/* end Loyalty programs page CSS style  */
+
+.hero__inner.loyalty-hero {
+	padding-top: 10%;
+}
+.loyalty-subtitle p {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 22px;
+  margin-bottom: 0;
+}
+.loyalty-subtitle {
+  max-width: 613px;
+  margin: 0;
+}
+
+.loyalty-hero .hero__inner-copy {
+	max-width: 58%;
+}
+.index-section.section--hero-banner.loyalty-banner {
+	padding: 2% 5.5%;
+} 
+.loyalty-programs.page-header h1 {
+	margin-bottom: 2%;
+}
+.loyalty-page-content.page-width {
+  padding-left: 4.3%;
+  padding-right: 4.3%;
+}
+.farmers-market-question-message {
+	width: 70%;
+  max-width: 440px;
+}
+
+/* end Loyalty programs page CSS style  */
+
+/*   Seasonal recipes page CSS style  */
+
+.seasonal-recipes .image-bar__title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  color: #242721;
+  margin-bottom: 0;
+  margin: 5% 0;
+}
+.seasonal-recipes p {
+  font-size: 13px;
+  line-height: 22px;
+  margin-bottom: 0;
+}
+.seasonal-recipes .button-link {
+	position: relative;
+}
+.seasonal-recipes .image-bar__overlay::before {
+	display: none;
+}
+.seasonal-recipes .button-link a {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: #192A18;
+  margin-top: 15px;
+  padding: 11px 23px;
+}
+.seasonal-page-template .page-title {
+  padding: 2% 3%;
+  padding-bottom: 0; 
+}
+.seasonal-page-template .page-title h1 {
+	margin-bottom: 0;
+}
+.custom-pagination .grid--view-items {
+  margin-left: 0;
+}
+.custom-pagination .grid--view-items .grid__item:nth-child(n+5) {
+	border-top: 0;
+}
+.custom-pagination .grid--view-items .grid__item:nth-child(4n+3), .custom-pagination .grid--view-items .grid__item:nth-child(4n+4), .custom-pagination .grid--view-items .grid__item:nth-child(4n+2)  {
+	    border-image: linear-gradient( 
+360deg
+ , rgba(0, 0, 0, 0), #bdc3b8, #bdc3b8, rgba(0, 0, 0, 0)) 1 100%;
+    border-width: 0 0 0 1px;
+    border-style: solid;
+  border-top: 0;
+}
+.custom-pagination .grid--view-items .grid__item:nth-child(1), .custom-pagination .grid--view-items .grid__item:nth-child(2), .custom-pagination .grid--view-items .grid__item:nth-child(3), .custom-pagination .grid--view-items .grid__item:nth-child(4) {
+  padding-top: 1%;
+  margin-top: 2%;
+}
+.seasonal-pag-blocks {
+  padding: 0 2.5%;
+  position: relative;
+}
+.pagination-btn ul {
+	position: relative;
+}
+.pagination-btn ul.tabs {
+ 
+    border-bottom: 0;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pagination-btn ul.tabs li {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  margin-right: 1px;
+}
+.pagination-btn ul.tabs li a {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-style: none;
+    display: block;
+    font-size: 16px;
+    height: 48px;
+    line-height: 28px;
+    margin: 0;
+    padding: 20px;
+    text-decoration: none;
+    width: auto;
+    border-bottom: none !important;
+    padding-top: 9px;
+}
+.pagination-btn ul.tabs li a.active {
+  background: #192A18;
+    color: #fff;
+    position: relative;
+    border-radius: 24px;
+    height: 48px;
+}
+.pagination-btn ul.tabs li:first-child a.active {
+  margin-left: 0;
+}
+.pagination-btn ul.tabs li:first-child a {
+ 
+  border-width: 1px 1px 0;
+}
+
+.pagination-btn ul.tabs:before, ul.tabs:after {
+  content: " ";
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+}
+.pagination-btn ul.tabs:after {
+  clear: both;
+}
+.pagination-btn .btn-prev {
+  background-image: url(//cdn.shopify.com/s/files/1/0277/5518/4198/files/left-icon.png);
+  background-size: cover;
+  width: 48px;
+  height: 48px;
+  background-position: center;
+  font-size: 0;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 42%;
+  left: 40%;
+  cursor: pointer;
+}
+ .pagination-btn .btn-next {
+    background-image: url(//cdn.shopify.com/s/files/1/0277/5518/4198/files/right-icon.png);
+    background-size: cover;
+    width: 48px;
+    height: 48px;
+    background-position: center;
+    font-size: 0;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 42%;
+    right: 40%;
+  cursor: pointer;
+}
+
+.seasonal-recipes p {
+  min-height: 88px;
+}
+.pagination-btn {
+ position: relative;
+    padding: 0;
+    display: none;
+    margin-top: 7%;
+}
+
+/* end Seasonal recipes page CSS style  */
+
+/* blog events page CSS style */
+
+.event-image .blog-evnet-image {
+	min-height: 259px;
+    object-fit: cover;
+}
+.blog-events-blocks .seasonal-recipes .date-name {
+    min-height: auto;
+    padding-top: 10px;
+}
+
+.blog-events-blocks .blog-events-items {
+	padding: 0 2.8%;
+  margin-bottom: 10%;
+}
+.blog-events-page-template {
+	padding: 0 5.5%;
+}
+.blog-events-items .seasonal-recipes .button-link {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+  flex-wrap: wrap;
+}
+.blog-events-items .seasonal-recipes .button-link .price {
+	min-height: auto;
+    width: 40%;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+}
+.blog-events-items .seasonal-recipes .button-link a {
+	width: 60%;
+    margin-top: 0;
+    max-width: 123px;
+}
+.blog-events-banner .hero__inner-promo {
+  border: 0;
+  bottom: -1px;
+  min-width: 420px;
+}
+.blog-events-banner .events-hero-note-title {
+	font-size: 2.5rem;
+}
+.blog-events-banner .events-note-date {
+	font-size: 1.25rem;
+}
+.blog-events-banner .events-hero-note-footer-btn {
+  max-width: 220px;
+  width: 100%;
+}
+.blog-events-banner .events-hero-note-footer-share-container {
+  min-width: 130px;
+  padding-left: 10px;
+}
+
+/* end blog events page CSS style */
+
+
+/*    Article events page CSS style  */
+
+.page-width-article-events {
+	padding-bottom: 5%;
+}
+.page-width-article-events h2 {
+	text-align: center;
+}
+.article-events-map-image.event-map-text-section {
+	position: relative;
+}
+.article-spring {
+	margin-top: -55px;
+}
+.event-map-text-section .map_block {
+	position: absolute;
+    right: 0;
+    left: 0;
+    top: 22%;
+}
+.event-map-text-section .map_content-block {
+	    width: 244px;
+    height: 140px;
+    background: #fff;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.event-map-text-section .map_content-block .map_title {
+	    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 5px;
+}
+.event-map-text-section .map_content-block p {
+	font-size: 13px;
+    line-height: 22px;
+    margin-bottom: 8px;
+}
+.event-map-text-section .article-events-map-image {
+	padding: 0;
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+   
+}
+.event-map-text-section .article-events-map-image p {
+	
+    color: #EEA452;
+}
+.event-map-text-section .map-icon {
+	    width: 42px;
+    height: 47px;
+    margin: 0 auto;
+    padding-top: 5px;
+}
+.events-content p span {
+	font-weight: bold;
+}
+.blog-events-blocks h2 span {
+  padding-left: 15px;
+    font-size: 2.3rem;
+}
+
+.calendar-page-template {
+	padding: 0 5.5%;
+}
+.recipe-details-page {
+	margin-top: -55px;
+}
+.recipe-details-page .article-share-container, .recipe-details-page .article-share-message {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.recipe-details-page .article-share-icon {
+	margin-right: 16px;
+}
+.recipe-details-page .article-share-message p {
+	color: #fff;
+  margin-left: 10px;
+}
+.recipe_details_contents-blocks .article-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.recipe_details_contents-blocks .article-footer-link {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.recipe_details_contents-blocks .previous_post.article-footer-text {
+  margin-left: 17px;
+}
+.recipe_details_contents-blocks .article-footer-text {
+    margin-right: 17px;
+    margin-bottom: 0;
+}
+.recipe-details-banner .first-img .bg-main-img img, .recipe-details-banner .second-img .bg-main-img img {
+	width: 100%;
+    margin: 0 auto;
+}
+.recipe-details-banner .article_wrapper .article-secitons.img-text-section {
+	padding: 0 20%;
+}
+.recipe-details-banner .recipes-conents {
+  font-size: 13px;
+  line-height: 18px;
+  margin-bottom: 20px;
+}
+.recipe-details-banner .text_underline {
+  margin: 20px 0;
+}
+.recipe-details-banner .recipes-texts {
+  font-size: 16px;
+  line-height: 22px;
+  color: #242721;
+}
+.recipe-details-banner .recipes-texts .opacity_title {
+    color: #8A9381;
+    padding-right: 25px;
+}
+.recipe-details-banner .hero__inner-copy {
+	width: 65%;
+}
+.recipe-details-banner .hero__inner {
+	padding-top: 0;
+}
+.recipe-details-banner .last-recipes {
+	margin-bottom: 0;
+}
+
+.events-easter .easter-sections .medium-6 img {
+	width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+}
+.events-easter .easter-hero .hero__inner .page-width.text-left .hero__inner-copy {
+	text-align: left;
+}
+
+/*   end Article events page CSS style  */
+
+.cafe-market-events .cafe-market-events-blocks {
+	display: flex;
+    flex-wrap: wrap;
+}
+.cafe-market-events .cafe-market-events-blocks .recipes-content-wrapper {
+	margin-bottom: 3%;
+}
+.cafe-market-events .cafe-market-events-blocks .recipes-content-wrapper h3 {
+	min-height: 38px;
+}
+.cafe-market-products .grid__item--cafemarket-featured-collection .grid-view-item .product-card__image-with-placeholder-wrapper {
+	min-height: 13rem;
+} 
+.cafe-market-products .grid__item--cafemarket-featured-collection-3 .grid-view-item .product-card__image-with-placeholder-wrapper {
+	min-height: 14rem;
+} 
+.cafe-market-products .grid--view-items .product-card .product-info {
+	min-height: 6rem;
+}
+.cafe-market-products .grid--view-items .product-card .product-info p {
+	margin-bottom: 15px;
+}
+.cafe-section--featured-collection-promo .product-promo--product .page-width .product-left--copy {
+	flex-wrap: wrap;
+}
+.cafe-market-products .grid--view-items .product-card .product-card__title {
+ 	margin-top: 10px; 
+}
+.cafe-section--recipes .recipes-wrapper .recipes-content-wrapper-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cafe-market-recipes .recipes-content-wrapper .btn {
+	float: right;
+}
+.cafe-market-recipes .recipes-content-wrapper h3 {
+	min-height: 2.2rem;
+}
+
+@media (min-width: 1200px){
+  .cafe-section--recipes .recipes-wrapper .recipes-content-wrapper-wrapper{
+/*   	margin-left: -40px;
+    margin-right: -40px; */
+  }
+}
+
+.cafe-section--recipes .recipes-wrapper{
+  padding: 0 64px;
+}
+
+@media (max-width: 968px){
+  .cafe-section--recipes .recipes-wrapper{
+  	padding: 0 16px;
+  }
+}
+.farmers-market-map-image img {
+	filter: drop-shadow(0px 12px 36px rgba(0, 0, 0, 0.05));
+}
+
+.farmers-market-page-wrapper.farmers-market-bg {
+    padding-top: 100px;
+    padding-bottom: 60px;
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0% -52%, 100% 45%;
+    background-image: url(https://cdn.shopify.com/s/files/1/0277/5518/4198/files/tomato2_1_8066d53a-0b11-4398-925b-addaf53de690.png), url(https://cdn.shopify.com/s/files/1/0277/5518/4198/files/farmers-market-bg-right.png);
+    background-size: 359px 670px, 385px 328px;
+}
+.market-locally {
+	display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.market-locally .product-left--copy-image {
+	width: 50%;
+}
+.market-locally .product-left--copy {
+	width: 50%;
+  padding: 0;
+}
+.market-locally .product-left--copy .product-left--copy-text {
+    max-width: 540px;
+    padding-left: 10%;
+}
+.market-locally .product-left--copy-image img {
+	width: 90%;
+}
+.cafe-section--recipes .cafe-market-recipes, .cafe-section--recipes .cafe-market-events {
+	padding: 0 35px;
+}
+.cafe-section--recipes .cafe-market-recipes h1, .cafe-section--events .cafe-market-events h1 {
+	padding-left: 45px;
+}
+.butcher_shop-section {
+	position: relative;
+}
+.butcher_title-bg {
+	position: absolute;
+    top: 5%;
+    left: -50px;
+    mix-blend-mode: multiply;
+    opacity: 0.2;
+}
+.butcher_title-bg img, .butcher_locally-title img, .butcher_pantry-title img {
+  margin: 0 auto;
+  width: 80%;
+}
+.butcher_locally-title {
+	position: absolute;
+    top: 0;
+    left: 45%;
+    opacity: 0.2;
+}
+.butcher_pantry-title {
+	position: absolute;
+    top: 5%;
+    left: 0%;
+    mix-blend-mode: multiply;
+    opacity: 0.2;
+}
+.cafe_farmer-events-space .product-left--copy {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-bottom: 5%;
+  padding-top: 0;
+  max-width: 100%;
+}
+.cafe_farmer-events-space .product-left--copy-image {
+	width: 45%;
+}
+.cafe_farmer-events-space .product-left--copy-image img {
+  min-height: 37rem;
+}
+.cafe_farmer-events-space .product-left--copy-text {
+  width: 55%;
+  padding-left: 5%;
+  max-width: 670px;
+}
+.index-section.supplier-banner {
+	margin-top: -55px;
+}
+.supplier-page .supplier-image-text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 6%;
+}
+.supplier-image-text .grid__item {
+  width: 25%;
+  text-align: center;
+  padding-bottom: 5%;
+}
+.supplier-footer-banner-section {
+	position: relative;
+}
+.supplier-text-block {
+	position: absolute;
+    top: 31%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 100%;
+    height: 16rem;
+    max-width: 90%;
+}
+.supplier-text-block p {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 32px;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 6%;
+}
+.supplier-image-text .image-bar__content h4 {
+	color: #8A9381;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    font-family: Inter;
+}
+.footer-banner-image.mobile-img {
+	display: none;
+}
+.rokehouse-featured .mobile-background-image {
+  	display: none;
+  }
+
+
+@media only screen and (min-width: 1200px) {
+  .hero--medium {
+    height: 592px;
+  }
+  .butchers-club-page .hero--medium {
+    height: 776px;
+  }
+  
+}
+@media(min-width: 1440px) {
+  .farmmarket-hero .hero--medium {
+    height: 755px;
+  }
+  #shopify-section-seasonal-offerings .hero--medium {
+    height: 592px;
+  }
+  .get_off span {
+    font-size: 2.6rem;
+    line-height: 22px;
+  }
+  
+  .main-img-block .text-line {
+  	max-width: 660px;
+  }
+  .seasonal-recipes .image-bar__title {
+  	min-height: 48px;
+  }
+  .recipe-details-banner.hero__inner-promo {
+  	min-width: 572px;
+  }
+ 
+}
+
+@media(max-width: 1440px) {
+  .seasonal-recipes .image-bar__title {
+    min-height: 48px;
+  }
+  .pagination-btn .btn-prev, .pagination-btn .btn-next {
+  	top: 40%;
+  }
+  .farmmarket-hero .hero--medium {
+    height: 592px;
+  }
+
+}
+@media(max-width: 1360px) {
+ 
+  .main-img-block .text-line {
+  	max-width: 600px;
+  }
+  
+  .background-block .map-blocks {
+     bottom: 6rem;
+    left: 13rem;
+  }
+  .pagination-btn .btn-prev {
+  	left: 36%;
+  }
+   .pagination-btn .btn-next {
+  	right: 36%;
+  }
+
+}
+
+@media(max-width: 1280px) {
+  .articl-events-locally .article-events-inner {
+	background-position: left top 27%, right top 30%;
+  }
+  .story-join .has-background:before{
+    top: 98%;
+  }
+  .rockhouse-featured-second .grid--view-items .product-card .product-card__title {
+  	min-height: 50px;
+  }
+  .rockhouse-specialites .content-wrapper p {
+    min-height: 225px;
+  }
+}
+@media(max-width: 1267px) {
+  .cafe-market-products .grid--view-items .product-card .product-card__title {
+	min-height: 74px;
+  }
+  .cafe-market-products .grid--view-items .product-card .product-info {
+    min-height: 7rem;
+  }
+}
+
+@media only screen and (max-width: 1201px) {
+  .product-offering--copy-text .copy-promo--text {
+    line-height: 20px;
+  }
+  .product-offering--copy-text .copy-promo--text:last-child {
+    padding-bottom: 20px;
+  }
+  .product-offering--copy-text .offering-copy-promo--title {
+  	line-height: 36px;
+  }
+  .club-image img {
+    max-width: 310px;
+  }
+  .main-img-block .text-line {
+  	max-width: 550px;
+  }
+  .right-icon-block .icon-section, .left-icon-block .icon-section {
+  	width: 80%;
+  }
+  .background-block .map-blocks {
+    bottom: 4rem;
+    left: 12rem;
+  }
+  .pagination-btn .btn-prev {
+    left: 35%;
+  }
+   .pagination-btn .btn-next {
+  	right: 35%;
+  }
+  .pagination-btn .btn-prev, .pagination-btn .btn-next {
+    top: 38%;
+  }
+}
+@media only screen and (max-width: 1138px) {
+  .blog-events-items .seasonal-recipes .button-link .price {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .blog-events-items .seasonal-recipes .button-link a {
+    width: 100%;
+    max-width: 100%;
+  }
+  .articl-events-locally .article-events-inner {
+    background-position: left top 33%, right top 35%;
+  }
+  .story-join .has-background:before{
+    top: 105%;
+  }
+}
+
+@media only screen and (max-width: 1085px) {
+  .background-block .map-blocks {
+    bottom: 2rem;
+  }
+   .pagination-btn .btn-prev {
+    left: 33%;
+    top: 37%;
+  }
+   .pagination-btn .btn-next {
+  	right: 33%;
+     top: 37%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .rockhouse-specialites .content-wrapper p {
+    min-height: 140px;
+  }
+  .main-img-block .text-line {
+    max-width: 490px;
+  }
+  .icon-section .icon-text p {
+  	font-size: 15px;
+  }
+  .club-image img {
+    max-width: 280px;
+  }
+  .loyalty-subtitle, .loyalty-hero .hero__inner-copy {max-width: 100%;}
+  .seasonal-recipes .image-bar__title {
+    min-height: 72px;
+  }
+  .seasonal-recipes p {
+  	min-height: 110px;
+  }
+  .pagination-btn .btn-prev {
+    left: 32%;
+  }
+  .pagination-btn .btn-next {
+    right: 32%;
+  }
+  .event-image .blog-evnet-image {
+  	min-height: 184px;
+  }
+  .cafe-market-products .grid--view-items .product-card .product-info {
+    min-height: 11rem;
+  }
+  .farmers-market-page-wrapper.farmers-market-bg {
+    background-position: 0% -52%, 100% 50%;
+    background-image: url(https://cdn.shopify.com/s/files/1/0277/5518/4198/files/tomato2_1_8066d53a-0b11-4398-925b-addaf53de690.png), url(https://cdn.shopify.com/s/files/1/0277/5518/4198/files/farmers-market-bg-right.png);
+    background-size: 310px 640px, 308px 270px;
+  }
+  .butcher_title-bg {
+	top: -20%;
+  }
+  .butcher_locally-title {
+    top: -20%;
+    left: 40%;
+  }
+  .butcher_pantry-title {
+    top: -20%;
+    left: -3%;
+  }
+  .cafe_farmer-events-space .product-left--copy-text {
+    max-width: 500px;
+  }
+  .articl-events-locally .article-events-inner {
+  	background-position: left top 37%, right top 39%;
+  }
+  .story-join .has-background:before{
+    top: 110%;
+  }
+  .story-wholesale.rockhouse-inquiries .newsletter-section .right-image {
+    max-width: 230px;
+    top: 30px;
+  }
+  .story-wholesale.rockhouse-inquiries .newsletter-section .left-image {
+    max-width: 300px;
+    top: -60px;
+  }
+  .rockhouse-featured-promo .product-promo--featured .content-wrapper .image-wrapper img {
+  	min-height: 134px;
+  }
+  .farmers-market-bg .farmers-market-details-image {
+  	padding-top: 40px;
+  }
+}
+
+@media only screen and (max-width: 968px) {
+  .hero__inner.loyalty-hero {padding-top: 5%;}
+  .offering-four-featured .grid--view-items .product-card .cart-container .btn, .first-offfering-section .grid--view-items .product-card .cart-container .btn,
+  .offering-featured .grid--view-items .product-card .cart-container .btn {
+    border-radius: 24px;
+    width: 100%;
+    font-size: 15px;
+  }
+  .offering-four-featured .grid--view-items .product-card .product-card__title, .offering-four-seciton .grid--view-items .product-card .product-card__title {
+    min-height: 95px;
+   
+  }
+  .offering-seciton .grid--view-items .product-card__image-wrapper, .offering-four-seciton .grid--view-items .product-card__image-wrapper {
+  	height: 100%;
+    min-height: 185px;
+  }
+  .offering-four-seciton .grid--uniform .grid__item {
+    padding: 2% 3%;
+  }
+  .last-offering .copy-promo--text {
+  	padding-bottom: 30px;
+    padding-top: 10px;
+  }
+  .offering-four-seciton .grid--view-items .product-card .cart-container label, .offering-seciton .grid--view-items .product-card .cart-container label {
+  	font-size: 16px;
+  }
+  
+  #shopify-section-seasonal-offerings .page-width.text-left .hero__inner-copy .mega-title {
+  	line-height: 62px;
+    font-size: 48px;
+  }
+  .offering-hero .hero {
+  	display: table;
+    height: 475px;
+  }
+  .offering-hero .hero__inner {
+  	display: table-cell;
+  }
+  .offering-hero .hero__inner .text-left {
+  	padding-left: 5rem;
+    padding-right: 5rem;
+    margin-bottom: 0;
+  }
+  .offering-hero  .hero__inner .hero__inner-copy {
+  	max-width: 625px;
+  }
+  .product-offering--copy-text .offering-copy-promo--title span {
+  	font-size: 1.4rem;
+  }
+  .product-offering--copy-text .offering-copy-promo--title {
+  	font-size: 1.8rem;
+  }
+  .holiday-banner-section .hero__inner .text-left {
+    margin-top: 0px;
+  }
+  .newsletter .newsletter-section.butcher-club-join .section-header h2 {
+  	font-size: 32px;
+  }
+  .newsletter .butcher-club-join .section-header .rte .additional-text {
+  	font-size: 32px;
+  }
+  .butcher-club-join .form-single-field {
+    max-width: 36rem;
+  }
+  .newsletter .butcher-club-join .input-group .input-group__btn .btn {
+    width: 13rem;
+  }
+  .pagination-btn .btn-prev {
+    left: 31%;
+    top: 35%;
+  }
+   .pagination-btn .btn-next {
+    right: 31%;
+    top: 35%;
+  }
+  .grid--view-items .product-card .cart-container .btn {
+  	width: 100%;
+  }
+  #shopify-section-story-join {
+    margin-bottom: 0;
+    padding-bottom: 0px;
+  }
+  .story-wholesale.rockhouse-inquiries .newsletter-section .left-image {
+    top: 130px;
+  }
+  .story-wholesale.rockhouse-inquiries .newsletter-section .right-image {
+    top: 165px;
+  }
+  
+}
+
+@media(max-width: 967px) {
+  .right-seciton .tomato-img {
+    height: 10rem;
+  }
+  .bottom-left-img .butchers-club--image {
+    height: 16rem;
+  }
+  .background-block .map-blocks {
+    bottom: 4rem;
+    left: 6rem;
+  }
+  .meeting-room-bottom .left-seciton .left-img img {
+    height: 27rem;
+    min-width: 100% !important;
+  }
+  .cafe-market-products .grid__item--cafemarket-featured-collection-3 .grid-view-item .product-card__image-with-placeholder-wrapper {
+    min-height: 9.5rem;
+  }
+  .cafe-market-products .grid__item--cafemarket-featured-collection .grid-view-item .product-card__image-with-placeholder-wrapper {
+    min-height: 8rem;
+  }
+  .cafe-market-products .grid--view-items .product-card .product-card__title {
+    min-height: 3rem;
+  }
+  .cafe-market-products .grid--view-items .product-card .product-info {
+    min-height: 3rem;
+  }
+  .articl-events-locally .article-events-inner {
+    background: none;
+  }
+  .supplier-text-block {
+  	height: 8rem;
+  }
+  .supplier-text-block p {
+    font-size: 12px;
+    padding-top: 4%;
+  }
+  .wholesale-hero__inner-promo {
+  	bottom: -24rem;
+    max-width: 100%;
+    padding: 0 5%;
+  }
+  .wholesale-hero__inner-promo .inner-promo--text-wrapper {
+  	width: 100%;
+    max-width: 100%;
+    padding: 5% 0;
+  }
+  .wholesale-hero__inner-promo .inner-title {
+  	width: 100%;
+    max-width: 100%;
+  }
+  .wholesale-hero__inner-promo .inner-promo--title {
+  	line-height: 2.8rem;
+    padding: 3rem 2.5rem;
+  }
+  .index-section.wholesale-contents-block {
+  	margin-top: 28rem !important;
+  }
+  .wholesale-contents-right {
+  	display: none;
+  }
+  .wholesale-contents-left {
+  	width: 100%;
+    padding: 0 5%;
+  }
+  .wholesale-contents-left .product-right--copy-text {
+  	max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .wholesale-contents-left .inner-promo--title {
+  	line-height: 2.6rem;
+  }
+  .wholesale-hero__inner .wholesale_text_section {
+  	padding-left: 5%;
+  }
+}
+
+@media (max-width: 879px) {
+  .background-block .map-blocks {
+    bottom: 3rem;
+    left: 5rem;
+  }
+}
+
+@media (max-width: 809px) {
+  .background-block .map-blocks {
+    bottom: 2rem;
+    left: 4rem;
+  }
+  .pagination-btn .btn-prev {
+    left: 29%;
+    top: 33%;
+  }
+   .pagination-btn .btn-next {
+    right: 29%;
+    top: 33%;
+  }
+  .loyalty-programs-content .image-bar__text h4 {
+    min-height: 72px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wholesale-contact-form .inner-promo--title p {
+    width: 90%;
+  }
+  .wholesale-contact-form .inner-promo--title .icon {
+  	margin-right: 4%;
+  }
+  .main-img-block .text-line {
+    max-width: 430px;
+  }
+  .farmview-envents .mega-subtitle p {
+  	width: 80%;
+  }
+  .article_wrapper .article-secitons, .article_page .article-footer {
+    width: 100%;
+    padding: 0 10%;
+    
+  }
+  .article_wrapper .article-secitons.img-text-section {
+  	padding-left: 10%;
+    padding-right: 5.5%;
+  }
+  .article-secitons.third-content {
+  	padding-top: 5%;
+  }
+  .article-secitons .third-img-width {
+  	padding: 10% 0;
+  }
+  .butchers-club .image-bar__content {
+    padding-bottom: 10%;
+  }
+  .meeting_room .meeting-room-section .section-header {
+    margin: 0 auto;
+    padding-top: 10%;
+    padding-bottom: 2%;
+  }
+  
+  .club-image img {
+    max-width: 268px;
+  }
+  .meeting_room .meeting-room-section .meeting_room_blocks {
+  	align-items: center;
+  }
+ .meeting-room-bottom .right-seciton {
+  	width: 100%;
+    margin: 0 3%;
+    padding: 5% 0;
+  }
+  .meeting-room-bottom .left-seciton {
+    width: 100%;
+    margin: 0 3%;
+  }
+ 
+  .background-block .bottom-left-img {
+    padding-right: 0;
+  }
+  
+   .room_secton .text-block h4 {
+    font-size: 32px;
+    width: 80%;
+    font-weight: 600;
+    line-height: 36px;
+  }
+  .meeting-room-bottom .left-seciton .left-img img {
+  	height: 22rem;
+    min-width: 100% !important;
+    object-fit: cover;
+  }
+  .right-seciton .tomato-img {
+    height: 28rem;
+  }
+  .bottom-left-img .butchers-club--image {
+    height: 22rem;
+    width: 100%;
+  }
+  .background-block .map-blocks {
+    bottom: 6rem;
+    left: 15rem;
+  }
+  .loyalty-hero .hero__btn {
+    margin-top: 10px;
+    padding: 12px 32px;
+  }
+  .hero__inner.loyalty-hero {
+    padding-top: 3%;
+  }
+  .seasonal-recipes .image-bar__title {
+  	font-size: 16px;
+    line-height: 20px;
+  }
+  .seasonal-recipes p {
+    min-height: 154px;
+  }
+    .pagination-btn .btn-prev {
+    left: 27%;
+    top: 36%;
+  }
+   .pagination-btn .btn-next {
+    right: 27%;
+    top: 38%;
+  }
+  .pagination-btn {
+    position: relative;
+    padding: 10% 0;
+  }
+  .event-image .blog-evnet-image {
+  	min-height: 148px;
+  }
+  .blog-events-page .events-hero-note-footer {
+  	margin-bottom: 0;
+  }
+  .event-map-text-section .map_block {
+  	top: 5%;
+  }
+  .recipe-details-banner .hero__inner-copy {
+  	width: 100%;
+  }
+  .index-section.section--hero-banner.recipe-details-banner {
+  	margin-top: 25%;
+  }
+  .cafe-section--recipes .recipes-wrapper .recipes-content-wrapper-wrapper .recipes-content-wrapper {
+    width: 50%;
+    margin-bottom: 10%;
+    border: none;
+  }
+  .cafe_farmer-events-space .product-left--copy-image img {
+    min-height: 30rem;
+  }
+  .cafe_farmer-events-space .product-left--copy-image {
+    width: 100%;
+  }
+  .product-promo--product .product-left--copy .product-left--copy-text {
+    width: 100%;
+    padding: 5% 0;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  .cafe-section--direction .direction-wrapper {
+    padding-left: 55px;
+
+  }
+  .cafe-section--featured-collection-promo .product-promo--product .page-width {
+    padding: 0 55px;
+  }
+  .butcher_locally-title {
+    top: -25%;
+    left: 35%;
+  }
+  .cafe-product-promo--featured .grid--view-items .grid__item {
+    padding: 25px 55px;
+    width: 50%;
+    min-height: 575px;
+  }
+  .cafe-market-products .grid__item--cafemarket-featured-collection .grid-view-item .product-card__image-with-placeholder-wrapper {
+    min-height: 16rem;
+  }
+  .cafe-market-products .grid--view-items .product-card .product-info {
+    min-height: 7rem;
+  }
+  .supplier-text-block p {
+   line-height: 24px;
+  }
+  .supplier-page .hero__inner {
+  	padding-top: 15%;
+  }
+  .rockhouse-featured-promo .grid--view-items .content-wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 50%;
+  }
+  .rockhouse-specialites .content-wrapper p {
+    min-height: 170px;
+  }
+  .product-promo--product .product-left--copy.featured-img {
+  	background-image: none !important;
+  }
+}
+@media only screen and (min-width: 640px) and (max-width: 767px){
+  .right-icon-block .icon-section .icon-text {
+	min-height: 160px;
+  }
+  .left-icon-block .icon-section .icon-text {
+	min-height: 160px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .main-img-block .text-line {
+  	display: none;
+  }
+   .meeting_room .meeting-room-section .meeting_room_blocks {
+    align-items: baseline;
+  }
+  .meeting_room_blocks .left-icon-block {
+    order: 2;
+    width: 50%;
+  }
+  .left-icon-block .icon-section {
+    float: none;
+    width: 70%;
+    margin: 0 auto;
+  }
+  .meeting_room_blocks .main-img-block {
+    width: 100%;
+    padding-bottom: 5%;
+  }
+  .meeting_room_blocks .right-icon-block {
+    order: 2;
+    width: 50%;
+  }
+  .right-icon-block .icon-section, .left-icon-block .icon-section {
+  	float: none;
+    width: 100%;
+    min-width: auto;
+  } 
+  .right-icon-block .icon-section .icon-text {
+    padding-left: 20px;
+    padding-top: 7%;
+    padding-bottom: 10%;
+    width: 90%;
+    height: 200px;
+  }
+  .left-icon-block .icon-section .icon-text {
+  	padding-top: 7%;
+    padding-bottom: 10%;
+    width: 90%;
+    margin-left: 10%;
+    height: 200px;
+  }
+  .right-icon-block .icon-section .center-icon, .left-icon-block .icon-section .center-icon {
+  	 border-bottom: 1px solid #bdc3b8;
+    border-top: 1px solid #bdc3b8;
+  }
+  .icon-section .icon-text p {
+    font-size: 16px;
+    width: 75%;
+    margin: 0 auto;
+    min-height: 47px;
+    margin-top: 15px;
+  }
+  .right-icon-block .icon-section {
+    border-image: linear-gradient( 
+      360deg
+      , rgba(0, 0, 0, 0), #bdc3b8, #bdc3b8, rgba(0, 0, 0, 0)) 1 100%;
+    border-width: 0 0 0 1px;
+    border-style: solid;
+  }
+  .color-text-link{
+  	margin-top: 32px;
+  }
+  .product-offering--copy-text .copy-promo--text {
+  	max-width: 630px;
+  }
+  .first-offfering-section .offering-featured {
+    order: 2;
+  }
+  .offering-seciton .offering-featured, .offering-seciton .offering-img-section {
+    width: 100%;
+  }
+  
+  #shopify-section-seasonal-offerings .page-width.text-left .hero__inner-copy .mega-title {
+  	line-height: 62px;
+  }
+  .offering-four-seciton .grid--uniform .grid__item:first-child {
+  	border-width: 0;
+  }
+  .offering-four-seciton .grid--uniform .grid__item:nth-child(3) {
+  	border-width: 0;
+  }
+  .offering-seciton .grid--view-items .product-card__image-wrapper, .offering-four-seciton .grid--view-items .product-card__image-wrapper {
+  	min-height: 250px;
+  }
+  .product-offering--copy-text .offering-copy-promo--title {
+  	font-size: 2.5rem;
+  }
+  .article_wrapper .article-secitons {
+  	margin: 5% 0;
+  }
+  .butchers-club .club-content {
+  	min-height: 80px;
+  }
+  .seasonal-recipes .image-bar__title {
+  	font-size: 18px;
+    line-height: 24px;
+  }
+  .seasonal-recipes p {
+    min-height: 68px;
+  }
+  .seasonal-recipes .image-bar__title {
+    min-height: 54px;
+  }
+  .loyalty-programs-content .image-bar__text h4 {
+    min-height: auto;
+  }
+}
+
+@media only screen and (max-width: 672px) {
+  .icon-section .icon-text p {
+    width: 90%;
+  }
+  
+  .farmview-envents .mega-subtitle p {
+  	width: 90%;
+  }
+  .background-block .map-blocks {
+    bottom: 3rem;
+    left: 14rem;
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  .offering-hero .hero__inner .text-left {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .product-offering--copy-text .offering-copy-promo--title {
+  	font-size: 40px;
+  }
+  .offering-hero .hero {
+  	height: 500px;
+  }
+  .product-offering--copy-text .offering-copy-promo--title {
+    font-size: 1.5rem;
+    line-height: 42px;
+  }
+  .product-offering--copy-text .offering-copy-promo--title span {
+  	font-size: 1.8rem;
+  }
+  .product-offering--copy-text .offering-copy-promo--title span {
+    font-size: 1.2rem;
+  }
+  
+  .third-img-width .text-blocks, .third-img-width .img-blocks {
+  	width: 100%;
+  }
+  .get_off span {font-size: 40px;}
+  .newsletter .butcher-club-join .input-group .input-group__btn .btn {
+    width: 21rem;
+  }
+  .butchers-club-page .inner-promo--descr {
+    max-width: 80%;
+  }
+  .icon-section .icon-text p {
+  	min-height: 95px;
+  }
+  .meeting-room-bottom .left-seciton .left-img img {
+    height: 10rem;
+  }
+  .bottom-left-img .butchers-club--image {
+    height: 15rem;
+    width: 100%;
+  }
+  .right-seciton .tomato-img {
+    height: 20rem;
+    background-position: center;
+  }
+  .background-block .map-blocks {
+    bottom: 5rem;
+    left: 7rem;
+  }
+  .pagination-btn .btn-prev {
+    left: 21%;
+    top: 35%;
+  }
+  .pagination-btn .btn-next {
+    right: 21%;
+    top: 36%;
+  }
+  .wholesale-hero__inner-promo {
+  	bottom: -18rem;
+  }
+  .wholesale-hero__inner-promo .inner-promo--text {
+  	font-size: 18px;
+  }
+  .wholesale-hero__inner-promo .inner-promo--title {
+  	padding: 2rem;
+    font-size: 32px;
+    line-height: 46px;
+  }
+  .index-section.wholesale-contents-block {
+  	margin-top: 20rem !important;
+  }
+  .wholesale-contents-left .inner-promo--title {
+  	font-size: 40px;
+    line-height: 46px;
+  }
+  .wholesale-contents-left .inner-promo--text {
+  	font-size: 16px;
+    line-height: 28px;
+  }
+  .wholesale-footer-banner {
+  	margin-top: 5%;
+  }
+  .wholesale-contact .contact-copy-text .inner-promo--title {
+  	font-size: 51px;
+  }
+  .wholesale-contact .contact-copy-text .inner-promo--text {
+  	font-size: 20px;
+  }
+  .wholesale-contact-form .inner-promo--title p {
+  	font-size: 25px;
+  }
+  .wholesale-contact-form .inner-promo--text p {
+  	font-size: 16px;
+  }
+  .wholesale-contact-form .inner-promo--title p {
+  	font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 521px) {
+  .background-block .map-blocks {
+    bottom: 3rem;
+    left: 7rem;
+  }
+  .pagination-btn .btn-prev {
+    left: 16%;
+    top: 33%;
+  }
+  .pagination-btn .btn-next {
+    right: 17%;
+    top: 34%;
+  }
+}
+
+@media only screen and (max-width: 481px) {
+  .left-icon-block .icon-section .icon-text, .right-icon-block .icon-section .icon-text {
+  	width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+    height: 220px;
+  }
+  .farmview-envents .mega-subtitle p {
+  	width: 100%;
+  }
+  .icon-section .icon-text p {
+    width: 85%;
+  }
+ 
+  .right-seciton .background-block {
+  	top: 50%
+  }
+  
+  .bg-main-img .mobile-img {display: block}
+  .bg-main-img .desktop-img {display: none}
+  #shopify-section-seasonal-offerings .hero__inner {
+    padding-top: 56px;
+    line-height: 62px;
+    display: block;
+  }
+  .offering-hero .hero {
+  	height: 740px;
+  }
+
+  #shopify-section-seasonal-offerings .page-width.text-left .hero__inner-copy .mega-title {
+    font-size: 51px;
+    line-height: 56px;
+  }
+  .product-offering--copy-text .offering-copy-promo--title {
+    font-size: 40px;
+  }
+  .offering-seciton .grid--view-items .product-card__image-wrapper, .offering-four-seciton .grid--view-items .product-card__image-wrapper {
+  	min-height: 155px;
+    max-height: 155px;
+  }
+  .product-offering--copy-text .offering-copy-promo--title, .product-offering--copy-text .copy-promo--text {
+  	max-width: 347px;
+  }
+  .product-offering--copy-text .copy-promo--text:last-child {
+  	padding-bottom: 20px;
+  }
+  .offering-four-featured .grid--view-items .product-card .product-card__title {
+  	margin-top: 10px;
+    display: block;
+    min-height: 90px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .offering-four-featured .grid--view-items .product-card .product-info {
+  	font-size: 12px;
+  }
+  .offering-seciton .grid--view-items .product-card .cart-container label, .offering-four-seciton .grid--view-items .product-card .cart-container label {
+  	font-size: 16px;
+    line-height: 28px;
+    padding-bottom: 16px;
+  }
+  .offering-four-featured .grid .grid__item, .offering-seciton .grid .grid__item {
+  	padding: 3% 5%;
+  }
+  .article_wrapper .article-secitons, .article_page .article-footer {
+    width: 100%;
+    padding: 0 5%;
+  }
+  .article_wrapper .article-secitons.img-text-section {
+  	padding-left: 5%;
+  }
+  .butchers-club-page .hero_bg-img {
+  	min-width: 100%;
+    padding-left: 5%;
+  }
+  .butchers-image .butchers-club--image {
+  	object-fit: cover;
+    height: 250px;
+  }
+  .butchers-club-page .inner-promo--descr {
+    max-width: 90%;
+  }
+  .butchers-club-page .hero_bg-img {
+  	    background-position: bottom;
+  }
+  .room_secton .text-block h4 {
+    font-size: 32px;
+    width: 80%;
+    font-weight: 600;
+    line-height: 36px;
+  }
+  .background-block .map-blocks {
+    bottom: 3rem;
+    left: 5rem;
+  }
+  .butchers-club .image-bar__content {
+  	padding-bottom: 15.5%;
+  }
+  .seasonal-recipes .image-bar__title {
+    min-height: 72px;
+  }
+  .seasonal-recipes p {
+    min-height:132px;
+  }
+  .seasonal-pag-blocks {
+  	padding: 0;
+  }
+  .custom-pagination .grid--view-items .grid__item:nth-child(3), .custom-pagination .grid--view-items .grid__item:nth-child(4) {
+  	padding-top: 16px;
+    margin-top: 0;
+  }
+  .custom-pagination .grid--view-items .grid__item:nth-child(1), .custom-pagination .grid--view-items .grid__item:nth-child(2) {
+  	padding-bottom:16px;
+    margin-top: 0;
+  }
+  .seasonal-page-template .page-title {
+  	padding-bottom: 2%;
+  }
+   .pagination-btn .btn-prev {
+    left: 15%;
+    top: 33%;
+  }
+   .pagination-btn .btn-next {
+    right: 15%;
+    top: 34%;
+  }
+  .custom-pagination {
+  	padding-bottom: 40px;
+  }
+  .recipe-details-page .hero__inner .h1.mega-title {
+  	padding-top: 30px;
+  }
+  .blog-events-blocks .seasonal-recipes .date-name {
+	min-height: 54px;
+  }
+  .pagination-btn {
+  	padding-top: 25%;
+  }
+  .cafe-section--featured-collection-promo .product-promo--product .page-width .product-left--copy-text {
+    width: 100%;
+    order: 2;
+  }
+  .cafe-section--featured-collection-promo .product-promo--product .page-width .product-left--copy-image {
+    width: 100%;
+    orphans: 1;
+  }
+  .cafe-market-products .grid__item--cafemarket-featured-collection-3 .grid-view-item .product-card__image-with-placeholder-wrapper {
+    min-height: 8.5rem;
+  }
+  .footer-banner-image.mobile-img {
+    display: block;
+  }
+  .footer-banner-image.desktop-img {
+    display: none;
+  }
+  .supplier-footer-banner-section {
+  	min-height: 630px;	
+  }
+  .footer-banner-image.mobile-img img {
+    height: 513.73px;
+  }
+  .supplier-text-block {
+    min-height: 28rem;
+    top: 14%;
+  }
+  .supplier-text-block p {
+    font-size: 20px;
+    line-height: 32px;
+    padding-top: 28%;
+  }
+  .supplier-image-text .grid__item:nth-child(2), .supplier-image-text .grid__item:nth-child(4), .supplier-image-text .grid__item:nth-child(6), .supplier-image-text .grid__item:nth-child(8), .supplier-image-text .grid__item:nth-child(10), .supplier-image-text .grid__item:nth-child(12), .supplier-image-text .grid__item:nth-child(14) {
+    border-image: linear-gradient( 
+      360deg
+      , rgba(0, 0, 0, 0), #bdc3b8, #bdc3b8, rgba(0, 0, 0, 0)) 1 100%;
+    border-width: 0 0 0 1px;
+    border-style: solid;
+  }
+  .supplier-image-text .grid__item {
+  	width: 50%;
+    padding: 0 10px;
+  }
+  .right-image.desktop_images, .left-image.desktop_images {
+  	display: none;
+  }
+  .left-image.mobile_images, .right-image.mobile_images {
+  	display: block;
+  }
+  .story-wholesale.rockhouse-inquiries .newsletter-section .left-image {
+    top: 180px;
+    left: 0;
+  }
+  .story-wholesale.rockhouse-inquiries .newsletter-section .right-image {
+    top: 230px;
+    right: 0px;
+  }
+  .rockhouse-inquiries .newsletter-section .btn {
+  	background-color: #192A18;
+    color: #fff;
+  }
+  .rockhouse-featured-promo .grid--view-items .content-wrapper {
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+  }
+  .roke-house-featured.product-promo--featured .grid--view-items .grid__item:nth-child(even) {
+   	border: none; 
+  }
+  .rockhouse-featured-promo .product-promo--featured .content-wrapper:after {
+  	display: none;
+  }
+  .rockhouse-hero .hero {
+    height: 900px;
+  }
+  .rockhouse-featured-promo .rokehouse-featured {
+    background-image: none !important;
+    position: relative;
+  }
+  .rokehouse-featured .mobile-background-image {
+  	display: block;
+    position: absolute;
+    top: 30%;
+  }
+  .wholesale-hero__inner-promo {
+  	bottom: -30rem;
+  }
+  .index-section.wholesale-contents-block {
+    margin-top: 35rem !important;
+  }
+  .wholesale-contact-form .contact-left, .wholesale-contact-form .contact-right {
+  	width: 100%;
+    padding: 5%;
+  }
+  .wholesale-contact-form .contact-left {
+    border-bottom: 1px solid #E3E5E0;
+    border-right: none;
+  }
+  .wholesale-contact-form .inner-promo--title .icon {
+  	width: 100%;
+  }
+  .wholesale-contact-form .inner-promo--title p {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+  }
+  .wholesale-footer-banner .wholesale_mobile {
+    display: block;
+  }
+  .wholesale-footer-banner .desktop_images {
+    display: none;
+  }
+  .wholesale-contact-section {
+    margin-top: 5%;
+  }
+  .wholesale-hero__inner .hero__inner-copy {
+  	max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .meeting_room .meeting-room-section .section-header {
+    width: 95%;
+  }
+  .right-seciton .background-block {
+    top: 41%;
+  }
+  .bottom-left-img .butchers-club--image {
+    height: 21rem;
+    width: 100%;
+    padding: 0 3%;
+  } 
+  .meeting-room-bottom .left-seciton {
+  	width: 100%;
+    margin: 0 3%;
+  }
+  .meeting-room-bottom .right-seciton {
+  	width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .right-seciton .text-block {
+  	margin: 3%;
+  }
+  .bottom-left-img .butchers-club--image {
+    height: 21rem;
+    width: 100%;
+    padding: 0 3%;
+  }
+  .right-seciton .tomato-img {
+    height: 32rem;
+    background-position: unset;
+    margin-top: -85px;
+  }
+  .background-block .map-blocks {
+    bottom: 7rem;
+    left: 5rem;
+  }
+   .pagination-btn .btn-prev {
+    left: 10%;
+    top: 31%;
+  }
+   .pagination-btn .btn-next {
+    right: 10%;
+    top: 32%;
+  }
+  .event-image .blog-evnet-image {
+  	min-height: 168px;
+  }
+  .event-map-text-section .map_image {
+    object-fit: cover;
+    height: 295px;
+  }
+  .map_block .map_content-block {
+    margin-top: 10px;
+  }
+  .cafe-market-products .grid--view-items .product-card .product-card__title {
+    min-height: 6rem;
+  }
+  .cafe-market-products .grid--view-items .product-card .product-info {
+    min-height: 10rem;
+  }
+  .cafe-section--middle-banner .content-wrapper {
+  	width: 100%;
+    padding: 0 20px;
+  }
+  .cafe-section--middle-banner .content-wrapper img {
+  	object-fit: cover;
+    height: 500px;
+  }
+  .cafe-section--middle-banner .content-wrapper .copy-wrapper {
+  	width: 75%;
+    left: 50px;
+  }
+  .cafe-section--loyalty-program .loyalty-wrapper {
+  	padding: 0 20px;
+  }
+  .cafe-section--recipes .recipes-wrapper .recipes-content-wrapper-wrapper .recipes-content-wrapper {
+    width: 100%;
+  }
+  .cafe-section--recipes .recipes-wrapper {
+    padding: 0 20px;
+  }
+  .cafe-section--recipes .recipes-wrapper .recipes-content-wrapper-wrapper .recipes-content-wrapper img {
+  	width: 100%;
+  }
+  .farmers-market-page-wrapper.farmers-market-bg {
+    background-position: 0% -23%, 100% 39%;
+    background-image: url(https://cdn.shopify.com/s/files/1/0277/5518/4198/files/tomato2_1_8066d53a-0b11-4398-925b-addaf53de690.png), url(https://cdn.shopify.com/s/files/1/0277/5518/4198/files/farmers-market-bg-right.png);
+    background-size: 290px 660px, 310px 235px;
+  }
+  .farmers-market-map-image img {
+  	object-fit: cover;
+    height: 270px;
+  }
+  .butcher_title-bg {
+    top: 37%;
+  }
+  .cafe-product-promo--featured .grid--view-items .grid__item {
+    padding: 20px;
+    width: 50%;
+    min-height: 575px;
+  }
+  .cafe-market-products .grid__item--cafemarket-featured-collection .grid-view-item .product-card__image-with-placeholder-wrapper {
+    min-height: 8rem;
+  }
+  .cafe-section--featured-collection-promo .product-promo--product .page-width {
+    padding: 0 40px;
+  }
+  .cafe-market-products .grid--view-items .product-card .product-card__title {
+    min-height: 8rem;
+  }
+  .cafe-market-products .grid--view-items .product-card .product-info {
+    min-height: 8rem;
+  }
+  .market-locally .product-left--copy-image,  .market-locally .product-left--copy {
+    width: 100%;
+  }
+  .market-locally .product-left--copy-image img {
+    width: 90%;
+  }
+  .butcher_locally-title {
+    top: 40%;
+    left: 0;
+  }
+  .butcher_pantry-title {
+    top: 35%;
+    left: -10%;
+  }
+  .cafe-section--featured-collection-promo .product-promo--product .page-width .product-left--copy-text {
+    padding-top: 15%;
+  }
+  .cafe_farmer-events-space .product-left--copy-image img {
+    min-height: 15rem;
+  }
+  .cafe-section--direction .direction-wrapper {
+    padding-left: 40px;
+  }
+  .cafe-section--direction .direction-wrapper .right-wrapper {
+  	width: 100%;
+    margin-right: 10%;
+  }
+  .cafe-section--direction .direction-wrapper .left-wrapper {
+  	width: 100%;
+    padding-bottom: 10%;
+  }
+  .cafe-section--direction .direction-wrapper .left-wrapper .main-header {
+    font-size: 2.4rem;
+    letter-spacing: -1px;
+  }
+  .cafe-section--direction .direction-wrapper .right-wrapper img {
+    max-height: 450px;
+  }
+  
+  .roke-house-featured {
+  	padding-top: 70px;
+  }
+  .rockhouse-featured-second .grid--view-items .product-card .product-card__title {
+    min-height: 75px;
+    margin-top: 0;
+  }
+  .loyalty-programs-content .image-bar__text h4 {
+    min-height: 48px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .meeting_room .meeting-room-section .section-header {
+    width: 100%;
+  }
+  .right-seciton .background-block {
+    top: 42%;
+  }
+  .background-block .map-blocks {
+    bottom: 5rem;
+    left: 4rem;
+  }
+  .seasonal-recipes p {
+    min-height: 154px;
+  }
+  .seasonal-recipes .image-bar__title {
+    min-height: 96px;
+  }
+  .pagination-btn .btn-prev {
+    left: 5%;
+    top: 29%;
+  }
+  .pagination-btn .btn-next {
+    right: 5%;
+    top: 30%;
+  }
+  .event-image .blog-evnet-image {
+  	min-height: 145px;
+  }
+  .butcher_title-bg {
+    top: 32%;
+  }
+  .supplier-text-block {
+    min-height: 32rem;
+    top: 14%;
+  }
+  .rockhouse-inquiries .newsletter .newsletter-section .section-header h2 {
+  	font-size: 28px;
+  }
+  .rokehouse-featured .mobile-background-image {
+    top: 31.5%;
+  }
+  .rockhouse-featured-promo .btn {
+/*   	padding: 14px 20px; */
+  }
+  .wholesale-hero__inner-promo {
+    bottom: -38rem;
+  }
+  .index-section.wholesale-contents-block {
+    margin-top: 42rem !important;
+  }
+  .loyalty-programs-content .image-bar__text h4 {
+    min-height: 72px;
+  }
+  
+}
+
+@media only screen and (max-width: 480px){
+  .hero-subscription .hero__inner .mega-title {
+    font-size: 40px;
+  }
+  .about-subscription .content-wrapper .text-wrapper h2{
+    font-size: 40px;
+  }
+}

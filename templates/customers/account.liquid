@@ -1,12 +1,15 @@
 <div class="page-width">
-  <div class="section-header text-center">
-    <h1>{{ 'customer.account.title' | t }}</h1>
-    {{ 'layout.customer.log_out' | t | customer_logout_link }}
+  <div class="section-header text-left">
+    <h2>{{ 'customer.account.title' | t }}</h2>
+    
   </div>
 
   <div class="grid myaccount">
     <div class="grid__item myaccount__order-history">
-      <h2>{{ 'customer.orders.title' | t }}</h2>
+        <div class="icon"><i class="fas fa-box"></i></div>
+      <h6>{{ 'customer.orders.title' | t }}</h6>
+      
+      <p><a href="/pages/my-subscriptions" class="text-link">Manage Subscription</a></p>
 
       {% paginate customer.orders by 20 %}
         {% if customer.orders.size != 0 %}
@@ -25,7 +28,7 @@
               {% for order in customer.orders %}
                 <tr>
                   <th data-label="{{ 'customer.orders.order_number' | t }}" scope="row">
-                    <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
+                    <a href="{{ order.customer_url }}" class="btn btn--secondary" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
                   </th>
                   <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>
                   <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
@@ -47,11 +50,16 @@
       {% endpaginate %}
     </div>
     <div class="grid__item myaccount__account-details">
-      <h2>{{ 'customer.account.details' | t }}</h2>
+      <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+      <h6><a href="{{ routes.account_addresses_url }}" class="">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></h6>
 
       {{ customer.default_address | format_address }}
-
-      <p><a href="{{ routes.account_addresses_url }}" class="btn btn--small">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
+      
+    </div>
+    <div class="grid__item myaccount__logout">
+        <div class="icon"><i class="fas fa-sign-out-alt"></i> </div>
+        <h6>{{ 'layout.customer.log_out' | t | customer_logout_link }}</h6>
+        <p>Are you sure you would like to sign out?</p>
     </div>
   </div>
 </div>

@@ -1,4 +1,11 @@
-<div class="newsletter-section{% if section.settings.show_background %} index-section--newsletter-background{% endif %}" {% if section.settings.back_image != blank %} style="background-image:url({{ section.settings.back_image | img_url: 'master' }})" {% endif %}>
+<div class="newsletter-section{% if section.settings.show_background %} index-section--newsletter-background{% endif %}" >
+
+    {% if section.settings.left_image != blank %}
+    <img class="left-image" alt="left image newsletter" src="{{ section.settings.left_image | img_url: 'master' }}" />
+    {% endif %}
+     {% if section.settings.right_image != blank %}
+    <img class="right-image" alt="right image newsletter" src="{{ section.settings.right_image | img_url: 'master' }}" />
+    {% endif %}
   <div class="page-width">
     <div class="section-header text-center">
       {% if section.settings.section_title != blank %}
@@ -42,6 +49,7 @@
             <span>{{ 'general.newsletter_form.submit' | t }}</span>
           </button>
         </span>
+          <div class="klaviyo-form-RbP49J"></div>
       </div>
       {%- if form.errors contains 'email' -%}
         <span id="{{ formId }}-email-error" class="input-error-message">
@@ -82,8 +90,13 @@
   "settings": [
 	{
        "type": "image_picker",
-       "id": "back_image",
-       "label":"Background Image"  
+       "id": "left_image",
+       "label":"Left Image"  
+    },
+    {
+       "type": "image_picker",
+       "id": "right_image",
+       "label":"Right Image"  
     },
     {
       "type": "text",

@@ -1,0 +1,19 @@
+<div class="ingredient-wrapper">
+  <h1 class="section-title">{{ section.settings.title }}</h1>
+  <p class="section-sub-title">{{ section.settings.sub_title }}</p>
+  <div class="ingredient-content-wrapper">
+    {% for block in section.blocks %}
+      <div class="ingredient-individual-wrapper">
+        <div class="content-wrapper">
+          {% if block.settings.image != blank %}
+          <img class="ingredient-image" src="{{ block.settings.image | img_url: '48x' }}">
+          {% endif %}
+          <div class="ingredient-individual-text-wrapper">
+            <p class="ingredient-title">{{ block.settings.title }}</p>
+            <p class="ingredient-content">{{ block.settings.content }}</p>  
+          </div>        
+        </div>        
+      </div>
+    {% endfor %}
+  </div>
+</div>

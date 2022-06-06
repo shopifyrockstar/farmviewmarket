@@ -1,0 +1,126 @@
+<div class="content-wrapper">
+  <div class="text-wrapper">
+    <h2>{{ section.settings.main_header }}</h2>
+    <p>{{ section.settings.text_1 }}</p>
+  </div>
+  <div class="beneficial-wrapper">    
+  </div>
+  
+  <div class="product-promo--featured">
+    <h4>{{ section.settings.sub_header }}</h4>
+    <ul class="grid grid--uniform grid--view-items">
+      <li class="grid__item small--one-whole medium-up--one-third">
+        <div class="grid-view-item product-card">
+          <img src="{{ section.settings.image_1 | img_url: '105x' }}">
+          <div class="h6 grid-view-item__title product-card__title" aria-hidden="true">
+          	{{ section.settings.header_1 }}
+          </div>
+          <div class="product-card__content">
+          	{{ section.settings.content_1 }}
+          </div>
+        </div>
+      </li>
+      <li class="grid__item small--one-whole medium-up--one-third">
+        <div class="grid-view-item product-card">
+          <img src="{{ section.settings.image_2 | img_url: '105x' }}">
+          <div class="h6 grid-view-item__title product-card__title" aria-hidden="true">
+          	{{ section.settings.header_2 }}
+          </div>
+          <div class="product-card__content">
+          	{{ section.settings.content_2 }}
+          </div>
+        </div>
+      </li>
+      <li class="grid__item small--one-whole medium-up--one-third">
+        <div class="grid-view-item product-card">
+          <img src="{{ section.settings.image_3 | img_url: '105x' }}">
+          <div class="h6 grid-view-item__title product-card__title" aria-hidden="true">
+          	{{ section.settings.header_3 }}
+          </div>
+          <div class="product-card__content">
+          	{{ section.settings.content_3 }}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  
+</div>
+{% schema %}
+{
+  "name": "About Subscription",
+  "class": "about-subscription",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_header",
+      "label": "Main Header title",
+      "default": "About subscriptions"
+    },
+    {
+      "type": "textarea",
+      "id": "text_1",
+      "label": "Promo text",
+      "default": "The quality of our coffee and tea is a direct result of our commitment to our farmers."
+    },
+	{
+      "type": "text",
+      "id": "sub_header",
+      "label": "Sub Header title",
+      "default": "Why it’s beneficial"
+    },
+	{
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image"
+    },
+	{
+      "type": "text",
+      "id": "header_1",
+      "label": "Title 1",
+      "default": "Free shipping"
+    },
+	{
+      "type": "text",
+      "id": "content_1",
+      "label": "Content 1",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam."
+    },
+	{
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image"
+    },
+	{
+      "type": "text",
+      "id": "header_2",
+      "label": "Title 2",
+      "default": "Free shipping"
+    },
+	{
+      "type": "text",
+      "id": "content_2",
+      "label": "Content 2",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam."
+    },
+	{
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image"
+    },
+	{
+      "type": "text",
+      "id": "header_3",
+      "label": "Title 3",
+      "default": "Free shipping"
+    },
+	{
+      "type": "text",
+      "id": "content_3",
+      "label": "Content 3",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam."
+    }
+  ]
+}
+{% endschema %}

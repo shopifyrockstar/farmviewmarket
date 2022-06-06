@@ -1,0 +1,21 @@
+<div class="page-image-header-bg" style="background-image: url({{ section.settings.image | img_url: '1440x' }})">
+  <h1 class="page-image-header-title">{{ section.settings.title }}</h1>
+</div>
+
+{% schema %}
+  {
+    "name": "Shipping policy image",
+    "settings": [
+	  {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Header hero image"
+      },
+      {
+        "type": "html",
+        "id": "title",
+        "label": "Header hero title"
+      }
+    ]
+  }
+{% endschema %}

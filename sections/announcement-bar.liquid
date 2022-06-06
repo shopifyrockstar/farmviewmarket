@@ -1,0 +1,139 @@
+  {% if section.settings.home_page_only == false or template.name == 'index' %}
+  <style>
+    .announcement-bar__message {
+      background: {{ section.settings.color_bg }};
+      text-align:center;
+      display: flex;
+      padding: 10px;
+      align-items: center;
+  justify-content: center;
+    }
+    .announcement-bar__message,
+    .announcement-bar--link {
+      color: {{ section.settings.color_text }};
+      text-align: center; width: 100%;
+    }
+    body {
+      position:relative;
+      top: {{ section.settings.header_padding }}px !important;
+    }
+  </style>
+
+{% assign announcement_heading = section.settings.announcement_heading %}
+        {% assign announcement_content = section.settings.announcement_content %}
+		<div class="announcement-bar__message">
+          <span class="announcement-bar__heading" style="color:{{ section.settings.headcolor_text}};font-size:{{ section.settings.headfont_size }}px">{{ announcement_heading }}</span>&nbsp;
+          <span class="announcement-bar__content" style="font-size:{{ section.settings.subfont_size }}px">{{ announcement_content }}</span>&nbsp;
+    {% assign button_link = section.settings.btn_link %}
+{% assign button_text = section.settings.btn_text %}
+  {% if button_link != "" or button_text != "" %}
+
+<a href="{{ section.settings.btn_link }}" class="btn copy-promo--btn" style="font-size:{{ section.settings.subfont_size }}px; padding: 5px 20px;">{{ section.settings.btn_text }}</a>
+  {% endif %}
+    </div>
+
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Announcement bar",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "checkbox",
+        "id": "message",
+        "label": "Show announcement",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "home_page_only",
+        "label": "Home page only",
+        "default": false
+      },
+    {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "text",
+        "id": "announcement_heading",
+        "label": "Heading",
+        "default": "Announcement heading"
+      },
+      {
+        "type": "textarea",
+        "id": "announcement_content",
+        "label": "Aannouncement Content",
+        "default": "Content here"
+      },
+		{
+        "type": "header",
+        "content": "Button"
+      },
+      {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button Text",
+        "default": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button Link"
+      },
+    {
+        "type": "header",
+        "content": "Fonts and colors"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Background color",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text color",
+        "default": "#ffffff"
+      },
+{
+        "type": "color",
+        "id": "headcolor_text",
+        "label": "Heading color",
+        "default": "#ffffff"
+      },
+    	{
+        "type": "color",
+        "id": "color_text_hover",
+        "label": "Link hover color",
+        "default": "#eeeeee"
+      },
+    	{
+        "type":   "range",
+        "id":     "headfont_size",
+        "min":    8,
+        "max":    36,
+        "step":   1,
+        "unit":   "px",
+        "label":  "HeadingFont size",
+        "default":   16
+      },
+{
+        "type":   "range",
+        "id":     "subfont_size",
+        "min":    8,
+        "max":    36,
+        "step":   1,
+        "unit":   "px",
+        "label":  "Content Font size",
+        "default":   16
+      }
+    ]
+  }
+{% endschema %}

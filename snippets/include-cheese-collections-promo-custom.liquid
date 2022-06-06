@@ -1,0 +1,65 @@
+<div class="collections-container cheese-collections">
+  <div class="page-width">
+  {% if section.blocks.size > 0 %}
+   
+    {% for block in section.blocks %}
+         <div class="collection-wrapper {% if block.settings.custom_class != nil %}{{ block.settings.custom_class }}{% endif %}">
+        <div class="heading-wrapper {% if block.settings.image_position %} inverted-flex {% endif %}">
+            <div class="image-container">
+                
+                {% if block.settings.block_image != nil %}
+                    <img src="{{ block.settings.block_image | img_url: 'master' }}" alt="block.settings.block_image.alt" />
+                    
+                {% endif %}
+            </div>
+            <div class="content-container">
+                {% if block.settings.back_image != nil %}
+                   <img class="background_image" src="{{ block.settings.back_image | img_url: 'master' }}" alt="block.settings.back_image.alt" />
+                {% endif %}
+                {% if block.settings.second_back_image != nil %}
+                   <img class="second_background_image" src="{{ block.settings.second_back_image | img_url: 'master' }}" alt="block.settings.second_back_image.alt" />
+                {% endif %}
+                <h2>{{ block.settings.collection_title | escape }}</h2>
+                <div class="content">{{ block.settings.collection_content }}</div>
+                {% if block.settings.btn_label != nil %}
+                <a href="{{ block.settings.btn_url }}" class="btn copy-promo--btn">{{ block.settings.btn_label }}</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="products-wrapper product-promo--featured">
+            {%- assign collection = collections[block.settings.collection] -%}
+            {%- assign max_height = 250 -%}
+            {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+            {%- assign product_limit = 4 -%}
+            
+             <ul class="grid grid--uniform grid--view-items">
+              {% for product in collection.products limit: product_limit %}
+                <li class="grid__item test grid__item-- {{ grid_item_width }}">
+                  {% include 'product-card-grid', max_height: max_height, product: product %}
+                </li>
+              {% else %}
+
+                {% for i in (1..product_limit) %}
+                  <li class="grid__item grid__item--å {{ grid_item_width }}">
+                    <div class="grid-view-item product-card">
+                      <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="#">
+                        <span class="visually-hidden">{{ 'homepage.onboarding.product_title' | t }}</span>
+                      </a>
+                      <div class="grid-view-item__image-wrapper">
+                        {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                        {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                      </div>
+                      <div class="h4 grid-view-item__title" aria-hidden="true">{{ 'homepage.onboarding.product_title' | t }}</div>
+                      {% include 'product-price' %}
+                    </div>
+                  </li>
+                {% endfor %}
+              {% endfor %}
+            </ul>
+        </div>
+        </div>
+    {% endfor %}
+    
+  {% endif %}
+  </div>
+</div>

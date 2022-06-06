@@ -1,0 +1,122 @@
+<div class="beef101-page-width">
+  {% for block in section.blocks %}
+    <div class="beef101-section" style="background-image:url({{ block.settings.bg_image | img_url: 'master' }});">
+      <div class="beef101-section-content">
+        <div class="beef101-section-content-inner">
+          <h2 class="beef101-section-content-title">            
+            <span>{{ block.settings.tab_title }}</span>
+          </h2>
+          <p class="beef101-section-content-message">
+            {{ block.settings.tab_content_title }}
+          </p>
+        </div>
+      </div>
+      <div class="beef101-section-image">
+        <img src="{{ block.settings.tab_image | img_url: 'master' }}">
+      </div>
+    </div>
+  {% endfor %}  
+  
+</div>
+
+{% schema %}
+{
+  "name": "Grass-fed Content",
+  "class": "market-content",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left Content"
+    },
+    {
+      "type": "text",
+      "id": "left_header",
+      "label": "Left Header",
+      "default": "Sat. 9/19 is our last regular season Farmers Market!"
+    },
+    {
+      "type": "text",
+      "id": "left_text",
+      "label": "Left Text",
+      "default": "In addition to our regular weekly market, we have several events planned this year that coincide with the farmers market that you won’t want to miss!"
+    },
+	{
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Image"
+    },
+	{
+      "type": "header",
+      "content": "Right Content"
+    },
+    {
+      "type": "text",
+      "id": "right_header",
+      "label": "Right Header",
+      "default": "2020 Events"
+    },
+	{
+      "type": "text",
+      "id": "right_vendor_title",
+      "label": "Title",
+      "default": "Interested in becoming a vendor?"
+    },
+	{
+      "type": "textarea",
+      "id": "right_vendor_content",
+      "label": "Content",
+      "default": "Weekly Space Rental is $10, or $175 for the entire year. Download an application and guidelines to get started."
+    },
+	{
+      "type": "text",
+      "id": "right_question_title",
+      "label": "Title",
+      "default": "Questions?"
+    },
+	{
+      "type": "textarea",
+      "id": "right_question_content",
+      "label": "Content",
+      "default": "For more info, contact"
+    },
+    {
+      "type": "url",
+      "id": "map_url",
+      "label": "Map Link"
+    },
+	{
+      "type": "image_picker",
+      "id": "map_image",
+      "label": "Map Image"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Section",
+        "type": "Tabs",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "bg_image",
+            "label": "Background Image"
+          },
+		  {
+            "type": "image_picker",
+            "id": "tab_image",
+            "label": "Tab Image"
+          },
+          {
+            "type": "text",
+            "id": "tab_title",
+            "label": "Tab title"
+          },
+          {
+            "type": "text",
+            "id": "tab_content_title",
+            "label": "Tab content"
+          }
+        ]
+      }
+    ]
+}
+{% endschema %}

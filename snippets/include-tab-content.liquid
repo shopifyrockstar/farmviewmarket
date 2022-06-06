@@ -1,0 +1,89 @@
+
+<div class="collections-container">
+  <div class="page-width">
+  {% if section.blocks.size > 0 %}
+    <div class="tab-header">
+      {% for block in section.blocks %}
+        <div class="tab-header-wrapper">
+          <img src="{{ block.settings.tab_image | img_url:'170x173' }}">
+          <h5>{{ block.settings.tab_title }}</h5>
+        </div>
+      {% endfor %}
+    </div>
+    {% for block in section.blocks %}
+    	{% if block.settings.tab_content_title != blank or block.settings.featured_product_1 != blank %}
+    		<div class="tab-content-wrapper">
+              {% if block.settings.tab_content_title != blank %}
+                  <h3>{{ block.settings.tab_content_title }}</h3>
+              {% endif %}
+              {% if block.settings.featured_product_1 != blank %}
+              {%- assign product = all_products[block.settings.featured_product_1] -%}
+                  <div class="product-wrapper">
+                    <img src="{{ product.featured_image | img_url: 'master' }}">
+                    <div class="title-desc">
+                      <h5>{{ product.title }}</h5>
+                      {{ product.description }}
+                    </div>
+                    <p>{{ product.price | money }}</p>
+                  </div>
+              {% endif %}
+              {% if block.settings.featured_product_2 != blank %}
+              {%- assign product = all_products[block.settings.featured_product_2] -%}
+                  <div class="product-wrapper">
+                    <img src="{{ product.featured_image | img_url: 'master' }}">
+                    <div class="title-desc">
+                      <h5>{{ product.title }}</h5>
+                      {{ product.description }}
+                    </div>
+                    <p>{{ product.price | money }}</p>
+                  </div>
+              {% endif %}
+              {% if block.settings.featured_product_3 != blank %}
+              {%- assign product = all_products[block.settings.featured_product_3] -%}
+                  <div class="product-wrapper">
+                    <img src="{{ product.featured_image | img_url: 'master' }}">
+                    <div class="title-desc">
+                      <h5>{{ product.title }}</h5>
+                      {{ product.description }}
+                    </div>
+                    <p>{{ product.price | money }}</p>
+                  </div>
+              {% endif %}
+              {% if block.settings.featured_product_4 != blank %}
+              {%- assign product = all_products[block.settings.featured_product_4] -%}
+                  <div class="product-wrapper">
+                    <img src="{{ product.featured_image | img_url: 'master' }}">
+                    <h5>{{ product.title }}</h5>
+                    {{ product.description }}
+                    <p>{{ product.price | money }}</p>
+                  </div>
+              {% endif %}
+              {% if block.settings.featured_product_5 != blank %}
+              {%- assign product = all_products[block.settings.featured_product_5] -%}
+                  <div class="product-wrapper">
+                    <img src="{{ product.featured_image | img_url: 'master' }}">
+                    <div class="title-desc">
+                      <h5>{{ product.title }}</h5>
+                      {{ product.description }}
+                    </div>
+                    <p>{{ product.price | money }}</p>
+                  </div>
+              {% endif %}
+              {% if block.settings.featured_product_6 != blank %}
+              {%- assign product = all_products[block.settings.featured_product_6] -%}
+                  <div class="product-wrapper">
+                    <img src="{{ product.featured_image | img_url: 'master' }}">
+                    <div class="title-desc">
+                      <h5>{{ product.title }}</h5>
+                      {{ product.description }}
+                    </div>
+                    <p>{{ product.price | money }}</p>
+                  </div>
+              {% endif %}
+    		</div>
+    	{% endif %}
+    {% endfor %}
+    
+  {% endif %}
+  </div>
+</div>

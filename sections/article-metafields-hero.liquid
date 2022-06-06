@@ -1,0 +1,311 @@
+{%- if section.settings.hero_layout == 'full_width' and section.settings.hero_size == 'adapt' -%}
+  {%- if section.settings.image.aspect_ratio == blank -%}
+    {%- assign min_aspect_ratio = 2.0 -%}
+  {%- else -%}
+    {%- assign min_aspect_ratio = section.settings.image.aspect_ratio -%}
+  {%- endif -%}
+  {%- assign wrapper_height = 100 | divided_by: min_aspect_ratio -%}
+  {%- style -%}
+    .hero-{{ section.id }} {
+      height: {{- wrapper_height -}}vw !important;
+    }
+  {%- endstyle -%}
+{%- endif -%}
+
+<div data-section-id="{{ section.id }}" data-section-type="hero-section" class="blog-events-page article-spring">
+  {%- if section.settings.hero_layout == 'fixed_width' -%}
+    <div class="page-width">
+  {%- endif -%}
+  {%- if section.settings.hero_layout == 'fixed_width' and section.settings.hero_size ==  'adapt' -%}
+    {%- assign slide_width = 1090 -%}
+    {%- assign min_aspect_ratio = section.settings.image.aspect_ratio | default: 2.0 -%}
+    <div class="hero-fixed-width hero--adapt blog-events-banner"
+         id="Hero-{{ section.id }}"
+         data-layout="{{ section.settings.hero_layout }}">
+      {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+      {%- if section.settings.image.width < max_width -%}
+        {%- assign slide_width = section.settings.image.width -%}
+      {%- endif -%}
+      <div class="hero-fixed-width__content">
+        <div class="page-width text-left">
+          <div class="hero__inner-copy">
+           
+            {%- if section.settings.title != blank -%}
+              <h2 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ article.title }}</h2>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  {%- else -%}
+    <div class="hero hero--large hero-{{ section.id }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %} box ratio-container lazyload js"
+         id="Hero-{{ section.id }}"
+         data-layout="{{ section.settings.hero_layout }}"
+         style="background-position: {{ section.settings.alignment }}; background-image:linear-gradient(137.97deg, rgba(0, 0, 0, 0.49) 22.55%, rgba(0, 0, 0, 0) 50.99%), url('{{ article.image | img_url: 'master' }});"
+         >
+   
+      <div class="hero__inner">
+        {% if section.settings.promo_on %}        
+        <div class="hero__inner-promo">
+          {% if article.metafields.custom_fields.price != blank %}
+          	<div class="events-hero-note-title">{{ article.metafields.custom_fields.price }}</div>
+          {% endif %}
+          {% if article.metafields.custom_fields.date != blank %}
+            <div class="events-note-date-container">
+              <span class="events-note-date">{{ article.metafields.custom_fields.date }}</span>
+              <span class="events-note-divider">|</span>
+              <span class="events-note-time">{{ article.metafields.custom_fields.time }}</span>
+            </div>
+          {% endif %}
+          <div class="events-hero-note-footer">
+            <a class="events-hero-note-footer-btn" href="https://www.farmviewmarket.com/pages/calendar">
+              <span> Add To Calendar</span>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 5V1M14 5V1M13 16H19M16 13V19M19 11V5C19 3.89543 18.1046 3 17 3H3C1.89543 3 1 3.89543 1 5V17C1 18.1046 1.89543 19 3 19H10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <p class="events-hero-note-footer-share-container">
+              <span>Share:</span>
+              <a href="https://www.facebook.com/FarmviewMarket" aria-describedby="a11y-external-message">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12ZM13.2508 19.0557V12.5271H15.053L15.2918 10.2773H13.2508L13.2538 9.15125C13.2538 8.56447 13.3096 8.25006 14.1524 8.25006H15.279V6H13.4766C11.3116 6 10.5495 7.0914 10.5495 8.92678V10.2776H9.2V12.5274H10.5495V19.0557H13.2508Z" fill="#8A9381"></path>
+                </svg>
+              </a>
+              <a href="https://twitter.com/FarmviewMarket" aria-describedby="a11y-external-message">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12ZM11.6406 9.75375L11.6658 10.169L11.2461 10.1181C9.71843 9.92323 8.38383 9.26226 7.25067 8.15216L6.69668 7.60135L6.55399 8.0081C6.25181 8.91482 6.44487 9.87239 7.0744 10.5164C7.41015 10.8723 7.33461 10.9232 6.75544 10.7113C6.55399 10.6435 6.37772 10.5927 6.36093 10.6181C6.30218 10.6774 6.50362 11.4486 6.66311 11.7536C6.88134 12.1773 7.32621 12.5925 7.81305 12.8383L8.22434 13.0332L7.73751 13.0417C7.26746 13.0417 7.25067 13.0501 7.30103 13.2281C7.46891 13.7789 8.13201 14.3636 8.87066 14.6178L9.39108 14.7958L8.93781 15.067C8.26631 15.4568 7.4773 15.6771 6.68829 15.694C6.31057 15.7025 6 15.7364 6 15.7618C6 15.8466 7.02404 16.3211 7.61999 16.5075C9.40786 17.0584 11.5315 16.8211 13.1263 15.8805C14.2595 15.211 15.3926 13.8806 15.9214 12.5925C16.2068 11.9062 16.4922 10.652 16.4922 10.0503C16.4922 9.66054 16.5174 9.60969 16.9874 9.14362C17.2644 8.87245 17.5246 8.57586 17.575 8.49112C17.6589 8.33012 17.6505 8.33011 17.2224 8.47417C16.509 8.72839 16.4083 8.6945 16.7608 8.31317C17.021 8.042 17.3316 7.5505 17.3316 7.40645C17.3316 7.38102 17.2057 7.42339 17.063 7.49966C16.9119 7.5844 16.5761 7.71151 16.3243 7.78778L15.8711 7.93184L15.4598 7.65219C15.2331 7.49966 14.9142 7.33018 14.7463 7.27934C14.3182 7.1607 13.6635 7.17765 13.2774 7.31323C12.2282 7.69456 11.5651 8.67755 11.6406 9.75375Z" fill="#8A9381"></path>
+                </svg>
+              </a>
+              <a href="https://www.pinterest.com/farmviewmarket/" aria-describedby="a11y-external-message">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 0C5.37284 0 0 5.35082 0 11.9508C0 17.0164 3.16049 21.3443 7.62469 23.0852C7.51605 22.141 7.42716 20.6852 7.6642 19.6525C7.88148 18.718 9.06667 13.7115 9.06667 13.7115C9.06667 13.7115 8.71111 12.9934 8.71111 11.941C8.71111 10.2787 9.67901 9.03934 10.884 9.03934C11.9111 9.03934 12.4049 9.80656 12.4049 10.7213C12.4049 11.7443 11.7531 13.2787 11.4074 14.7049C11.121 15.8951 12.0099 16.8689 13.1852 16.8689C15.3185 16.8689 16.958 14.6262 16.958 11.4C16.958 8.5377 14.8938 6.54098 11.9407 6.54098C8.52346 6.54098 6.51852 9.08852 6.51852 11.7246C6.51852 12.7475 6.91358 13.8492 7.40741 14.4492C7.50617 14.5672 7.51605 14.6754 7.48642 14.7934C7.39753 15.1672 7.19012 15.9836 7.15062 16.1508C7.10123 16.3672 6.97284 16.4164 6.74568 16.3082C5.24444 15.6098 4.30617 13.4361 4.30617 11.6754C4.30617 7.9082 7.05185 4.4459 12.237 4.4459C16.3951 4.4459 19.6346 7.39672 19.6346 11.3508C19.6346 15.4721 17.0272 18.7869 13.4123 18.7869C12.1975 18.7869 11.0519 18.1574 10.6667 17.4098C10.6667 17.4098 10.0642 19.6918 9.91605 20.2525C9.64938 21.2951 8.91852 22.5934 8.42469 23.3902C9.55062 23.7344 10.7358 23.9213 11.9802 23.9213C18.6074 23.9213 23.9802 18.5705 23.9802 11.9705C24 5.35082 18.6272 0 12 0Z" fill="#8A9381"></path>
+                </svg>
+              </a>
+            </p>
+          </div>
+        </div>              
+        {% endif %}
+        
+        <div class="page-width text-left">
+         
+          <div class="hero__inner-copy">            
+            <h2 class="h1 mega-title">{{ article.title }}</h2>            
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  {%- endif -%}
+  {%- if section.settings.hero_layout == 'fixed_width' -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": {
+    "da": "Billede med tekstoverlejring",
+    "de": "Foto mit überlegtem Text",
+    "en": "Image with text overlay",
+    "es": "magen con texto superpuesto",
+    "fi": "Kuva päällä olevalla tekstillä",
+    "fr": "Image avec calque texte",
+    "hi": "पाठ ओवरले के साथ इमेज",
+    "it": "Immagine con testo",
+    "ja": "テキストオーバーレイ付き画像",
+    "ko": "텍스트 오버레이 포함 이미지",
+    "nb": "Bilde med tekstoverlegg",
+    "nl": "Foto met tekstoverlay",
+    "pt-BR": "Imagem com texto",
+    "pt-PT": "Imagem com sobreposição de texto",
+    "sv": "Bild med textöverlagring",
+    "th": "การวางซ้อนรูปภาพพร้อมข้อความ",
+    "zh-CN": "带文本叠加的图片",
+    "zh-TW": "附文字疊加層的圖片"
+  },
+  "class": "index-section section--hero-banner blog-events-banner",
+  "settings": [    
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": {
+        "da": "Justering af billede",
+        "de": "Fotoausrichtung",
+        "en": "Image alignment",
+        "es": "Alineación de imagen",
+        "fi": "Kuvan tasaus",
+        "fr": "Alignement de l'image",
+        "hi": "इमेज पंक्तिबद्ध करना",
+        "it": "Allineamento immagine",
+        "ja": "画像アラインメント",
+        "ko": "이미지 정렬",
+        "nb": "Bildejustering",
+        "nl": "Afbeelding uitlijnen",
+        "pt-BR": "Alinhamento da imagem",
+        "pt-PT": "Alinhamento da imagem",
+        "sv": "Bildjustering",
+        "th": "การจัดวางรูปภาพ",
+        "zh-CN": "图片对齐方式",
+        "zh-TW": "圖片對齊"
+      },
+      "default": "center",
+      "options": [
+        {
+          "value": "top",
+          "label": {
+            "da": "Top",
+            "de": "Oben",
+            "en": "Top",
+            "es": "Superior",
+            "fi": "Ylös",
+            "fr": "Haut",
+            "hi": "सबसे ऊपर",
+            "it": "In alto",
+            "ja": "上",
+            "ko": "위쪽",
+            "nb": "Topp",
+            "nl": "Boven",
+            "pt-BR": "Acima",
+            "pt-PT": "Acima",
+            "sv": "Högst upp",
+            "th": "ด้านบน",
+            "zh-CN": "顶部",
+            "zh-TW": "頂部"
+          }
+        },
+        {
+          "value": "center",
+          "label": {
+            "da": "I midten",
+            "de": "Mitte",
+            "en": "Middle",
+            "es": "Centrada",
+            "fi": "Keskelle",
+            "fr": "Milieu",
+            "hi": "मध्य में",
+            "it": "Al centro",
+            "ja": "中央",
+            "ko": "중간",
+            "nb": "Midten",
+            "nl": "Midden",
+            "pt-BR": "Meio",
+            "pt-PT": "Meio",
+            "sv": "Mitten",
+            "th": "ตรงกลาง",
+            "zh-CN": "中间",
+            "zh-TW": "中央"
+          }
+        },
+        {
+          "value": "bottom",
+          "label": {
+            "da": "Bund",
+            "de": "Unten",
+            "en": "Bottom",
+            "es": "Inferior",
+            "fi": "Alas",
+            "fr": "Bas",
+            "hi": "नीचे का",
+            "it": "In basso",
+            "ja": "下",
+            "ko": "아래쪽",
+            "nb": "Bunn",
+            "nl": "Onder",
+            "pt-BR": "Abaixo",
+            "pt-PT": "Abaixo",
+            "sv": "Längst ner",
+            "th": "ด้านล่าง",
+            "zh-CN": "底部",
+            "zh-TW": "底部"
+          }
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "hero_layout",
+      "label": {
+        "da": "Layout",
+        "de": "Layout",
+        "en": "Layout",
+        "es": "Diseño",
+        "fi": "Asettelu",
+        "fr": "Mise en page",
+        "hi": "लेआउट",
+        "it": "Layout",
+        "ja": "レイアウト",
+        "ko": "레이아웃",
+        "nb": "Oppsett",
+        "nl": "Opmaak",
+        "pt-BR": "Layout",
+        "pt-PT": "Esquema",
+        "sv": "Layout",
+        "th": "เลย์เอาต์",
+        "zh-CN": "布局",
+        "zh-TW": "版面配置"
+      },
+      "default": "full_width",
+      "options": [
+        {
+          "label": {
+            "da": "Fuld bredde",
+            "de": "Volle Breite",
+            "en": "Full width",
+            "es": "Ancho completo",
+            "fi": "Täysi leveys",
+            "fr": "Pleine largeur",
+            "hi": "पूर्ण चौड़ाई",
+            "it": "Intera larghezza",
+            "ja": "全幅",
+            "ko": "전체 폭",
+            "nb": "Full bredde",
+            "nl": "Volledige breedte",
+            "pt-BR": "Largura completa",
+            "pt-PT": "Largura total",
+            "sv": "Full bredd",
+            "th": "เต็มความกว้าง",
+            "zh-CN": "全宽",
+            "zh-TW": "全寬度"
+          },
+          "value": "full_width"
+        },
+        {
+          "label": {
+            "da": "Fast bredde",
+            "de": "Feste Breite",
+            "en": "Fixed width",
+            "es": "Ancho fijo",
+            "fi": "Kiinteä leveys",
+            "fr": "Largeur fixe",
+            "hi": "निश्चित चौड़ाई",
+            "it": "Larghezza fissa",
+            "ja": "固定幅",
+            "ko": "고정 폭",
+            "nb": "Fast bredde",
+            "nl": "Vaste breedte",
+            "pt-BR": "Largura fixa",
+            "pt-PT": "Largura fixa",
+            "sv": "Fast bredd",
+            "th": "ความกว้างตายตัว",
+            "zh-CN": "固定宽度",
+            "zh-TW": "固定寬度"
+          },
+          "value": "fixed_width"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "promo block",
+      "info": "Promo product on the banner"
+    },
+    {
+      "type": "checkbox",
+      "id": "promo_on",
+      "label": "enable promo block",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
+

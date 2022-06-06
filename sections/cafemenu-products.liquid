@@ -1,0 +1,324 @@
+<div class="cafemenu-containter breakfast_panel">
+  <div class="page-width">
+    
+	<div class="cafemenu_time">
+      <ul>
+        <li class="breakfast active_time">Breakfast</li>
+        <li class="lunch">Lunch</li>
+        <li class="dinner">Dinner</li>
+      </ul>
+    </div>
+
+    {% assign category_count = 0 %}
+    <div class="cafemenu_tabs" id="cafemenu_tabs_desktop">
+      {% for block in section.blocks %}
+        {% if block.type == 'product_category' %}
+      	{% assign category_count = category_count | plus: 1 %}
+      
+        <div class="cafemenu_category_tab {% if category_count == 1 %}active_category_tab{% endif %}
+              {% if block.settings.breakfast == true %}breakfast_category_tab{% endif %}
+              {% if block.settings.lunch == true %}lunch_category_tab{% endif %}
+              {% if block.settings.dinner == true %}dinner_category_tab{% endif %}"
+             data-handle={{ block.settings.category_handle }}
+          >
+            {% if block.settings.category_image != blank %}
+                <img src="{{ block.settings.category_image | img_url: 'master' }}">
+            {% else %}
+                <img src="//cdn.shopify.com/s/images/admin/no-image-large.gif">
+            {% endif %}  	
+            <h3 class="cafemenu_tab_title">
+              {{ block.settings.category_title }}
+            </h3>
+          </div>
+        
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="cafemenu_tabs-wrapper_mobile_breakfast">
+    <div class="cafemenu_tabs" id="cafemenu_tabs_mobile_breakfast">
+      {% for block in section.blocks %}
+        {% if block.type == 'product_category' %}
+      	{% assign category_count = category_count | plus: 1 %}
+      	{% if block.settings.breakfast == true %}
+        <div class="cafemenu_category_tab {% if category_count == 1 %}active_category_tab{% endif %}
+              {% if block.settings.breakfast == true %}breakfast_category_tab{% endif %}
+              {% if block.settings.lunch == true %}lunch_category_tab{% endif %} 
+              {% if block.settings.dinner == true %}dinner_category_tab{% endif %}"
+             data-handle={{ block.settings.category_handle }}
+          >
+            {% if block.settings.category_image != blank %}
+                <img src="{{ block.settings.category_image | img_url: 'master' }}">
+            {% else %}
+                <img src="//cdn.shopify.com/s/images/admin/no-image-large.gif">
+            {% endif %}  	
+            <h3 class="cafemenu_tab_title">
+              {{ block.settings.category_title }}
+            </h3>
+          </div>
+        {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+    </div>
+    <div class="cafemenu_tabs-wrapper_mobile_lunch">
+    <div class="cafemenu_tabs" id="cafemenu_tabs_mobile_lunch">
+      {% for block in section.blocks %}
+        {% if block.type == 'product_category' %}
+      	{% assign category_count = category_count | plus: 1 %}
+      	{% if block.settings.lunch == true %}
+        <div class="cafemenu_category_tab {% if category_count == 1 %}active_category_tab{% endif %}
+              {% if block.settings.breakfast == true %}breakfast_category_tab{% endif %}
+              {% if block.settings.lunch == true %}lunch_category_tab{% endif %}
+              {% if block.settings.dinner == true %}dinner_category_tab{% endif %}"
+             data-handle={{ block.settings.category_handle }}
+          >
+            {% if block.settings.category_image != blank %}
+                <img src="{{ block.settings.category_image | img_url: 'master' }}">
+            {% else %}
+                <img src="//cdn.shopify.com/s/images/admin/no-image-large.gif">
+            {% endif %}  	
+            <h3 class="cafemenu_tab_title">
+              {{ block.settings.category_title }}
+            </h3>
+          </div>
+        {% endif %}  	
+        {% endif %}
+      {% endfor %}
+    </div>
+    </div>
+    <div class="cafemenu_tabs-wrapper_mobile_dinner">
+    <div class="cafemenu_tabs" id="cafemenu_tabs_mobile_dinner">
+      {% for block in section.blocks %}
+        {% if block.type == 'product_category' %}
+      	{% assign category_count = category_count | plus: 1 %}
+      	{% if block.settings.dinner == true %}
+        <div class="cafemenu_category_tab {% if category_count == 1 %}active_category_tab{% endif %}
+              {% if block.settings.breakfast == true %}breakfast_category_tab{% endif %}
+              {% if block.settings.lunch == true %}lunch_category_tab{% endif %}
+              {% if block.settings.dinner == true %}dinner_category_tab{% endif %}"
+             data-handle={{ block.settings.category_handle }}
+          >
+            {% if block.settings.category_image != blank %}
+                <img src="{{ block.settings.category_image | img_url: 'master' }}">
+            {% else %}
+                <img src="//cdn.shopify.com/s/images/admin/no-image-large.gif">
+            {% endif %}  	
+            <h3 class="cafemenu_tab_title">
+              {{ block.settings.category_title }}
+            </h3>
+          </div>
+        {% endif %}  	
+        {% endif %}
+      {% endfor %}
+    </div>
+    </div>
+    {% assign type_count = 0 %}
+    <div class="cafemenu_products breakfast_products">
+      {% for block in section.blocks %}
+        {% if block.type == 'product_category' %}
+          {% assign type_count = type_count | plus: 1 %}
+          {% if type_count == 1 %}
+            <div class="cafemenu_category_wrapper active_category_wrapper {{block.settings.category_handle}}
+              {% if block.settings.breakfast == true %}breakfast_category_wrapper{% endif %}
+              {% if block.settings.lunch == true %}lunch_category_wrapper{% endif %}
+              {% if block.settings.dinner == true %}dinner_category_wrapper{% endif %}
+            ">
+          {% else %}
+            </div>
+            <div class="cafemenu_category_wrapper {{block.settings.category_handle}}
+              {% if block.settings.breakfast == true %}breakfast_category_wrapper{% endif %}
+              {% if block.settings.lunch == true %}lunch_category_wrapper{% endif %}
+              {% if block.settings.dinner == true %}dinner_category_wrapper{% endif %}
+            ">
+          {% endif %}
+
+          <h3 class="cafemenu_category 
+              {% if block.settings.breakfast == true %}breakfast_category{% endif %}
+              {% if block.settings.lunch == true %}lunch_category{% endif %}
+              {% if block.settings.dinner == true %}dinner_category_wrapper{% endif %}
+           ">
+            {{ block.settings.category_title }}
+          </h3>
+        {% elsif block.type == 'product' %}
+            <div class="cafemenu_product {{block.settings.category_select}}_product {{block.settings.product_time}}_product {{block.settings.category_select}}_{{block.settings.product_time}}_product">
+              <div class="cafemenu_product_url" >
+                {% if block.settings.product_image != blank %}
+                    <img src="{{ block.settings.product_image | img_url: 'master' }}">
+                {% else %}
+                    <img src="//cdn.shopify.com/s/images/admin/no-image-large.gif">
+                {% endif %}
+                <div class="product_content">
+                  <div class="product_content-main">
+                    <div class="product_title">
+                      <div class="product_title_wrapper">
+                        <h4>{{ block.settings.product_title }}</h4> 
+                      </div>
+                      {% if block.settings.product_mark != blank %}
+                      <span class="product_mark" style="background-color: {{ block.settings.mark_color }}">{{ block.settings.product_mark }}</span>
+                      {% endif %}
+                      {% if block.settings.extra_description != blank %}
+                      <span class="product_extra_description">{{ block.settings.extra_title }}</span>
+                      {% endif %} 
+                    </div>
+                    <div class="product_description">{{ block.settings.product_description }}</div>
+                  </div>
+                  {% if block.settings.subprice != true %}
+                  <h5 class="product_price">{{ block.settings.product_price }}</h5>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+        {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+  {% comment %}
+    <div class="cafemenu_go">
+      <a><span>Grab and go</span><img src="https://cdn.shopify.com/s/files/1/0277/5518/4198/files/Vector_1_0e8b61f8-ab33-4a2d-8755-4b378931745d.png?v=1617932774"></a>
+    </div>
+     {% endcomment %}
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<script>
+  jQuery(document).ready(function($){
+  	
+    
+    
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Cafe Menu Products",
+  "class": "cafe-menu-products",
+  "settings": [
+  ],
+  "blocks": [
+  	{
+      "name": "Category",
+      "type": "product_category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category_title",
+          "label": "Category title"
+        },
+        {
+          "type": "text",
+          "id": "category_handle",
+          "label": "Category Handle"
+        },
+		{
+          "type": "image_picker",
+          "id": "category_image",
+          "label": "Category Image"
+        },
+        {
+          "type": "richtext",
+          "id": "category_description",
+          "label": "Category Description"
+        },
+        {
+           "type": "checkbox",
+           "id": "breakfast",
+           "label": "Breakfast",
+           "default": false
+        },
+        {
+           "type": "checkbox",
+           "id": "lunch",
+           "label": "Lunch",
+           "default": false
+        },
+		{
+           "type": "checkbox",
+           "id": "dinner",
+           "label": "Dinner",
+           "default": false
+        }	
+      ]
+    },
+  	{
+      "name": "Product",
+      "type": "product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Product title"
+        },
+		{
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "product_mark",
+          "label": "Product Mark"
+        },
+        {
+           "type": "color",
+           "id": "mark_color",
+           "label": "Background Mark color",
+           "default": "#BAC433"
+        },
+        {
+          "type": "text",
+          "id": "extra_title",
+          "label": "Extra Title"
+        },
+        {
+          "type": "richtext",
+          "id": "product_description",
+          "label": "Product Description"
+        },
+        {
+          "type": "text",
+          "id": "product_price",
+          "label": "Product Price"
+        },
+		 {
+           "type": "checkbox",
+           "id": "subprice",
+           "label": "Has Subprice",
+           "default": false
+        },	
+        {
+           "type": "select",
+           "id": "category_select",
+           "label": "Product Category",
+           "options": [
+              { "value": "entrees", "label": "Entrees"},
+              { "value": "sandwiches", "label": "Sandwiches"},
+              { "value": "salads", "label": "Salads"},
+			  { "value": "a_la_carte", "label": "A La Carte"},
+			  { "value": "farm_kids", "label": "Farm Kids"},
+			  { "value": "desserts", "label": "Desserts"},
+			  { "value": "beverages", "label": "Beverages"}
+           ],
+           "default": "entrees"
+        },
+        {
+           "type": "select",
+           "id": "product_time",
+           "label": "Time",
+           "options": [
+              { "value": "breakfast", "label": "Breakfast"},
+              { "value": "lunch", "label": "Lunch"},
+			  { "value": "dinner", "label": "Dinner"}
+           ],
+           "default": "lunch"
+        }
+        
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+

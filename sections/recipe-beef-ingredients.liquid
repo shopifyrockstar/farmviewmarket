@@ -1,0 +1,53 @@
+{% include 'recipe-page-ingredients' %}
+{% schema %}
+  {
+    "name": "Ingredients Section",
+    "class": "ingredients-section",
+    "settings": [      
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text overlay"
+      },
+	  {
+        "type": "text",
+        "id": "sub_title",
+        "label": "Sub Heading",
+        "default": "Image with text overlay"
+      }
+    ],
+	"blocks":[
+      {
+       "type": "image_text_overlay",
+       "name": "Image with Text",
+       "settings": [
+           {
+             "type": "image_picker",
+             "id": "image",
+             "label": "Image"
+           },
+           {
+             "type": "text",
+             "id": "title",
+             "label": "Heading",
+             "default": "Main Title"
+           },
+           {
+             "type": "textarea",
+             "id": "content",
+             "label": "Text",
+             "default": "Pair text with a large full width image to give focus to areas of your store."
+           }
+         ]
+      }
+    ],
+    "default": {
+      "blocks": [
+        {
+          "type": "image_text_overlay"
+        }
+      ]
+    }
+  }
+{% endschema %}

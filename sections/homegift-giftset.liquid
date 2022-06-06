@@ -1,0 +1,64 @@
+<div class="content-wrapper">
+  <img class="lazyload left-image" src="{{ section.settings.left_image | img_url: 'master' }}">
+  <div class="left-wrapper" >    
+  </div>
+  <div class="right-wrapper">    
+    <div class="right-text-wrapper">
+      <h1>{{ section.settings.right_header }}</h1>
+      <p>{{ section.settings.right_text }}</p>
+      <a class="btn" href="{{ section.settings.button_url }}">{{ section.settings.button_title }}</a>  
+    </div>
+    <div class="right-image-wrapper">
+      <img class="lazyload" src="{{ section.settings.right_image | img_url: 'master' }}">
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Left image Right content",
+  "class": "homegift-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left side image"
+    },
+    {
+      "type": "header",
+      "content": "Right Content"
+    },
+    {
+      "type": "text",
+      "id": "right_header",
+      "label": "Right Header",
+      "default": "Gift Sets"
+    },
+    {
+      "type": "text",
+      "id": "right_text",
+      "label": "Right Text",
+      "default": "Curated gift sets for those who love unique local brands and products."
+    },
+    {
+      "type": "text",
+      "id": "button_title",
+      "label": "Button text",
+      "default": "See all gift sets"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button url"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right bottom image"
+    }
+  ]
+}
+{% endschema %}

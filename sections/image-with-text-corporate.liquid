@@ -1,0 +1,42 @@
+<div class="container gifting-page-content">
+  	<h2>{{ section.settings.title }}</h2>
+  	<div class="image-one">
+      	<img src="{{ sections.settings.image | url}}">
+  	</div>
+</div>
+{% schema %}
+  {
+    "name": "image-with-text-corporate",
+    "settings": 
+	[
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "The season’s fresh selections from Georgia farms."
+    },
+    {
+      "type": "text",
+      "id": "promo_text",
+      "label": "Text",
+      "default": "The natural flavors of Georgia, sustainably sourced and hand selected for delicious taste."
+    },
+    {
+      "type": "url",
+      "id": "promo_url",
+      "label": "Link"
+    }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

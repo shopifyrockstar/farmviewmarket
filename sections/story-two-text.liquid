@@ -1,0 +1,28 @@
+
+  <div class="content-wrapper clearfix">
+    <div class="left-wrapper">
+      <p>{{ section.settings.left_text }}</p>
+    </div> 
+    <div class="right-wrapper">    
+      <h5>{{ section.settings.right_text }}</h5>
+    </div>
+  </div>
+
+{% schema %}
+{
+  "name": "Three parts section",
+  "class": "homegift-section story-two-section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "left_text",
+      "label": "Left Text"
+    },
+    {
+      "type": "textarea",
+      "id": "right_text",
+      "label": "Right Text"
+    }    
+  ]
+}
+{% endschema %}

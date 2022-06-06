@@ -1,0 +1,11 @@
+<div class="blog-grid-item-inner">
+  <a href="{{ article.url }}"><img class="blog-grid-item-image" src="{{ article.image | img_url: '250x250', crop: 'center', scale: 2 }}"></a>
+ {% comment %} <p class="blog-grid-item-date">{{ article.published_at | time_tag: format: 'date' }}</p>{% endcomment %} 
+  <div class="blog-grid-wrapper">
+     <div class="blog-grid-inner-wrapper">
+    	<h2 class="blog-grid-item-title">{{ article.title | truncate: 48 }}</h2>
+    	<p class="blog-grid-item-excerpt">{{ article.excerpt | strip_html | truncate: 80 }}</p>
+    	</div>
+  </div>
+  <a class="blog-grid-item-btn" href="{{ article.url }}">Read more</a>
+</div>

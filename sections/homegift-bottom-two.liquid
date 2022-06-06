@@ -1,0 +1,89 @@
+<div class="content-wrapper">  
+  <div class="left-wrapper">
+    <img class="lazyload left-image" src="{{ section.settings.left_image | img_url: 'master' }}">  
+    <div class="left-content-wrapper">
+      <h1>{{ section.settings.left_header }}</h1>
+      <p>{{ section.settings.left_text }}</p>
+      <a class="btn" href="{{ section.settings.left_button_url }}">{{ section.settings.left_button_title }}</a>  
+    </div>
+  </div>  
+  <div class="right-wrapper">    
+    <img class="lazyload" src="{{ section.settings.right_image | img_url: 'master' }}">
+    <div class="right-content-wrapper">
+      <h1>{{ section.settings.right_header }}</h1>
+      {{ section.settings.right_text }}
+      <a class="btn" href="{{ section.settings.right_button_url }}">{{ section.settings.right_button_title }}</a>  
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Bottom Split section",
+  "class": "homegift-section bottom-two-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left side image"
+    },
+    {
+      "type": "text",
+      "id": "left_header",
+      "label": "Left Header",
+      "default": "Beauty"
+    },
+    {
+      "type": "text",
+      "id": "left_text",
+      "label": "Left Text",
+      "default": "Get that healthy glow with these all-natural soaps, oils, facial scrubs and more."
+    },
+    {
+      "type": "text",
+      "id": "left_button_title",
+      "label": "Left Button text",
+      "default": "See all"
+    },
+    {
+      "type": "url",
+      "id": "left_button_url",
+      "label": "Button url"
+    },    
+    {
+      "type": "header",
+      "content": "Right Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right image"
+    },
+    {
+      "type": "text",
+      "id": "right_header",
+      "label": "Right Header",
+      "default": "Wellness"
+    },
+    {
+      "type": "textarea",
+      "id": "right_text",
+      "label": "Right Text"
+    },
+    {
+      "type": "text",
+      "id": "right_button_title",
+      "label": "Right Button text",
+      "default": "See all"
+    },
+    {
+      "type": "url",
+      "id": "right_button_url",
+      "label": "Right Button url"
+    } 
+  ]
+}
+{% endschema %}

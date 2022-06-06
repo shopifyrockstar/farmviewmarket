@@ -1,0 +1,32 @@
+<div class="offering-four-seciton">
+ 
+   <div class="offering-four-featured">
+   
+        {% if section.settings.title != blank %}
+          <div class="section-header text-center">
+            <h2>{{ section.settings.title | escape }}</h2>
+            <p>{{ section.settings.text }}</p>
+          </div>
+        {% endif %}
+
+
+       {%- assign max_height = 250 -%}
+       {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}     
+
+        <ul class="grid grid--uniform grid--view-items">
+
+          
+          {% for block in section.blocks %}
+          	{% assign product = all_products[block.settings.id] %}
+            <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+              {% include 'product-card-grid-offering', max_height: max_height, product: product %}
+            </li>
+
+          
+          {% endfor %}
+        </ul>     
+     
+
+    </div>
+    
+</div>

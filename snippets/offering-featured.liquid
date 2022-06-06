@@ -1,0 +1,49 @@
+<div class="offering-seciton first-offfering-section">
+   <div class="offering-featured">
+   
+        {% if section.settings.title != blank %}
+          <div class="section-header text-center">
+            <h2>{{ section.settings.title | escape }}</h2>
+            <p>{{ section.settings.text }}</p>
+          </div>
+        {% endif %}
+
+       {%- assign max_height = 530 -%}
+       {%- assign grid_item_width = 'medium-up--one-half' -%}     
+
+        <ul class="grid grid--uniform grid--view-items">
+
+          
+          {% for block in section.blocks %}
+          	{% assign product = all_products[block.settings.id] %}
+            <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+              {% include 'product-card-grid-offering', max_height: max_height, product: product %}
+            </li>
+
+          
+          {% endfor %}
+        </ul>
+
+
+    </div>
+  
+  <div class="offering-img-section">
+    <div class="offering-product {{ section.settings.custom_class }}" {% if section.settings.section_back_image != blank %} style="background-image: linear-gradient(29.93deg, rgba(0, 0, 0, 0.7) 35.65%, rgba(0, 0, 0, 0) 88.6%), url({{ section.settings.section_back_image | img_url: 'master' }});" {% endif %} >
+
+      <div class="product-offering-text lazyload">
+
+        <div class="product-offering--copy-text">
+          <h2 class="offering-copy-promo--title">{{ section.settings.left_title }}</h2> 
+          <div class="button-block">
+            <a href="{{ section.settings.left_url }}" class="btn copy-offering--btn">{{ section.settings.left_label }}</a>
+            <p class="price-button">{{ section.settings.banner_text }} </p>
+          </div>
+          {{ section.settings.left_text }}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    
+</div>

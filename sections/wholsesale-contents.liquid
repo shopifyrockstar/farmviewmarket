@@ -1,0 +1,75 @@
+<div class="wholesale-contents-section">
+  <div class="wholesale-contents-left">
+    <div class="product-right--copy-text">
+      <h3 class="inner-promo--title">{{ section.settings.banner_title }}</h3>
+      <p class="inner-promo--text">{{ section.settings.banner_text }}</p>
+
+    </div>    
+  </div>
+  <div class="wholesale-contents-right">
+    <img class="hero-fixed-width__image lazyload lazypreload"
+         src="{{ section.settings.image | img_url: 'master' }}"
+         data-src="{{ img_url }}"
+         data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+         data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+         data-sizes="auto"
+         style=" min-width: {{ min_width }}%;"
+         alt="{{ section.settings.image.alt | escape }}">
+
+  </div>
+</div>
+<div class="wholesale-footer-banner">
+  <img class="desktop_images hero-fixed-width__image lazyload lazypreload"
+       src="{{ section.settings.footer_image | img_url: 'master' }}"
+       data-src="{{ img_url }}"
+       data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+       data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+       data-sizes="auto"
+       style=" min-width: {{ min_width }}%;"
+       alt="{{ section.settings.footer_image.alt | escape }}">
+  
+  <img class="wholesale_mobile hero-fixed-width__image lazyload lazypreload"
+       src="{{ section.settings.footer_mobile_img | img_url: 'master' }}"
+       data-src="{{ img_url }}"
+       data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+       data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+       data-sizes="auto"
+       style=" min-width: {{ min_width }}%;"
+       alt="{{ section.settings.footer_mobile_img.alt | escape }}">
+</div>
+
+{% schema %}
+{
+  "name": "Wholesale contents",
+  "class": "index-section section--featured-collection-promo wholesale-contents-block",
+  "settings": [
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner title",
+      "default": "Banner title"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_text",
+      "label": "Banner text",
+      "default": "Banner text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_mobile_img",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}

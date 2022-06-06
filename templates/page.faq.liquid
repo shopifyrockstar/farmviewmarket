@@ -1,0 +1,24 @@
+<div class="faq-wrapper page-image-header">
+  {% section 'faq-hero' %}
+  <div class="page-width">
+    <div class="grid">
+      <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+        <div class="rte">
+          {% section 'faq-inner' %}
+          {% section 'faq-inner-account' %}
+          {% section 'faq-inner-product' %}
+
+          <script>
+            document.querySelectorAll('.page-image-header-section-title').forEach(
+              function(element) {
+                element.addEventListener('click', function (event) {
+                  this.classList.toggle('is-active');
+                });
+              }
+            );
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>

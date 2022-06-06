@@ -1,0 +1,119 @@
+<div class="meeting-room-bottom">
+  <div class="room_secton">
+    <div class="left-seciton">
+      <div class="left-img">
+        <img class="butchers-club--image lazyload lazypreload"
+             src="{{ section.settings.left-img| img_url: 'master' }}"
+             data-src="{{ img_url }}"
+             data-aspectratio=""
+             data-sizes="auto"
+             style="min-width: auto; object-position: center;"
+             alt="{{ section.settings.left-img | escape }}">
+      </div>
+    </div>
+    <div class="right-seciton">
+      <div class="text-block">
+        <h4>{{ section.settings.main_title | escape }}</h4>
+        <p class="number-text"><i class="fa fa-phone-alt"></i>{{ section.settings.text_number | escape }}</p>
+        {{ section.settings.text_btn }}
+      </div>
+      <div class="tomato-img" {% if section.settings.bg_img != blank %} style="background-size: cover;
+background-image: url({{ section.settings.bg_img | img_url: 'master' }})" {% endif %}>
+        
+      <div class="background-block">
+        <div class="bottom-left-img">
+
+          <img class="butchers-club--image lazyload lazypreload"
+               src="{{ section.settings.map_img| img_url: 'master' }}"
+               data-src="{{ img_url }}"
+               data-aspectratio=""
+               data-sizes="auto"
+               style="min-width: auto; object-position: center;"
+               alt="{{ section.settings.map_img | escape }}">
+          <div class="map-blocks">
+            <div class="map-text">
+              <div class="map-text-block">
+                {{ section.settings.map_text }}
+              </div>
+              <div class="map-link">
+                <a href="{{ section.settings.url_link }}"><span class="map-link-text">{{ section.settings.link_text }}</span><span>></span></a>
+            </div>
+          </div>
+
+          <div class="map-icon">
+            <img class="map-img lazyload lazypreload"
+                 src="{{ section.settings.map_icon| img_url: 'small' }}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "Meeting Room bottom",
+  "class": "index-section section--featured-collection-promo bottom_room",
+  "settings": [
+	{
+      "type": "image_picker",
+      "id": "left-img",
+      "label": "image"
+    },
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "text"
+    },
+    {
+      "type": "text",
+      "id": "text_number",
+      "label": "text"
+    },
+    {
+      "type": "html",
+      "id": "text_btn",
+      "label": "text"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_img",
+      "label": "Image bg"
+    },
+    {
+      "type": "image_picker",
+      "id": "map_img",
+      "label": "Image map"
+    },
+    {
+      "type": "html",
+      "id": "map_text",
+      "label": "map text"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "text"
+    },
+    {
+      "type": "url",
+      "id": "url_link",
+      "label": "text link"
+    },
+    {
+      "type": "image_picker",
+      "id": "map_icon",
+      "label": "Image Icon"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meeting Room Bootom",
+      "category": {
+         "en": "Collection"        
+      }
+    }
+  ]
+}
+{% endschema %}

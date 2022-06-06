@@ -1,0 +1,243 @@
+<div class="has-background">
+    <div class="product-promo--product">
+      <div class="promo-product--right lazyload"
+      data-bgset="{% include 'bgset', image: section.settings.banner_image %}"
+      data-sizes="auto"
+      data-parent-fit="cover"
+      style="background-image: url('{{ section.settings.banner_image | img_url: '300x300' }});">
+        <div class="product-right--copy-text">
+          <h4 class="inner-promo--title">{{ section.settings.banner_title }}</h4>
+          <p class="inner-promo--text">{{ section.settings.banner_text }}</p>
+          {% if section.settings.section.settings.banner_url %}
+            <a href="{{ section.settings.banner_url }}"
+              class="btn btn-arrow--right">
+              <span class="chevron right"></span>
+            </a>
+          {% endif %}
+        </div>    
+      </div>
+      <div class="page-width">
+        <div class="product-left--copy lazyload"
+          data-bgset="{% include 'bgset', image: section.settings.left_image %}"
+          data-sizes="auto"
+          data-parent-fit="cover"
+          style="background-image: url('{{ section.settings.left_image | img_url: '300x300' }});">
+          <div class="product-left--copy-text">
+
+
+                <div class="newsletter-header">
+                  {% if section.settings.newsletter_title != blank %}
+                    <h3>{{ section.settings.newsletter_title | escape }}</h3>
+                  {% endif %}
+                  {% if section.settings.newsletter_content != blank %}
+                    <div class="rte">
+                      <p>{{ section.settings.newsletter_content }}</p>
+                  </div>
+                  {% endif %}
+                </div>
+            	{% comment %}
+                {%- assign formId = 'Contact_' | append: section.id -%}
+                {% form 'customer', id: formId, novalidate: 'novalidate', class: 'contact-form form-single-field' %}
+                  {%- if form.posted_successfully? -%}
+                    <p class="form-message form-message--success" tabindex="-1" data-form-status>
+                      {{ 'general.newsletter_form.confirmation' | t }}
+                    </p>
+                  {%- endif -%}
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <div class="input-group {% if form.errors %} input-group--error{% endif %}">
+                    <input type="email"
+                      name="contact[email]"
+                      id="{{ formId }}-email"
+                      class="input-group__field{% if form.errors %} input--error{% endif %}"
+                      value="{{ form.email }}"
+                      placeholder="Enter your email"
+                      aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                      aria-required="true"
+                      autocorrect="off"
+                      autocapitalize="off"
+                      {% if form.errors %}
+                        aria-invalid="true"
+                        aria-describedby="{{ formId }}-email-error"
+                        data-form-status
+                      {% endif %}
+                      >
+                    
+                    <span class="input-group__btn">
+                      <button type="submit" class="btn" name="commit" id="Subscribe">
+                        <span>Join the Butcher’s club</span>
+                      </button>
+                    </span>
+                   
+                  </div>
+                  {%- if form.errors contains 'email' -%}
+                    <span id="{{ formId }}-email-error" class="input-error-message">
+                      <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                      {% include 'icon-error' %}
+                      <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                    </span>
+                  {%- endif -%}
+                {% endform %}
+				 {% endcomment %}
+
+            <h2 class="copy-promo--title">{{ section.settings.left_title }}</h2>
+            <p class="copy-promo--text">{{ section.settings.left_text }}</p>
+            {% if section.settings.left_url != blank %}
+                <a href="{{ section.settings.left_url }}" class="btn copy-promo--btn">{{ section.settings.left_label }}</a>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="product-promo--featured">
+      <div class="page-width">
+        {% if section.settings.title != blank %}
+          <div class="section-header text-center">
+            <h3>{{ section.settings.title | escape }}</h3>
+            <p>{{ section.settings.text }}</p>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+</div>
+<style>
+  {% if section.settings.section_back_image != blank %}
+  .has-background:before{
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    z-index: -1;
+    background: url({{ section.settings.section_back_image | img_url: 'master' }}) 0 0 repeat;
+    -webkit-transform: rotate(-30deg) translateY(-50%);
+    -moz-transform: rotate(-30deg) translateY(-50%);
+    -ms-transform: rotate(-30deg) translateY(-50%);
+    -o-transform: rotate(-30deg) translateY(-50%);
+    transform: rotate(-30deg) translateY(-50%);
+  	background-size: cover;
+  }  
+  {% endif %}
+
+</style>
+
+{% schema %}
+{
+  "name": "Featured coll with promo",
+  "class": "index-section section--featured-collection-promo butcher-featured-collection story-join",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "section_back_image",
+      "label": "Section Background Image"
+    },
+    {
+      "type": "header",
+      "content": "Promo product & banner"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_content",
+      "label": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Promo product image"
+    },
+    {
+      "type": "text",
+      "id": "left_label",
+      "label": "Button label",
+      "default": "Learn about us"
+    },
+    {
+      "type": "url",
+      "id": "left_url",
+      "label": "Button url"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner title",
+      "default": "Curated boxes of grass-fed, free-range meat"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_text",
+      "label": "Banner text",
+      "default": "Local farm partnerships allow us to maintain the highest quality and source the best lamb, pork and wagyu beef in Georgia."
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner image"
+    },
+    {
+      "type": "url",
+      "id": "banner_url",
+      "label": "Banner url"
+    },
+    {
+      "type": "header",
+      "content": "Featured collection"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "da": "Overskrift",
+        "de": "Titel",
+        "en": "Heading",
+        "es": "Título",
+        "fi": "Otsake",
+        "fr": "En-tête",
+        "hi": "शीर्षक",
+        "it": "Heading",
+        "ja": "見出し",
+        "ko": "제목",
+        "nb": "Overskrift",
+        "nl": "Kop",
+        "pt-BR": "Título",
+        "pt-PT": "Título",
+        "sv": "Rubrik",
+        "th": "ส่วนหัว",
+        "zh-CN": "标题",
+        "zh-TW": "標題"
+      },
+      "default": {
+        "da": "Udvalgt kollektion",
+        "de": "Vorgestellte Kategorie",
+        "en": "Featured collection",
+        "es": "Colección destacada",
+        "fi": "Esittelyssä oleva kokoelma",
+        "fr": "Collection en vedette",
+        "hi": "फ़ीचर्ड कलेक्शन",
+        "it": "Collezione in evidenza",
+        "ja": "特集コレクション",
+        "ko": "추천 컬렉션",
+        "nb": "Fremhevet samling",
+        "nl": "Uitgelichte collectie",
+        "pt-BR": "Coleção em destaque",
+        "pt-PT": "Coleção em destaque",
+        "sv": "Utvald kollektion",
+        "th": "คอลเลกชันแนะนำ",
+        "zh-CN": "特色产品系列",
+        "zh-TW": "精選商品系列"
+      }
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Collection description",
+      "default": "The natural flavors of Georgia, sustainably sourced and hand selected for delicious taste."
+    }
+  ]
+}
+{% endschema %}
