@@ -22,7 +22,8 @@
 
   <div class="custom-pagination blog-events-items">
     <div id="tab-1">
-      <ul class="grid grid--uniform grid--view-items">
+      <!--<ul class="grid grid--uniform grid--view-items">-->
+      <div class="grid grid--uniform grid--view-items">
         {% for block in section.blocks %}
         {% if forloop.index <= 8 %}
         <div class="grid__item {{grid_item_width}} js">
@@ -32,7 +33,6 @@
               <img class="blog-evnet-image lazyload lazypreload"
                    src="{{ block.settings.image| img_url: 'master' }}"
                    data-src="{{ img_url }}"
-
                    data-aspectratio=""
                    data-sizes="auto"
                    style="min-width: auto; object-position: center;"
@@ -59,10 +59,12 @@
         </div>
         {% endif %}
         {% endfor %}
-      </ul>
+      </div>
+      <!--</ul>-->
     </div>
     <div id="tab-2">
-      <ul class="grid grid--uniform grid--view-items">
+      <!--<ul class="grid grid--uniform grid--view-items">-->
+      <div class="grid grid--uniform grid--view-items">
       {% for block in section.blocks %}
       {% if forloop.index >= 9 and forloop.index <= 16 %}
       <div class="grid__item {{grid_item_width}} js">
@@ -72,7 +74,6 @@
             <img class="blog-evnet-image lazyload lazypreload"
                  src="{{ block.settings.image| img_url: 'master' }}"
                  data-src="{{ img_url }}"
-
                  data-aspectratio=""
                  data-sizes="auto"
                  style="min-width: auto; object-position: center;"
@@ -99,10 +100,12 @@
       </div>
       {% endif %}
       {% endfor %}
-      </ul>
+      </div>
+      <!--</ul>-->
     </div>
     <div id="tab-3">
-      <ul class="grid grid--uniform grid--view-items">
+      <!--<ul class="grid grid--uniform grid--view-items">-->
+      <div class="grid grid--uniform grid--view-items">
       {% for block in section.blocks %}
        {% if forloop.index >= 17 and forloop.index <= 24 %}
       <div class="grid__item {{grid_item_width}} js">
@@ -112,7 +115,6 @@
             <img class="blog-evnet-image lazyload lazypreload"
                  src="{{ block.settings.image| img_url: 'master' }}"
                  data-src="{{ img_url }}"
-
                  data-aspectratio=""
                  data-sizes="auto"
                  style="min-width: auto; object-position: center;"
@@ -127,7 +129,7 @@
               <p>{{ block.settings.cta_label | escape | truncate: 80  }}</p>              
 
               <div class="button-link">
-                 <p class="price">{{ block.settings.price | escape }}</p>
+                <!--<p class="price">//{ block.settings.price | escape }//</p>-->
                 <a href="{{ block.settings.button_link }}" class="btn hero__btn">
                   <span>{{ block.settings.button_label | escape }}</span>
                 </a>
@@ -139,10 +141,13 @@
       </div>
       {% endif %}
       {% endfor %}
-      </ul>
+      </div>
+      <!--</ul>-->
     </div>
-  {% comment %}  <div id="tab-4">
-      <ul class="grid grid--uniform grid--view-items">
+  {% comment %}
+    <div id="tab-4">
+      <!--<ul class="grid grid--uniform grid--view-items">-->
+      <div class="grid grid--uniform grid--view-items">
       {% for block in section.blocks %}
      {% if forloop.index >= 25 and forloop.index <= 32 %}
       <div class="grid__item {{grid_item_width}} js">
@@ -152,7 +157,6 @@
             <img class="blog-evnet-image lazyload lazypreload"
                  src="{{ block.settings.image| img_url: 'master' }}"
                  data-src="{{ img_url }}"
-
                  data-aspectratio=""
                  data-sizes="auto"
                  style="min-width: auto; object-position: center;"
@@ -179,10 +183,12 @@
       </div>
       {% endif %}
       {% endfor %}
-      </ul>
+      </div>
+      <!--</ul>-->
     </div>
     <div id="tab-5">
-      <ul class="grid grid--uniform grid--view-items">
+      <!--<ul class="grid grid--uniform grid--view-items">-->
+      <div class="grid grid--uniform grid--view-items">
       {% for block in section.blocks %}
      {% if forloop.index >= 33 %}
       <div class="grid__item {{grid_item_width}} js">
@@ -192,7 +198,6 @@
             <img class="blog-evnet-image lazyload lazypreload"
                  src="{{ block.settings.image| img_url: 'master' }}"
                  data-src="{{ img_url }}"
-
                  data-aspectratio=""
                  data-sizes="auto"
                  style="min-width: auto; object-position: center;"
@@ -220,20 +225,21 @@
       </div>
       {% endif %}
       {% endfor %}
-      </ul>
+      </div>
+      <!--</ul>-->
     </div> {% endcomment %}
   </div>
   {% comment %}
   <div class="pagination-btn">
-<a class="btn-nav btn-prev">prev</a>
+	<a class="btn-nav btn-prev">prev</a>
     <ul class="tabs">
-      <li><a href="#tab-1">1</a></li>
-      <li><a href="#tab-2">2</a></li>
-     1<li><a href="#tab-3">3</a></li>
-      <li><a href="#tab-4">4</a></li>
-       <li><a href="#tab-5">5</a></li>
+		<li><a href="#tab-1">1</a></li>
+      	<li><a href="#tab-2">2</a></li>
+     	<li><a href="#tab-3">3</a></li>
+      	<li><a href="#tab-4">4</a></li>
+       	<li><a href="#tab-5">5</a></li>
     </ul>
-   <a class="btn-nav btn-next">next</a>
+   	<a class="btn-nav btn-next">next</a>
   </div> 
   {% endcomment %}
 </div>

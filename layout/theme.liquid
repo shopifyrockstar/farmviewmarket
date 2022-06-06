@@ -1,6 +1,17 @@
 <!doctype html>
 <html class="no-js" lang="{{ shop.locale }}">
-<head>
+<head>{% render 'pagefly-head' %}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NJX825GYT0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NJX825GYT0');
+</script>
+  
+  <script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/2NU6orBD9n19UG58yeuVMbIDh8vDWlpYEElLFlTU/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
   
   <meta name="google-site-verification" content="5FYldmElwGbiPxVL5BrilH-d0r8zwxv7UoRg1CbL94Y" />
   <script type="text/javascript">!function(e,t,n){var a,o=e.getElementsByTagName(t)[0];e.getElementById(n)||((a=e.createElement(t)).id=n,a.onload=function(){},a.src="https://koala-snippet.s3.us-east-2.amazonaws.com/bundle.min.js",o.parentNode.insertBefore(a,o))}(document,"script","koala-script");</script>
@@ -161,9 +172,7 @@
   <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
   
-  {{ content_for_header }}
-  
-      <script>(function(d, s, id){
+  {{ content_for_header }}<script>(function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0]
         if (d.getElementById(id)){ return }
         js = d.createElement(s); js.id = id
@@ -173,14 +182,14 @@
         js.src = 'https://koala-snippet.s3.us-east-2.amazonaws.com/bundle.prod.min.js'
         fjs.parentNode.insertBefore(js, fjs)
     }(document, 'script', 'koala-script'))</script>
-  {% include 'qikify-navigator' %}
+  
   
  
 <!-- Catch-That-Lead Tool :: Campaign Title: Farmview Market --><div id="om-qsqgwfs2xwidvq9rsyjf-holder"></div><script>var qsqgwfs2xwidvq9rsyjf,qsqgwfs2xwidvq9rsyjf_poll=function(){var r=0;return function(n,l){clearInterval(r),r=setInterval(n,l)}}();!function(e,t,n){if(e.getElementById(n)){qsqgwfs2xwidvq9rsyjf_poll(function(){if(window['om_loaded']){if(!qsqgwfs2xwidvq9rsyjf){qsqgwfs2xwidvq9rsyjf=new OptinMonsterApp();return qsqgwfs2xwidvq9rsyjf.init({"u":"36493.833013","staging":0,"dev":0,"beta":0});}}},25);return;}var d=false,o=e.createElement(t);o.id=n,o.src="https://a.optmstr.com/app/js/api.min.js",o.async=true,o.onload=o.onreadystatechange=function(){if(!d){if(!this.readyState||this.readyState==="loaded"||this.readyState==="complete"){try{d=om_loaded=true;qsqgwfs2xwidvq9rsyjf=new OptinMonsterApp();qsqgwfs2xwidvq9rsyjf.init({"u":"36493.833013","staging":0,"dev":0,"beta":0});o.onload=o.onreadystatechange=null;}catch(t){}}}};(document.getElementsByTagName("head")[0]||document.documentElement).appendChild(o)}(document,"script","omapi-script");</script><!-- / Catch-That-Lead Tool -->
 
 <script src="https://99235b25ca184fd0b1ee2fe39b92e305.js.ubembed.com" async></script>
 
-  {% include 'qikify-smartmenu' %}
+  
   {%- render 'bold-subscription-widget' -%}
  
 {% include 'pagefly-header' %}
@@ -216,6 +225,9 @@
 		document.addEventListener('contextmenu', event => event.preventDefault());
 	</script> -->
 <meta name="google-site-verification" content="mz0lreGNq9h5MfTGxFTgZBO2ccYhr_SRU5be5_1OONE" />
+  
+
+  {% include 'qikify-apps' %}
 </head> 
 
 <body class="template-{{ request.page_type | handle }} template-{{ template | handle }}">

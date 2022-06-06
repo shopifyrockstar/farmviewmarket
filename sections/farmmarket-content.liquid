@@ -18,10 +18,12 @@
           
           {% for block in section.blocks %}
             <div class="farmers-market-events-list-item">
-              <img class="farmers-market-events-list-item-image" src="{{ block.settings.tab_image | img_url: 'master'}}">
+              <a href="{{ block.settings.link_url }}"><img class="farmers-market-events-list-item-image" src="{{ block.settings.tab_image | img_url: 'master'}}"></a>
               <div class="farmers-market-events-list-item-text">
-                <p class="farmers-market-events-list-item-title">{{ block.settings.tab_title }}</p>
+                <a href="{{ block.settings.link_url }}">
+                  <p class="farmers-market-events-list-item-title">{{ block.settings.tab_title }}</p>
                 <p class="farmers-market-events-list-item-date">{{ block.settings.tab_content_title }}</p>
+                </a>
               </div>
               <div class="farmers-market-events-list-item-arrow">
                 <a href="{{ block.settings.link_url }}"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
